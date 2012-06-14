@@ -1,12 +1,12 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://localhost:8080/admin/');
-define('HTTP_CATALOG', 'http://localhost:8080/');
-define('HTTP_IMAGE', 'http://localhost:8080/image/');
+define('HTTP_SERVER', 'http://godropshipping.com/admin/');
+define('HTTP_CATALOG', 'http://godropshipping.com/');
+define('HTTP_IMAGE', 'http://godropshipping.com/image/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://localhost:8080/admin/');
-define('HTTPS_IMAGE', 'http://localhost:8080/image/');
+define('HTTPS_SERVER', 'http://godropshipping.com/admin/');
+define('HTTPS_IMAGE', 'http://godropshipping.com/image/');
 
 // DIR
 define('DIR_APPLICATION', '/Users/milan/git/cart/godropshipping/admin/');
@@ -27,5 +27,5 @@ define('DB_HOSTNAME', 'localhost');
 define('DB_USERNAME', 'gds');
 define('DB_PASSWORD', 'gdsPassword123');
 define('DB_DATABASE', 'gds');
-define('DB_PREFIX', 'gds');
+define('DB_PREFIX', 'gds_');
 ?>

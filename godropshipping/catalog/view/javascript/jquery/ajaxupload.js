@@ -585,7 +585,7 @@
                     // to server response approx. after 1 sec
                     return;
                 }
-                
+
                 var response;
                 
                 if (doc.XMLDocument) {
@@ -594,7 +594,7 @@
                 } else if (doc.body){
                     // response is html document or plain text
                     response = doc.body.innerHTML;
-                    
+
                     if (settings.responseType && settings.responseType.toLowerCase() == 'json') {
                         // If the document was sent as 'application/javascript' or
                         // 'text/javascript', then the browser wraps the text in a <pre>
