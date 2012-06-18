@@ -20,7 +20,7 @@
             <td class="gds_order name"><?php echo $order['order_id']; ?></td>
             <td class="name"><?php echo $order['customer_order']; ?></td>
             <td class="name"><?php echo $order['vendor_sku']; ?></td>
-            <td class="name"><?php var_dump($order['gds_sku']); ?></td>
+            <td class="name"><?php echo $order['gds_sku']; ?></td>
             <td class="name"><?php echo $order['end_cusotomer_name']; ?></td>
             <td class="name"><?php echo $order['ship_to_country']; ?></td>
 

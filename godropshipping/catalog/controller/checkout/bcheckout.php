@@ -141,7 +141,8 @@ class ControllerCheckoutBCheckout extends Controller {
                         $uploaded_data['unit_cost'] = $data[11];
                         $uploaded_data['order_amount'] = $data[12];
                         $uploaded_data['vendor_sku'] = $data[13];
-                        $uploaded_data['gds_sku'] = explode(',', $data[14]);
+                        $uploaded_data['gds_sku'] = $data[14];
+                        $uploaded_data['gds_skus'] = explode(',', $data[14]);
 
                         $order = array();
                         $order['total'] = 0;
@@ -247,7 +248,7 @@ class ControllerCheckoutBCheckout extends Controller {
                         $product_data = array();
                         $this->load->model('catalog/product');
 
-                        foreach ($this->model_catalog_product->getProductsByIds($uploaded_data['gds_sku']) as $product) {
+                        foreach ($this->model_catalog_product->getProductsByIds($uploaded_data['gds_skus']) as $product) {
                             //$product = $this->model_catalog_product->getProduct($sku);
                             $option_data = array();
 
