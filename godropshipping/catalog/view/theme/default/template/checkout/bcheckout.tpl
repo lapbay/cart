@@ -17,15 +17,8 @@
           <div class="checkout-content">
               <input id="fileupload" type="file" name="files" data-url="http://godropshipping.com/index.php?route=checkout/bcheckout/parser" multiple>
               <img id="loading-image" src="catalog/view/javascript/jquery/loading.gif" style="display: none;">
-          <!--<form id="form-upload" action="<?php echo $batch_parser; ?>" method="post" enctype="multipart/form-data">
-                        <input type="file" id="file-upload" />
-
-              <label for="file">Filename:</label>
-              <input type="submit" id="button-upload" value="Submit"/>
-          </form>-->
           </div>
       </div>
-
     <div id="confirm">
       <div class="checkout-heading"><?php echo $text_checkout_confirm; ?></div>
       <div class="checkout-content"></div>
@@ -57,9 +50,9 @@ $(document).ready(function() {
 			}
 			
 			if (json['output']) {		
-				$('#checkout .checkout-content').html(json['output']);
+				$('#order-upload .checkout-content').html(json['output']);
 				
-				$('#checkout .checkout-content').slideDown('slow');
+				$('#order-upload .checkout-content').slideDown('slow');
 			}
 		}
 	});
@@ -421,7 +414,6 @@ $(document).ready(function() {
         maxNumberOfFiles: 1,
         change: function (e, data) {
             $.each(data.files, function (index, file) {
-                console.log(index);
                 $('#loading-image').show();
                 $('#loading-image').after('<p>' + file.name + '</p>');
             });
@@ -429,12 +421,30 @@ $(document).ready(function() {
         done: function (e, data) {
             $('#loading-image').hide();
             var json = data.result;
+            if (!json) {
+                $('#confirm .checkout-content').prepend('<div class="warning" style="display: none;">' + 'Error getting result.' + '</div>');
+                $('.warning').fadeIn('slow');
+                return;
+            }
             if (json['redirect']) {
                 location = json['redirect'];
+            }
+            if (json['error']) {
+                console.log(json['error']);
+                if (json['error']['error']) {
+                    $('#order-upload .checkout-content').prepend('<div class="warning" style="display: none;">' + json['error']['error'] + '</div>');
+                    $('#order-upload .checkout-content').slideDown('slow');
+                    $('.warning').fadeIn('slow');
+                    return;
+                }
             }
             if (json['output']) {
                 $('#confirm .checkout-content').html(json['output']);
                 $('#confirm .checkout-content').slideDown('slow');
+                $('.warning').fadeOut('slow');
+            } else {
+                $('#confirm .checkout-content').prepend('<div class="warning" style="display: none;">' + 'Error getting result.' + '</div>');
+                $('.warning').fadeIn('slow');
             }
             $.each(data.result, function (index, file) {
             });

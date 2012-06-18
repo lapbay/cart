@@ -232,7 +232,7 @@ class ModelCatalogProduct extends Model {
                     'length_class_id' => $product_query->row['length_class_id']
                 );
             } else {
-                $this->remove($key);
+                $product_data[$key] = null;
             }
         }
 

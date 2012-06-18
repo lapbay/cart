@@ -1,25 +1,25 @@
 <?php  
 class ControllerCheckoutBCheckout extends Controller {
 	public function index() {
-		if ((!$this->cart->hasProducts() && !empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
-	  		$this->redirect($this->url->link('checkout/cart'));
-    	}	
-					
-		$products = $this->cart->getProducts();
-				
-		foreach ($products as $product) {
-			$product_total = 0;
-				
-			foreach ($products as $product_2) {
-				if ($product_2['product_id'] == $product['product_id']) {
-					$product_total += $product_2['quantity'];
-				}
-			}		
-			
-			if ($product['minimum'] > $product_total) {
-				$this->redirect($this->url->link('checkout/cart'));
-			}				
-		}
+//		if ((!$this->cart->hasProducts() && !empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
+//	  		$this->redirect($this->url->link('checkout/cart'));
+//    	}
+//
+//		$products = $this->cart->getProducts();
+//
+//		foreach ($products as $product) {
+//			$product_total = 0;
+//
+//			foreach ($products as $product_2) {
+//				if ($product_2['product_id'] == $product['product_id']) {
+//					$product_total += $product_2['quantity'];
+//				}
+//			}
+//
+//			if ($product['minimum'] > $product_total) {
+//				$this->redirect($this->url->link('checkout/cart'));
+//			}
+//		}
 				
 		$this->language->load('checkout/bcheckout');
 		
@@ -110,7 +110,7 @@ class ControllerCheckoutBCheckout extends Controller {
         $uploads = $_FILES["files"];
         if (($uploads["type"] == "text/csv") || ($uploads["type"] == "text/excel") && ($uploads["size"] < 20000)) {
             if ($uploads["error"] > 0) {
-                $this->data["Return Code"] = $uploads["error"];
+                $json['error']['error'] = 'File upload error: ' . $uploads["error"];
             } else {
                 $this->data["Upload"] = $uploads["name"];
                 $this->data["Type"] = $uploads["type"];
@@ -248,7 +248,7 @@ class ControllerCheckoutBCheckout extends Controller {
                         $product_data = array();
                         $this->load->model('catalog/product');
 
-                        foreach ($this->model_catalog_product->getProductsByIds($uploaded_data['gds_skus']) as $product) {
+                        foreach ($this->model_catalog_product->getProductsByIds($uploaded_data['gds_skus']) as $product_id => $product) {
                             //$product = $this->model_catalog_product->getProduct($sku);
                             $option_data = array();
 
@@ -298,6 +298,11 @@ class ControllerCheckoutBCheckout extends Controller {
                                     'tax'        => $this->tax->getTax($product['total'], $product['tax_class_id'])
                                 );
                                 $order['total'] += $product['total'];
+                            }else {
+                                $json['error']['error'] = 'Error in line ' . ($row-1) . ', column 15: invalid product id ' . $product_id;
+                                //Todo
+                                //Delete created orders before this errored one.
+                                break;
                             }
                         }
 
@@ -358,15 +363,14 @@ class ControllerCheckoutBCheckout extends Controller {
                 }
 
                 if (file_exists("upload/" . $uploads["name"])) {
-                    $this->data["errcode"] = "<br /><br />" . $uploads["name"] . " already exists. ";
+                    $json['error']['info'] = $uploads["name"] . " already exists. ";
                 } else {
-                    move_uploaded_file($uploads["tmp_name"],
-                        "upload/" . $uploads["name"]);
-                    $this->data["errcode"] = "<br /><br />" . "Stored in: " . "upload/" . $_FILES["file"]["name"];
+                    move_uploaded_file($uploads["tmp_name"], "upload/" . $uploads["name"]);
+                    $json['error']['info'] = "Stored in: upload/" . $_FILES["file"]["name"];
                 }
             }
         } else {
-            $this->data["errcode"] = "Invalid file";
+            $json['error']['error'] = "Invalid file";
         }
 
 
