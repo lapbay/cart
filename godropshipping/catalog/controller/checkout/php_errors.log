@@ -1,3 +1,0 @@
-[18-Jun-2012 06:24:01 UTC] PHP Fatal error:  Class 'Controller' not found in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 2
-[18-Jun-2012 06:24:01 UTC] PHP Stack trace:
-[18-Jun-2012 06:24:01 UTC] PHP   1. {main}() /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php:0
