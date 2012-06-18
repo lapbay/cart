@@ -2930,3 +2930,60 @@
 2012-06-18 10:12:09 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 29
 2012-06-18 10:13:13 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 29
 2012-06-18 10:13:13 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 29
+2012-06-18 15:28:09 - PHP Notice:  Undefined index: payment_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 171
+2012-06-18 15:28:09 - PHP Notice:  Undefined index: shipping_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 207
+2012-06-18 15:28:09 - PHP Notice:  Undefined index: payment_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 171
+2012-06-18 15:28:09 - PHP Notice:  Undefined index: shipping_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 207
+2012-06-18 15:28:18 - PHP Notice:  Undefined index: files in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 110
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 184
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 185
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 186
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 187
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 188
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 189
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 190
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 191
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 192
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 193
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 194
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 195
+2012-06-18 15:29:36 - PHP Notice:  Undefined index: shipping_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 207
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 184
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 185
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 186
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 187
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 188
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 189
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 190
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 191
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 192
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 193
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 194
+2012-06-18 15:29:36 - PHP Notice:  Undefined variable: payment_address in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 195
+2012-06-18 15:29:36 - PHP Notice:  Undefined index: shipping_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 207
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 185
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 186
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 187
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 188
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 189
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 190
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 191
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 192
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 193
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 194
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 195
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 196
+2012-06-18 15:30:21 - PHP Notice:  Undefined index: shipping_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 208
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 185
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 186
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 187
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 188
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 189
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 190
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 191
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 192
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 193
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 194
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 195
+2012-06-18 15:30:21 - PHP Notice:  Uninitialized string offset: 0 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 196
+2012-06-18 15:30:21 - PHP Notice:  Undefined index: shipping_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 208
