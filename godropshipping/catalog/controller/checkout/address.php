@@ -11,9 +11,9 @@ class ControllerCheckoutAddress extends Controller {
 			$json['redirect'] = $this->url->link('checkout/checkout', '', 'SSL');
 		}
 		
-		if ((!$this->cart->hasProducts() && (!isset($this->session->data['vouchers']) || !$this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
-			$json['redirect'] = $this->url->link('checkout/cart');
-		}			
+//		if ((!$this->cart->hasProducts() && (!isset($this->session->data['vouchers']) || !$this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
+//			$json['redirect'] = $this->url->link('checkout/cart');
+//		}
 
 		if ($this->request->server['REQUEST_METHOD'] == 'POST') {
 			if (!$json) {
@@ -131,9 +131,9 @@ class ControllerCheckoutAddress extends Controller {
 			$json['redirect'] = $this->url->link('checkout/checkout', '', 'SSL');
 		}
 			
-		if ((!$this->cart->hasProducts() && (!isset($this->session->data['vouchers']) || !$this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
-			$json['redirect'] = $this->url->link('checkout/cart');				
-		}
+//		if ((!$this->cart->hasProducts() && (!isset($this->session->data['vouchers']) || !$this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
+//			$json['redirect'] = $this->url->link('checkout/cart');
+//		}
 						
 		if ($this->request->server['REQUEST_METHOD'] == 'POST') {
 			if (!$json) {
