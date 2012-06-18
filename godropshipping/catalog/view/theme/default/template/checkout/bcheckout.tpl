@@ -23,6 +23,12 @@
           <div class="checkout-content"></div>
       </div>
     <?php } ?>
+    <?php if ($shipping_required) { ?>
+      <div id="shipping-address" style="display: none;">
+          <div class="checkout-heading"><?php echo $text_checkout_shipping_address; ?></div>
+          <div class="checkout-content"></div>
+      </div>
+    <?php } ?>
       <div id="order-upload">
           <div class="checkout-heading"><?php echo $text_upload_file; ?></div>
           <div class="checkout-content">
@@ -56,18 +62,18 @@ $(document).ready(function() {
 		url: 'index.php?route=checkout/login',
 		dataType: 'json',
 		success: function(json) {
-			if (json['redirect']) {
-				location = json['redirect'];
-			}
-			
-			if (json['output']) {		
-				$('#order-upload .checkout-content').html(json['output']);
-				
-				$('#order-upload .checkout-content').slideDown('slow');
+//			if (json['redirect']) {
+//				location = json['redirect'];
+//			}
+
+			if (json['output']) {
+				$('#checkout .checkout-content').html(json['output']);
+
+				$('#checkout .checkout-content').slideDown('slow');
 			}
 		}
 	});
-});		
+});
 <?php } else { ?>
 $(document).ready(function() {
     $.ajax({
@@ -483,7 +489,6 @@ $('#payment-address #button-address').live('click', function() {
                         }
                     });
                 <?php } ?>
-
                 $.ajax({
                     url: 'index.php?route=checkout/address/payment',
                     dataType: 'json',
@@ -495,6 +500,117 @@ $('#payment-address #button-address').live('click', function() {
                         if (json['output']) {
                             $('#payment-address .checkout-content').html(json['output']);
                         }
+                    }
+                });
+
+                $.ajax({
+                    url: 'index.php?route=checkout/address/shipping',
+                    type: 'post',
+                    data: "shipping_address=existing&address_id=1&firstname=&lastname=&company=&address_1=&address_2=&city=&postcode=&country_id=222&zone_id=",
+                    dataType: 'json',
+                    success: function(json) {
+                    }
+                });
+            }
+        }
+    });
+});
+
+// Shipping Address
+$('#shipping-address #button-address').live('click', function() {
+    $.ajax({
+        url: 'index.php?route=checkout/address/shipping',
+        type: 'post',
+        data: $('#shipping-address input[type=\'text\'], #shipping-address input[type=\'password\'], #shipping-address input[type=\'checkbox\']:checked, #shipping-address input[type=\'radio\']:checked, #shipping-address select'),
+        dataType: 'json',
+        beforeSend: function(jqXHR, settings) {
+            console.log(settings);
+            $('#shipping-address #button-address').attr('disabled', true);
+            $('#shipping-address #button-address').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
+        },
+        complete: function() {
+            $('#shipping-address #button-address').attr('disabled', false);
+            $('.wait').remove();
+        },
+        success: function(json) {
+            $('.error').remove();
+
+            if (json['redirect']) {
+                location = json['redirect'];
+            }
+
+            if (json['error']) {
+                if (json['error']['firstname']) {
+                    $('#shipping-address input[name=\'firstname\']').after('<span class="error">' + json['error']['firstname'] + '</span>');
+                }
+
+                if (json['error']['lastname']) {
+                    $('#shipping-address input[name=\'lastname\']').after('<span class="error">' + json['error']['lastname'] + '</span>');
+                }
+
+                if (json['error']['email']) {
+                    $('#shipping-address input[name=\'email\']').after('<span class="error">' + json['error']['email'] + '</span>');
+                }
+
+                if (json['error']['telephone']) {
+                    $('#shipping-address input[name=\'telephone\']').after('<span class="error">' + json['error']['telephone'] + '</span>');
+                }
+
+                if (json['error']['address_1']) {
+                    $('#shipping-address input[name=\'address_1\']').after('<span class="error">' + json['error']['address_1'] + '</span>');
+                }
+
+                if (json['error']['city']) {
+                    $('#shipping-address input[name=\'city\']').after('<span class="error">' + json['error']['city'] + '</span>');
+                }
+
+                if (json['error']['postcode']) {
+                    $('#shipping-address input[name=\'postcode\']').after('<span class="error">' + json['error']['postcode'] + '</span>');
+                }
+
+                if (json['error']['country']) {
+                    $('#shipping-address select[name=\'country_id\']').after('<span class="error">' + json['error']['country'] + '</span>');
+                }
+
+                if (json['error']['zone']) {
+                    $('#shipping-address select[name=\'zone_id\']').after('<span class="error">' + json['error']['zone'] + '</span>');
+                }
+            } else {
+                $.ajax({
+                    url: 'index.php?route=checkout/shipping',
+                    dataType: 'json',
+                    success: function(json) {
+                        if (json['redirect']) {
+                            location = json['redirect'];
+                        }
+
+                        if (json['output']) {
+                            $('#shipping-method .checkout-content').html(json['output']);
+
+                            $('#shipping-address .checkout-content').slideUp('slow');
+
+                            $('#shipping-method .checkout-content').slideDown('slow');
+
+                            $('#shipping-address .checkout-heading a').remove();
+                            $('#shipping-method .checkout-heading a').remove();
+                            $('#payment-method .checkout-heading a').remove();
+
+                            $('#shipping-address .checkout-heading').append('<a><?php echo $text_modify; ?></a>');
+                        }
+
+                        $.ajax({
+                            url: 'index.php?route=checkout/address/shipping',
+                            dataType: 'json',
+                            success: function(json) {
+                                if (json['redirect']) {
+                                    location = json['redirect'];
+                                }
+
+                                if (json['output']) {
+                                    $('#shipping-address .checkout-content').html(json['output']);
+                                }
+                            }
+                        });
                     }
                 });
             }

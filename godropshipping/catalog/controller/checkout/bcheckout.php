@@ -1,9 +1,9 @@
 <?php  
 class ControllerCheckoutBCheckout extends Controller {
 	public function index() {
-//		if ((!$this->cart->hasProducts() && !empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
-//	  		$this->redirect($this->url->link('checkout/cart'));
-//    	}
+        if (!$this->customer->isLogged()) {
+            $this->redirect($this->url->link('account/login'));
+    	}
 //
 //		$products = $this->cart->getProducts();
 //
@@ -61,7 +61,7 @@ class ControllerCheckoutBCheckout extends Controller {
 		$this->data['text_modify'] = $this->language->get('text_modify');
 		
 		$this->data['logged'] = $this->customer->isLogged();
-		$this->data['shipping_required'] = null;
+		$this->data['shipping_required'] = $this->cart->hasShipping();
 		
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/bcheckout.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/checkout/bcheckout.tpl';
