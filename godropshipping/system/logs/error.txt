@@ -2757,3 +2757,176 @@
 2012-06-13 9:55:20 - PHP Notice:  Error: Could not load controller checkout/cod! in /Users/milan/git/cart/godropshipping/system/engine/controller.php on line 48
 2012-06-13 13:20:40 - PHP Warning:  Invalid argument supplied for foreach() in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 408
 2012-06-13 13:21:25 - PHP Warning:  Invalid argument supplied for foreach() in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 409
+2012-06-14 7:52:41 - PHP Notice:  Undefined index: download in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 291
+2012-06-14 7:52:41 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 295
+2012-06-14 7:52:41 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 296
+2012-06-14 7:52:41 - PHP Warning:  Invalid argument supplied for foreach() in /Users/milan/git/cart/godropshipping/catalog/model/checkout/order.php on line 17
+2012-06-14 7:52:41 - PHP Notice:  Undefined index: download in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 291
+2012-06-14 7:52:41 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 295
+2012-06-14 7:52:41 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 296
+2012-06-14 7:52:41 - PHP Warning:  Invalid argument supplied for foreach() in /Users/milan/git/cart/godropshipping/catalog/model/checkout/order.php on line 17
+2012-06-14 7:54:50 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 295
+2012-06-14 7:54:50 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 296
+2012-06-14 7:54:50 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 295
+2012-06-14 7:54:50 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 296
+2012-06-14 7:55:27 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 296
+2012-06-14 7:55:27 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 296
+2012-06-14 10:36:22 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 10:36:22 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 10:36:22 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 10:36:22 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 10:36:22 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 10:36:22 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 10:38:59 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 10:38:59 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 10:38:59 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 10:38:59 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 10:38:59 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 10:38:59 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 10:42:36 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 10:42:36 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 10:42:36 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 10:42:36 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 10:42:36 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 10:42:36 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 10:45:02 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 10:45:02 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 10:45:02 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 10:45:02 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 10:45:02 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 10:45:02 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 10:45:21 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 10:45:21 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 10:45:21 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 10:45:21 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 10:45:21 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 10:45:21 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 10:45:23 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 10:45:23 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 10:45:23 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 10:45:23 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 10:45:23 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 10:45:23 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 10:49:02 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 10:49:02 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 10:49:02 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 10:49:02 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 10:49:02 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 10:49:02 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:28:57 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:28:57 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:28:57 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:28:57 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:28:57 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 12:28:57 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:31:12 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:31:12 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:31:12 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:31:12 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:31:12 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 12:31:12 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:35:04 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:35:04 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:35:04 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:35:04 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:35:04 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 12:35:04 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:36:12 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:36:12 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:36:12 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:36:12 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:36:12 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 12:36:12 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:36:16 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:36:16 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:36:16 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:36:16 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:36:16 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 12:36:16 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:36:20 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:36:20 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:36:20 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:36:20 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:36:20 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 12:36:20 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:36:23 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:36:23 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:36:23 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:36:23 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:36:23 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 12:36:23 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:36:24 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:36:24 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:36:24 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:36:24 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:36:24 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 12:36:24 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:36:39 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:36:39 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:36:39 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:36:39 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:36:39 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 12:36:39 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:36:45 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:36:45 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:36:45 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:36:45 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:36:46 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 12:36:46 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:39:40 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:39:40 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:39:40 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:39:40 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:39:40 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 12:39:40 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:45:49 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:45:49 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:45:49 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:45:49 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:45:49 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 12:45:49 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:45:57 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:45:57 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:45:57 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:45:57 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:45:57 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 12:45:57 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:47:04 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:47:04 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:47:04 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:47:04 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:47:04 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 12:47:04 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:58:46 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:58:46 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 12:58:46 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:58:46 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 12:58:46 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 12:58:46 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-14 12:59:06 - PHP Notice:  Undefined index: payment_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 169
+2012-06-14 12:59:06 - PHP Notice:  Undefined index: payment_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 169
+2012-06-14 14:10:46 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 14:10:46 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/index.php on line 175
+2012-06-14 14:10:46 - PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 14:10:46 - PHP Warning:  Cannot modify header information - headers already sent by (output started at /Users/milan/git/cart/godropshipping/index.php:100) in /Users/milan/git/cart/godropshipping/system/library/currency.php on line 45
+2012-06-14 14:10:46 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 117
+2012-06-14 14:10:46 - PHP Notice:  Undefined index: REQUEST_METHOD in /Users/milan/git/cart/godropshipping/catalog/controller/common/header.php on line 145
+2012-06-18 5:07:30 - PHP Notice:  Undefined index: payment_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 169
+2012-06-18 5:07:30 - PHP Notice:  Undefined index: shipping_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 205
+2012-06-18 5:07:30 - PHP Notice:  Undefined index: payment_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 169
+2012-06-18 5:07:30 - PHP Notice:  Undefined index: shipping_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 205
+2012-06-18 8:03:16 - PHP Notice:  Undefined offset: 1 in xdebug://debug-eval on line 1
+2012-06-18 9:11:28 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 299
+2012-06-18 9:11:34 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 299
+2012-06-18 10:11:03 - PHP Notice:  Undefined variable: product in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 29
+2012-06-18 10:11:03 - PHP Notice:  Undefined variable: product in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 29
+2012-06-18 10:11:03 - PHP Notice:  Undefined index: model in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 30
+2012-06-18 10:11:03 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 33
+2012-06-18 10:11:03 - PHP Notice:  Undefined variable: product in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 29
+2012-06-18 10:11:03 - PHP Notice:  Undefined variable: product in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 29
+2012-06-18 10:11:03 - PHP Notice:  Undefined index: model in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 30
+2012-06-18 10:11:03 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 33
+2012-06-18 10:12:09 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 29
+2012-06-18 10:12:09 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 29
+2012-06-18 10:13:13 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 29
+2012-06-18 10:13:13 - PHP Notice:  Undefined index: total in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 29

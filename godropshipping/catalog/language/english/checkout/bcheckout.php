@@ -35,9 +35,9 @@ $_['text_comments']                  = 'Add Comments About Your Order';
 
 // Column
 $_['column_customer_order']          = 'Your Order';
-$_['column_gds_order']               = 'Godropshipping Order';
+$_['column_gds_order']               = 'GDS Order';
 $_['column_vendor_sku']              = 'Your SKUs';
-$_['column_gds_sku']                 = 'Godropshipping SKUs';
+$_['column_gds_sku']                 = 'GDS SKUs';
 $_['column_end_customer_name']       = 'End Customer Name';
 $_['column_ship_to_country']         = 'Ship to Country';
 

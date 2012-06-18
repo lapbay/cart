@@ -1,0 +1,7 @@
+[14-Jun-2012 14:10:46 UTC] PHP Notice:  Undefined index: HTTP_HOST in /Users/milan/git/cart/godropshipping/index.php on line 45
+[14-Jun-2012 14:10:46 UTC] PHP Stack trace:
+[14-Jun-2012 14:10:46 UTC] PHP   1. {main}() /Users/milan/git/cart/godropshipping/index.php:0
+[14-Jun-2012 15:29:38 UTC] PHP Warning:  phpinfo(): It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'Asia/Chongqing' for 'CST/8.0/no DST' instead in /Users/milan/git/cart/godropshipping/info.php on line 1
+[14-Jun-2012 15:29:38 UTC] PHP Stack trace:
+[14-Jun-2012 15:29:38 UTC] PHP   1. {main}() /Users/milan/git/cart/godropshipping/info.php:0
+[14-Jun-2012 15:29:38 UTC] PHP   2. phpinfo() /Users/milan/git/cart/godropshipping/info.php:1

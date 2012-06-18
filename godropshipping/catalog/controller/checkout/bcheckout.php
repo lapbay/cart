@@ -42,7 +42,7 @@ class ControllerCheckoutBCheckout extends Controller {
 		
       	$this->data['breadcrumbs'][] = array(
         	'text'      => $this->language->get('heading_title'),
-			'href'      => $this->url->link('checkout/checkout', '', 'SSL'),
+			'href'      => $this->url->link('checkout/bcheckout', '', 'SSL'),
         	'separator' => $this->language->get('text_separator')
       	);
 
@@ -144,6 +144,7 @@ class ControllerCheckoutBCheckout extends Controller {
                         $uploaded_data['gds_sku'] = explode(',', $data[14]);
 
                         $order = array();
+                        $order['total'] = 0;
 
                         $order['invoice_prefix'] = $this->config->get('config_invoice_prefix');
                         $order['store_id'] = $this->config->get('config_store_id');
@@ -246,38 +247,40 @@ class ControllerCheckoutBCheckout extends Controller {
                         $product_data = array();
                         $this->load->model('catalog/product');
 
-                        foreach ($uploaded_data['gds_sku'] as $sku) {
-                            $product = $this->model_catalog_product->getProduct($sku);
+                        foreach ($this->model_catalog_product->getProductsByIds($uploaded_data['gds_sku']) as $product) {
+                            //$product = $this->model_catalog_product->getProduct($sku);
                             $option_data = array();
 
-                            if ($product && isset($product['option'])) {
-                                foreach ($product['option'] as $option) {
-                                    if ($option['type'] != 'file') {
-                                        $option_data[] = array(
-                                            'product_option_id'       => $option['product_option_id'],
-                                            'product_option_value_id' => $option['product_option_value_id'],
-                                            'product_option_id'       => $option['product_option_id'],
-                                            'product_option_value_id' => $option['product_option_value_id'],
-                                            'option_id'               => $option['option_id'],
-                                            'option_value_id'         => $option['option_value_id'],
-                                            'name'                    => $option['name'],
-                                            'value'                   => $option['option_value'],
-                                            'type'                    => $option['type']
-                                        );
-                                    } else {
-                                        $encryption = new Encryption($this->config->get('config_encryption'));
+                            if ($product) {
+                                if (isset($product['option'])) {
+                                    foreach ($product['option'] as $option) {
+                                        if ($option['type'] != 'file') {
+                                            $option_data[] = array(
+                                                'product_option_id'       => $option['product_option_id'],
+                                                'product_option_value_id' => $option['product_option_value_id'],
+                                                'product_option_id'       => $option['product_option_id'],
+                                                'product_option_value_id' => $option['product_option_value_id'],
+                                                'option_id'               => $option['option_id'],
+                                                'option_value_id'         => $option['option_value_id'],
+                                                'name'                    => $option['name'],
+                                                'value'                   => $option['option_value'],
+                                                'type'                    => $option['type']
+                                            );
+                                        } else {
+                                            $encryption = new Encryption($this->config->get('config_encryption'));
 
-                                        $option_data[] = array(
-                                            'product_option_id'       => $option['product_option_id'],
-                                            'product_option_value_id' => $option['product_option_value_id'],
-                                            'product_option_id'       => $option['product_option_id'],
-                                            'product_option_value_id' => $option['product_option_value_id'],
-                                            'option_id'               => $option['option_id'],
-                                            'option_value_id'         => $option['option_value_id'],
-                                            'name'                    => $option['name'],
-                                            'value'                   => $encryption->decrypt($option['option_value']),
-                                            'type'                    => $option['type']
-                                        );
+                                            $option_data[] = array(
+                                                'product_option_id'       => $option['product_option_id'],
+                                                'product_option_value_id' => $option['product_option_value_id'],
+                                                'product_option_id'       => $option['product_option_id'],
+                                                'product_option_value_id' => $option['product_option_value_id'],
+                                                'option_id'               => $option['option_id'],
+                                                'option_value_id'         => $option['option_value_id'],
+                                                'name'                    => $option['name'],
+                                                'value'                   => $encryption->decrypt($option['option_value']),
+                                                'type'                    => $option['type']
+                                            );
+                                        }
                                     }
                                 }
 
@@ -286,13 +289,14 @@ class ControllerCheckoutBCheckout extends Controller {
                                     'name'       => $product['name'],
                                     'model'      => $product['model'],
                                     'option'     => $option_data,
-                                    'download'   => $product['download'],
+                                    'download'   => isset($product['download']) ? $product['download']: array(),
                                     'quantity'   => $product['quantity'],
                                     'subtract'   => $product['subtract'],
                                     'price'      => $product['price'],
                                     'total'      => $product['total'],
                                     'tax'        => $this->tax->getTax($product['total'], $product['tax_class_id'])
                                 );
+                                $order['total'] += $product['total'];
                             }
                         }
 
@@ -317,8 +321,8 @@ class ControllerCheckoutBCheckout extends Controller {
                         $order['products'] = $product_data;
                         $order['totals'] = $total_data;
                         $order['comment'] = '';
-                        $order['total'] = $total;
                         $order['reward'] = $this->cart->getTotalRewardPoints();
+                        $total += $order['total'];
 
                         if (isset($this->request->cookie['tracking'])) {
                             $this->load->model('affiliate/affiliate');
@@ -327,7 +331,7 @@ class ControllerCheckoutBCheckout extends Controller {
 
                             if ($affiliate_info) {
                                 $order['affiliate_id'] = $affiliate_info['affiliate_id'];
-                                $order['commission'] = ($total / 100) * $affiliate_info['commission'];
+                                $order['commission'] = ($order['total'] / 100) * $affiliate_info['commission'];
                             } else {
                                 $order['affiliate_id'] = 0;
                                 $order['commission'] = 0;
@@ -344,6 +348,7 @@ class ControllerCheckoutBCheckout extends Controller {
                         $order['ip'] = $this->request->server['REMOTE_ADDR'];
 
                         $uploaded_data['order_id'] = $this->model_checkout_order->create($order);
+                        $uploaded_data['total'] = $order['total'];
                         $this->session->data['order_id'] = $uploaded_data['order_id'];
 
                         $this->data['orders'][] = $uploaded_data;
@@ -362,6 +367,39 @@ class ControllerCheckoutBCheckout extends Controller {
         } else {
             $this->data["errcode"] = "Invalid file";
         }
+
+
+        $taxes = $this->cart->getTaxes();
+
+        $this->load->model('setting/extension');
+
+        $sort_order = array();
+
+        $results = $this->model_setting_extension->getExtensions('total');
+
+        foreach ($results as $key => $value) {
+            $sort_order[$key] = $this->config->get($value['code'] . '_sort_order');
+        }
+
+        array_multisort($sort_order, SORT_ASC, $results);
+
+        foreach ($results as $result) {
+            if ($this->config->get($result['code'] . '_status')) {
+                $this->load->model('total/' . $result['code']);
+
+                $this->{'model_total_' . $result['code']}->getTotal($total_data, $total, $taxes);
+            }
+        }
+
+        $sort_order = array();
+
+        foreach ($total_data as $key => $value) {
+            $sort_order[$key] = $value['sort_order'];
+        }
+
+        array_multisort($sort_order, SORT_ASC, $total_data);
+
+
         $this->data['totals'] = $total_data;
 
         $this->data['payment'] = $this->get_confirm();

@@ -9,8 +9,6 @@
           <td class="name"><?php echo $column_end_customer_name; ?></td>
           <td class="name"><?php echo $column_ship_to_country; ?></td>
 
-        <td class="name"><?php echo $column_name; ?></td>
-        <td class="model"><?php echo $column_model; ?></td>
         <td class="quantity"><?php echo $column_quantity; ?></td>
         <td class="price"><?php echo $column_price; ?></td>
         <td class="total"><?php echo $column_total; ?></td>
@@ -19,18 +17,16 @@
     <tbody>
         <?php foreach ($orders as $order) { ?>
         <tr>
-            <td class="gds_order name"><?php echo $order['order_id']; ?><td>
-            <td class="model"><?php echo $order['customer_order']; ?></td>
-            <td class="quantity"><?php echo $order['vendor_sku']; ?></td>
-            <td class="price"><?php echo $order['gds_sku']; ?></td>
-            <td class="total"><?php echo $order['end_cusotomer_name']; ?></td>
-            <td class="total"><?php echo $order['ship_to_country']; ?></td>
+            <td class="gds_order name"><?php echo $order['order_id']; ?></td>
+            <td class="name"><?php echo $order['customer_order']; ?></td>
+            <td class="name"><?php echo $order['vendor_sku']; ?></td>
+            <td class="name"><?php var_dump($order['gds_sku']); ?></td>
+            <td class="name"><?php echo $order['end_cusotomer_name']; ?></td>
+            <td class="name"><?php echo $order['ship_to_country']; ?></td>
 
-            <td class="name"><?php echo $order['order_id']; ?></td>
-            <td class="model"><?php echo $order['customer_order']; ?></td>
             <td class="quantity"><?php echo $order['order_amount']; ?></td>
             <td class="price"><?php echo $order['unit_cost']; ?></td>
-            <td class="total"><?php echo $order['order_amount']; ?></td>
+            <td class="total"><?php echo $order['total']; ?></td>
         </tr>
         <?php } ?>
       <?php foreach ($products as $product) { ?>
@@ -59,7 +55,7 @@
     <tfoot>
       <?php foreach ($totals as $total) { ?>
       <tr>
-        <td colspan="4" class="price"><b><?php echo $total['title']; ?>:</b></td>
+        <td colspan="8" class="price"><b><?php echo $total['title']; ?>:</b></td>
         <td class="total"><?php echo $total['text']; ?></td>
       </tr>
       <?php } ?>
