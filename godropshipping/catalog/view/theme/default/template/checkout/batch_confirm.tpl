@@ -21,14 +21,12 @@ $('#button-remove').bind('click', function() {
     var oids_to_remove = new Array();
     $('.gds_order_remove .gds_order_remove_checkbox:checked').each(function(index, obj) {
         objs_to_remove.push($(this).closest('tr'));
-        console.log(index);
         oids_to_remove.push(parseInt($(this).closest('tr').attr('oid')));
     });
     $.post(
             'index.php?route=checkout/bcheckout/remove',
             { 'orders': JSON.stringify(oids_to_remove) },
             function(json) {
-                console.log(json);
                 if (json['redirect']) {
                     location = json['redirect'];
                 }
@@ -38,6 +36,7 @@ $('#button-remove').bind('click', function() {
                          var obj = objs_to_remove[i];
                          console.log(obj);
                          obj.fadeOut();
+                         obj.remove();
                      }
                 };
             },

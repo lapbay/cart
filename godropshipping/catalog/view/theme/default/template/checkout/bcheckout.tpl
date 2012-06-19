@@ -528,6 +528,7 @@ $(document).ready(function() {
         done: function (e, data) {
             $('#loading-image').hide();
             var json = data.result;
+            console.log(json);
             if (!json) {
                 $('#confirm .checkout-content').prepend('<div class="warning" style="display: none;">' + 'Error getting result.' + '</div>');
                 $('.warning').fadeIn('slow');
