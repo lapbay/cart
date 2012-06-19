@@ -16,8 +16,8 @@
       </tr>
     </thead>
     <tbody>
-        <?php foreach ($orders as $order) { ?>
-        <tr oid=<?php echo $order['order_id']; ?>>
+        <?php foreach ($orders as $index=>$order) { ?>
+        <tr oid=<?php echo $index; ?>>
             <td class="gds_order_remove remove"><input type="checkbox" value="0" class="gds_order_remove_checkbox"></td>
             <td class="gds_order name"><?php echo $order['order_id']; ?></td>
             <td class="name"><?php echo $order['customer_order']; ?></td>

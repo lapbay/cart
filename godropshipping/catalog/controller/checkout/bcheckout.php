@@ -406,8 +406,9 @@ class ControllerCheckoutBCheckout extends Controller {
 
 
         $this->data['totals'] = $total_data;
-
         $this->data['payment'] = $this->get_confirm();
+
+        $this->session->data['orders'] = $this->data['orders'];
 
         if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/parser.tpl')) {
             $this->template = $this->config->get('config_template') . '/template/checkout/parser.tpl';
@@ -442,29 +443,43 @@ class ControllerCheckoutBCheckout extends Controller {
     }
 
     public function confirm() {
+        $json = array();
+        $session_orders = $this->session->data['orders'];
+
         $this->load->model('checkout/order');
-        $orders = array();
+        $order_indexes = array();
         if (isset($_POST['orders'])) {
-            $orders = json_decode($_POST['orders']);
+            $order_indexes = json_decode($_POST['orders']);
         }else{
-            $orders = array();
+            $order_indexes = array();
         }
-        foreach ($orders as $order) {
-            $this->model_checkout_order->confirm($order, $this->config->get('cod_order_status_id'));
+        foreach ($order_indexes as $index) {
+            $order = isset($session_orders[$index]) ? $session_orders[$index] : null;
+            if ($order) {
+                $this->model_checkout_order->confirm($order['order_id'], $this->config->get('cod_order_status_id'));
+            }
         }
+        $json['output'] = 'success';
+        $this->response->setOutput(json_encode($json));
     }
 
     public function remove() {
         $json = array();
+        $session_orders = $this->session->data['orders'];
+
         $this->load->model('checkout/order');
-        $orders = array();
+        $order_indexes = array();
         if (isset($_POST['orders'])) {
-            $orders = json_decode($_POST['orders']);
+            $order_indexes = json_decode($_POST['orders']);
         }else{
-            $orders = array();
+            $order_indexes = array();
         }
-        foreach ($orders as $order_id) {
-            $this->model_checkout_order->delete($order_id);
+        $json['orders'] = array();
+        foreach ($order_indexes as $index) {
+            $order = isset($session_orders[$index]) ? $session_orders[$index] : null;
+            if ($order) {
+                $this->model_checkout_order->delete($order['order_id']);
+            }
         }
         $json['output'] = 'success';
         $this->response->setOutput(json_encode($json));

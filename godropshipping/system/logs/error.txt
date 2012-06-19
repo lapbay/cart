@@ -3039,3 +3039,4 @@
 2012-06-18 18:03:32 - PHP Notice:  Undefined index: payment_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/payment.php on line 11
 2012-06-18 18:11:01 - PHP Notice:  Undefined index: payment_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/payment.php on line 11
 2012-06-18 18:16:40 - PHP Notice:  Undefined index: payment_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/payment.php on line 11
+2012-06-19 7:14:41 - PHP Notice:  Undefined index: orders in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 471
