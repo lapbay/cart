@@ -81,7 +81,20 @@ class ModelAccountCustomer extends Model {
 		
 		return $query->row;
 	}
-	
+
+    //add by wuchang
+    public function getCustomerWithGroup($customer_id) {
+        $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE customer_id = '" . (int)$customer_id . "'");
+        $result = $query->row;
+        if ($query->num_rows) {
+            $group_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer_group WHERE customer_group_id = '" . (int)$query->row['customer_group_id'] . "'");
+            if ($group_query->num_rows) {
+                $result['customer_group_name'] = $group_query->row['name'];
+            }
+        }
+        return $result;
+    }
+
 	public function getCustomerByToken($token) {
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE token = '" . $this->db->escape($token) . "' AND token != ''");
 		

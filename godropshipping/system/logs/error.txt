@@ -3046,3 +3046,29 @@
 2012-06-19 9:15:02 - PHP Warning:  Invalid argument supplied for foreach() in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 100
 2012-06-19 9:17:16 - PHP Notice:  Undefined index: data in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 100
 2012-06-19 9:17:16 - PHP Warning:  Invalid argument supplied for foreach() in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 100
+2012-06-19 9:35:26 - PHP Notice:  Undefined index: totals in /Users/milan/git/cart/godropshipping/catalog/model/checkout/order.php on line 22
+2012-06-19 9:35:26 - PHP Warning:  Invalid argument supplied for foreach() in /Users/milan/git/cart/godropshipping/catalog/model/checkout/order.php on line 22
+2012-06-19 9:35:26 - PHP Notice:  Undefined index: totals in /Users/milan/git/cart/godropshipping/catalog/model/checkout/order.php on line 22
+2012-06-19 9:35:26 - PHP Warning:  Invalid argument supplied for foreach() in /Users/milan/git/cart/godropshipping/catalog/model/checkout/order.php on line 22
+2012-06-19 9:48:44 - PHP Notice:  Undefined index: totals in /Users/milan/git/cart/godropshipping/catalog/model/checkout/order.php on line 22
+2012-06-19 9:48:44 - PHP Warning:  Invalid argument supplied for foreach() in /Users/milan/git/cart/godropshipping/catalog/model/checkout/order.php on line 22
+2012-06-19 9:48:44 - PHP Notice:  Undefined index: totals in /Users/milan/git/cart/godropshipping/catalog/model/checkout/order.php on line 22
+2012-06-19 9:48:44 - PHP Warning:  Invalid argument supplied for foreach() in /Users/milan/git/cart/godropshipping/catalog/model/checkout/order.php on line 22
+2012-06-19 9:49:04 - PHP Notice:  Undefined index: totals in /Users/milan/git/cart/godropshipping/catalog/model/checkout/order.php on line 22
+2012-06-19 9:49:04 - PHP Warning:  Invalid argument supplied for foreach() in /Users/milan/git/cart/godropshipping/catalog/model/checkout/order.php on line 22
+2012-06-19 9:49:04 - PHP Notice:  Undefined index: totals in /Users/milan/git/cart/godropshipping/catalog/model/checkout/order.php on line 22
+2012-06-19 9:49:04 - PHP Warning:  Invalid argument supplied for foreach() in /Users/milan/git/cart/godropshipping/catalog/model/checkout/order.php on line 22
+2012-06-19 10:25:04 - PHP Notice:  Undefined index: output in xdebug://debug-eval on line 1
+2012-06-19 10:32:40 - PHP Notice:  Use of undefined constant thi - assumed 'thi' in xdebug://debug-eval on line 1
+2012-06-19 12:49:14 - PHP Notice:  Use of undefined constant els - assumed 'els' in xdebug://debug-eval on line 1
+2012-06-19 12:53:59 - PHP Warning:  array_multisort(): Array sizes are inconsistent in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 368
+2012-06-19 12:57:33 - PHP Warning:  array_multisort(): Array sizes are inconsistent in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 368
+2012-06-19 14:53:34 - PHP Notice:  Error: Could not load language total/vip! in /Users/milan/git/cart/godropshipping/system/library/language.php on line 26
+2012-06-19 14:53:54 - PHP Notice:  Error: Could not load language total/vip! in /Users/milan/git/cart/godropshipping/system/library/language.php on line 26
+2012-06-19 14:53:56 - PHP Notice:  Error: Could not load language total/vip! in /Users/milan/git/cart/godropshipping/system/library/language.php on line 26
+2012-06-19 14:59:15 - PHP Notice:  Undefined variable: entry_tax in /Users/milan/git/cart/godropshipping/admin/view/template/total/handling.tpl on line 28
+2012-06-19 14:59:21 - PHP Notice:  Undefined variable: entry_tax in /Users/milan/git/cart/godropshipping/admin/view/template/total/handling.tpl on line 28
+2012-06-19 14:59:37 - PHP Notice:  Undefined variable: entry_tax in /Users/milan/git/cart/godropshipping/admin/view/template/total/low_order_fee.tpl on line 28
+2012-06-19 15:01:10 - PHP Notice:  Error: Could not load template /Users/milan/git/cart/godropshipping/admin/view/template/total/vip.tpl! in /Users/milan/git/cart/godropshipping/system/engine/controller.php on line 71
+2012-06-19 15:01:35 - PHP Notice:  Undefined variable: voucher_status in /Users/milan/git/cart/godropshipping/admin/view/template/total/vip.tpl on line 22
+2012-06-19 15:01:35 - PHP Notice:  Undefined variable: voucher_sort_order in /Users/milan/git/cart/godropshipping/admin/view/template/total/vip.tpl on line 33

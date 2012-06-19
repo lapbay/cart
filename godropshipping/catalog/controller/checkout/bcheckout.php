@@ -67,7 +67,10 @@ class ControllerCheckoutBCheckout extends Controller {
 
 
     public function parser() {
+        $this->tax = $this->registry->get('tax');
+
         $this->language->load('checkout/bcheckout');
+        $this->load->model('setting/extension');
         $json = array();
 
         $this->data['column_customer_order'] = $this->language->get('column_customer_order');
@@ -200,6 +203,7 @@ class ControllerCheckoutBCheckout extends Controller {
             $this->load->library('encryption');
 
             $product_data = array();
+            $tax_data = array();
             $this->load->model('catalog/product');
 
             foreach ($this->model_catalog_product->getProductsByIds($uploaded_data['gds_skus']) as $product_id => $product) {
@@ -235,6 +239,18 @@ class ControllerCheckoutBCheckout extends Controller {
                                     'value'                   => $encryption->decrypt($option['option_value']),
                                     'type'                    => $option['type']
                                 );
+                            }
+                        }
+                    }
+
+                    if ($product['tax_class_id']) {
+                        $tax_rates = $this->tax->getRates($product['total'], $product['tax_class_id']);
+
+                        foreach ($tax_rates as $tax_rate) {
+                            if (!isset($tax_data[$tax_rate['tax_rate_id']])) {
+                                $tax_data[$tax_rate['tax_rate_id']] = $tax_rate['amount'];
+                            } else {
+                                $tax_data[$tax_rate['tax_rate_id']] += $tax_rate['amount'];
                             }
                         }
                     }
@@ -279,9 +295,36 @@ class ControllerCheckoutBCheckout extends Controller {
             }
 
             $order['products'] = $product_data;
-            $order['totals'] = $total_data;
             $order['comment'] = '';
             $order['reward'] = $this->cart->getTotalRewardPoints();
+
+            $order_total_data = array();
+            $taxes = array();
+            $sort_order = array();
+            $total_models = $this->model_setting_extension->getExtensions('total');
+            $results = array();
+            foreach ($total_models as $key => $value) {
+                if ($value['code'] != 'vip') {
+                    $results[$key] = $value;
+                }
+            }
+            foreach ($results as $key => $value) {
+                $sort_order[$key] = $this->config->get($value['code'] . '_sort_order');
+            }
+            array_multisort($sort_order, SORT_ASC, $results);
+            foreach ($results as $result) {
+                if ($this->config->get($result['code'] . '_status')) {
+                    $this->load->model('total/' . $result['code']);
+
+                    $this->{'model_total_' . $result['code']}->getTotal($order_total_data, $order['total'], $taxes);
+                }
+            }
+            $sort_order = array();
+            foreach ($order_total_data as $key => $value) {
+                $sort_order[$key] = $value['sort_order'];
+            }
+            array_multisort($sort_order, SORT_ASC, $order_total_data);
+            $order['totals'] = $order_total_data;
             $total += $order['total'];
 
             if (isset($this->request->cookie['tracking'])) {
@@ -315,20 +358,19 @@ class ControllerCheckoutBCheckout extends Controller {
         }
 
 
-        $taxes = $this->cart->getTaxes();
-
-        $this->load->model('setting/extension');
-
+        $taxes = array();
         $sort_order = array();
-
-        $results = $this->model_setting_extension->getExtensions('total');
-
+        $total_models = $this->model_setting_extension->getExtensions('total');
+        $results = array();
+        foreach ($total_models as $key => $value) {
+            if ($value['code'] == 'total' || $value['code'] == 'vip') {
+                $results[$key] = $value;
+            }
+        }
         foreach ($results as $key => $value) {
             $sort_order[$key] = $this->config->get($value['code'] . '_sort_order');
         }
-
         array_multisort($sort_order, SORT_ASC, $results);
-
         foreach ($results as $result) {
             if ($this->config->get($result['code'] . '_status')) {
                 $this->load->model('total/' . $result['code']);
@@ -336,17 +378,13 @@ class ControllerCheckoutBCheckout extends Controller {
                 $this->{'model_total_' . $result['code']}->getTotal($total_data, $total, $taxes);
             }
         }
-
         $sort_order = array();
-
         foreach ($total_data as $key => $value) {
             $sort_order[$key] = $value['sort_order'];
         }
-
         array_multisort($sort_order, SORT_ASC, $total_data);
-
-
         $this->data['totals'] = $total_data;
+
         $this->data['payment'] = $this->get_confirm();
 
         $this->session->data['orders'] = $this->data['orders'];
@@ -362,66 +400,6 @@ class ControllerCheckoutBCheckout extends Controller {
 //        header('Content-type: application/json');
 
         $this->response->setOutput(json_encode($json));
-    }
-
-    protected function parse_csv($file) {
-        $result = array();
-        $result['data'] = array();
-        if (($file["type"] == "text/csv") || ($file["type"] == "text/excel") && ($file["size"] < 20000)) {
-            if ($file["error"] > 0) {
-                $result['error']['error'] = 'File upload error: ' . $file["error"];
-            } else {
-                $result["Upload"] = $file["name"];
-                $result["Type"] = $file["type"];
-                $result["Size"] = ($file["size"] / 1024) . " Kb";
-                $result["TempFile"] = $file["tmp_name"];
-                $row = 0;
-                if (($handle = fopen($file["tmp_name"], "r")) !== FALSE) {
-                    $this->load->model('checkout/order');
-
-                    while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
-                        $row++;
-                        if ($row == 1) {
-                            continue;
-                        }
-
-                        $row_data = array();
-                        $row_data['customer_order'] = $data[0];
-                        $row_data['end_cusotomer_name'] = $data[1];
-                        $row_data['ship_to_address1'] = $data[2];
-                        $row_data['ship_to_address2'] = $data[3];
-                        $row_data['ship_to_address3'] = $data[4];
-                        $row_data['ship_to_city'] = $data[5];
-                        $row_data['ship_to_state'] = $data[6];
-                        $row_data['ship_to_postcode'] = $data[7];
-                        $row_data['ship_to_country'] = $data[8];
-                        $row_data['ship_to_phone'] = $data[9];
-                        $row_data['order_qty'] = $data[10];
-                        $row_data['unit_cost'] = $data[11];
-                        $row_data['order_amount'] = $data[12];
-                        $row_data['vendor_sku'] = $data[13];
-                        $row_data['gds_sku'] = $data[14];
-                        $row_data['gds_skus'] = explode(',', $data[14]);
-
-                        $result['data'][] = $row_data;
-                    }
-                    fclose($handle);
-                }
-                if (file_exists("upload/" . $file["name"])) {
-                    $result['error']['info'] = $file["name"] . " already exists. ";
-                } else {
-                    move_uploaded_file($file["tmp_name"], "upload/" . $file["name"]);
-                    $result['error']['info'] = "Stored in: upload/" . $file["name"];
-                }
-            }
-        } else {
-            $result['error']['error'] = "Invalid file";
-        }
-        return $result;
-    }
-
-    protected function parse_excel($file) {
-
     }
 
     protected function get_confirm() {
@@ -487,5 +465,66 @@ class ControllerCheckoutBCheckout extends Controller {
         $json['output'] = 'success';
         $this->response->setOutput(json_encode($json));
     }
+
+    protected function parse_csv($file) {
+        $result = array();
+        $result['data'] = array();
+        if (($file["type"] == "text/csv") || ($file["type"] == "text/excel") && ($file["size"] < 20000)) {
+            if ($file["error"] > 0) {
+                $result['error']['error'] = 'File upload error: ' . $file["error"];
+            } else {
+                $result["Upload"] = $file["name"];
+                $result["Type"] = $file["type"];
+                $result["Size"] = ($file["size"] / 1024) . " Kb";
+                $result["TempFile"] = $file["tmp_name"];
+                $row = 0;
+                if (($handle = fopen($file["tmp_name"], "r")) !== FALSE) {
+                    $this->load->model('checkout/order');
+
+                    while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+                        $row++;
+                        if ($row == 1) {
+                            continue;
+                        }
+
+                        $row_data = array();
+                        $row_data['customer_order'] = $data[0];
+                        $row_data['end_cusotomer_name'] = $data[1];
+                        $row_data['ship_to_address1'] = $data[2];
+                        $row_data['ship_to_address2'] = $data[3];
+                        $row_data['ship_to_address3'] = $data[4];
+                        $row_data['ship_to_city'] = $data[5];
+                        $row_data['ship_to_state'] = $data[6];
+                        $row_data['ship_to_postcode'] = $data[7];
+                        $row_data['ship_to_country'] = $data[8];
+                        $row_data['ship_to_phone'] = $data[9];
+                        $row_data['order_qty'] = $data[10];
+                        $row_data['unit_cost'] = $data[11];
+                        $row_data['order_amount'] = $data[12];
+                        $row_data['vendor_sku'] = $data[13];
+                        $row_data['gds_sku'] = $data[14];
+                        $row_data['gds_skus'] = explode(',', $data[14]);
+
+                        $result['data'][] = $row_data;
+                    }
+                    fclose($handle);
+                }
+                if (file_exists("upload/" . $file["name"])) {
+                    $result['error']['info'] = $file["name"] . " already exists. ";
+                } else {
+                    move_uploaded_file($file["tmp_name"], "upload/" . $file["name"]);
+                    $result['error']['info'] = "Stored in: upload/" . $file["name"];
+                }
+            }
+        } else {
+            $result['error']['error'] = "Invalid file";
+        }
+        return $result;
+    }
+
+    protected function parse_excel($file) {
+
+    }
+
 }
 ?>
