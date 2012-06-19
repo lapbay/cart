@@ -558,5 +558,13 @@ $(document).ready(function() {
     });
 });
 
+$(".gds_order_remove_all_checkbox").live('click', function(){
+    if( $(this).is(':checked') ) {
+        $('.gds_order_remove_checkbox').attr('checked', true);
+    } else {
+        $('.gds_order_remove_checkbox').attr('checked', false);
+    }
+});
+
 //--></script>
 <?php echo $footer; ?>

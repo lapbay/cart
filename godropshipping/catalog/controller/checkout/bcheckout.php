@@ -453,5 +453,21 @@ class ControllerCheckoutBCheckout extends Controller {
             $this->model_checkout_order->confirm($order, $this->config->get('cod_order_status_id'));
         }
     }
+
+    public function remove() {
+        $json = array();
+        $this->load->model('checkout/order');
+        $orders = array();
+        if (isset($_POST['orders'])) {
+            $orders = json_decode($_POST['orders']);
+        }else{
+            $orders = array();
+        }
+        foreach ($orders as $order_id) {
+            $this->model_checkout_order->delete($order_id);
+        }
+        $json['output'] = 'success';
+        $this->response->setOutput(json_encode($json));
+    }
 }
 ?>

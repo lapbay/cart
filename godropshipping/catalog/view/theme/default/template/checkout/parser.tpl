@@ -2,6 +2,7 @@
   <table>
     <thead>
       <tr>
+          <td class="gds_order_remove_all remove"><input type="checkbox" value="0" class="gds_order_remove_all_checkbox">Remove</td>
           <td class="name"><?php echo $column_gds_order; ?></td>
           <td class="name"><?php echo $column_customer_order; ?></td>
           <td class="name"><?php echo $column_vendor_sku; ?></td>
@@ -16,7 +17,8 @@
     </thead>
     <tbody>
         <?php foreach ($orders as $order) { ?>
-        <tr>
+        <tr oid=<?php echo $order['order_id']; ?>>
+            <td class="gds_order_remove remove"><input type="checkbox" value="0" class="gds_order_remove_checkbox"></td>
             <td class="gds_order name"><?php echo $order['order_id']; ?></td>
             <td class="name"><?php echo $order['customer_order']; ?></td>
             <td class="name"><?php echo $order['vendor_sku']; ?></td>
@@ -55,7 +57,7 @@
     <tfoot>
       <?php foreach ($totals as $total) { ?>
       <tr>
-        <td colspan="8" class="price"><b><?php echo $total['title']; ?>:</b></td>
+        <td colspan="9" class="price"><b><?php echo $total['title']; ?>:</b></td>
         <td class="total"><?php echo $total['text']; ?></td>
       </tr>
       <?php } ?>
