@@ -37,6 +37,7 @@ $('#button-remove').bind('click', function() {
                          console.log(obj);
                          obj.fadeOut();
                          obj.remove();
+                         $('.checkout-product tfoot').html(json['output']);
                      }
                 };
             },

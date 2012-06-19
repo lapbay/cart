@@ -444,9 +444,9 @@ class ControllerCheckoutBCheckout extends Controller {
     }
 
     public function remove() {
+        $this->load->model('setting/extension');
         $json = array();
         $session_orders = $this->session->data['orders'];
-
         $this->load->model('checkout/order');
         $order_indexes = array();
         if (isset($_POST['orders'])) {
@@ -454,7 +454,6 @@ class ControllerCheckoutBCheckout extends Controller {
         }else{
             $order_indexes = array();
         }
-        $json['orders'] = array();
         foreach ($order_indexes as $index) {
             $order = isset($session_orders[$index]) ? $session_orders[$index] : null;
             if ($order) {
@@ -462,7 +461,48 @@ class ControllerCheckoutBCheckout extends Controller {
                 unset($this->session->data['orders'][$index]);
             }
         }
-        $json['output'] = 'success';
+
+
+        $total = 0;
+        foreach (array_values($this->session->data['orders']) as $order) {
+            $total += $order['total'];
+        }
+        $total_data = array();
+        $taxes = array();
+        $sort_order = array();
+        $total_models = $this->model_setting_extension->getExtensions('total');
+        $results = array();
+        foreach ($total_models as $key => $value) {
+            if ($value['code'] == 'total' || $value['code'] == 'vip') {
+                $results[$key] = $value;
+            }
+        }
+        foreach ($results as $key => $value) {
+            $sort_order[$key] = $this->config->get($value['code'] . '_sort_order');
+        }
+        array_multisort($sort_order, SORT_ASC, $results);
+        foreach ($results as $result) {
+            if ($this->config->get($result['code'] . '_status')) {
+                $this->load->model('total/' . $result['code']);
+
+                $this->{'model_total_' . $result['code']}->getTotal($total_data, $total, $taxes);
+            }
+        }
+        $sort_order = array();
+        foreach ($total_data as $key => $value) {
+            $sort_order[$key] = $value['sort_order'];
+        }
+        array_multisort($sort_order, SORT_ASC, $total_data);
+        $this->data['totals'] = $total_data;
+
+        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/total.tpl')) {
+            $this->template = $this->config->get('config_template') . '/template/checkout/total.tpl';
+        } else {
+            $this->template = 'default/template/checkout/total.tpl';
+        }
+
+        $json['output'] = $this->render();
+        $json['error']['info'] = 'test';
         $this->response->setOutput(json_encode($json));
     }
 
