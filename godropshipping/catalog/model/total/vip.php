@@ -5,7 +5,11 @@ class ModelTotalVip extends Model {
 
         $this->load->model('account/customer');
 
-        $customer = $this->model_account_customer->getCustomerWithGroup($this->session->data['customer_id']);
+        if (isset($this->session->data['customer_id'])) {
+            $customer = $this->model_account_customer->getCustomerWithGroup($this->session->data['customer_id']);
+        }else {
+            $customer = null;
+        }
         $discount = null;
         if ($customer) {
             switch ($customer['customer_group_name']) {

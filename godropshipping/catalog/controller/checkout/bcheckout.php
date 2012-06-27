@@ -94,7 +94,8 @@ class ControllerCheckoutBCheckout extends Controller {
         $total = 0;
 
         $orders = array();
-        $file_data = $this->parse_csv($_FILES["files"]);
+//        $file_data = $this->parse_csv($_FILES["files"]);
+        $file_data = $this->parse_excel($_FILES["files"]);
 
         if (isset($file_data['error'])) {
             $json['error'] = $file_data['error'];
@@ -150,63 +151,38 @@ class ControllerCheckoutBCheckout extends Controller {
             $order['payment_country'] = $payment_address['country'];
             $order['payment_country_id'] = $payment_address['country_id'];
             $order['payment_address_format'] = $payment_address['address_format'];
-
             if (isset($this->session->data['payment_method']['title'])) {
                 $order['payment_method'] = $this->session->data['payment_method']['title'];
             } else {
                 $order['payment_method'] = '';
             }
 
-            if ($this->cart->hasShipping()) {
-                if ($this->customer->isLogged()) {
-                    $this->load->model('account/address');
-
-                    $shipping_address = $this->model_account_address->getAddress($this->session->data['shipping_address_id']);
-                } elseif (isset($this->session->data['guest'])) {
-                    $shipping_address = $this->session->data['guest']['shipping'];
-                }
-
-                $order['shipping_firstname'] = $uploaded_data['end_cusotomer_name'];
-                $order['shipping_lastname'] = '';
-                $order['shipping_company'] = $shipping_address['company'];
-                $order['shipping_address_1'] = $uploaded_data['ship_to_address1'];
-                $order['shipping_address_2'] = $uploaded_data['ship_to_address2'];
-                $order['shipping_city'] = $uploaded_data['ship_to_city'];
-                $order['shipping_postcode'] = $uploaded_data['ship_to_postcode'];
-                $order['shipping_zone'] = $shipping_address['zone'];
-                $order['shipping_zone_id'] = $shipping_address['zone_id'];
-                $order['shipping_country'] = $uploaded_data['ship_to_country'];
-                $order['shipping_country_id'] = $shipping_address['country_id'];
-                $order['shipping_address_format'] = $shipping_address['address_format'];
-
-                if (isset($this->session->data['shipping_method']['title'])) {
-                    $order['shipping_method'] = $this->session->data['shipping_method']['title'];
-                } else {
-                    $order['shipping_method'] = '';
-                }
+            $order['shipping_firstname'] = $uploaded_data['end_cusotomer_name'];
+            $order['shipping_lastname'] = '';
+            $order['shipping_company'] = '';
+            $order['shipping_address_1'] = $uploaded_data['ship_to_address1'];
+            $order['shipping_address_2'] = '';
+            $order['shipping_city'] = $uploaded_data['ship_to_city'];
+            $order['shipping_postcode'] = $uploaded_data['ship_to_postcode'];
+            $order['shipping_zone'] = '';
+            $order['shipping_zone_id'] = '';
+            $order['shipping_country'] = $uploaded_data['ship_to_country'];
+            $order['shipping_country_id'] = '';
+            $order['shipping_address_format'] = '';
+            if (isset($this->session->data['shipping_method']['title'])) {
+                $order['shipping_method'] = $this->session->data['shipping_method']['title'];
             } else {
-                $order['shipping_firstname'] = '';
-                $order['shipping_lastname'] = '';
-                $order['shipping_company'] = '';
-                $order['shipping_address_1'] = '';
-                $order['shipping_address_2'] = '';
-                $order['shipping_city'] = '';
-                $order['shipping_postcode'] = '';
-                $order['shipping_zone'] = '';
-                $order['shipping_zone_id'] = '';
-                $order['shipping_country'] = '';
-                $order['shipping_country_id'] = '';
-                $order['shipping_address_format'] = '';
                 $order['shipping_method'] = '';
             }
 
             $this->load->library('encryption');
+            $this->load->model('catalog/product');
+            $this->load->model('checkout/order');
 
             $product_data = array();
             $tax_data = array();
-            $this->load->model('catalog/product');
 
-            foreach ($this->model_catalog_product->getProductsByIds($uploaded_data['gds_skus']) as $product_id => $product) {
+            foreach ($this->model_catalog_product->getProductsByIds($uploaded_data['gds_products']) as $product_id => $product) {
                 //$product = $this->model_catalog_product->getProduct($sku);
                 $option_data = array();
 
@@ -563,8 +539,73 @@ class ControllerCheckoutBCheckout extends Controller {
     }
 
     protected function parse_excel($file) {
+        $result = array();
+        $result['data'] = array();
+        if (($file["type"] == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") || ($file["type"] == "text/excel") && ($file["size"] < 20000)) {
+            if ($file["error"] > 0) {
+                $result['error']['error'] = 'File upload error: ' . $file["error"];
+            } else {
+                ini_set("memory_limit","100M");
+                ini_set("max_execution_time",180);
+                //set_time_limit( 60 );
+                require_once( 'system/PHPExcel/Classes/PHPExcel.php' );
+                $inputFileType = PHPExcel_IOFactory::identify($file["tmp_name"]);
+                $objReader = PHPExcel_IOFactory::createReader($inputFileType);
+                $objReader->setReadDataOnly(true);
+                $objPHPExcel = $objReader->load($file["tmp_name"]);
+                $sheet = $objPHPExcel->getActiveSheet();
+                $sheet_data = $sheet->toArray();
 
+                foreach($sheet_data as $index => $row){
+                    if(0 == $index) {
+                        $columns = count($row);
+                        continue;
+                    }
+                    if (count($row) != $columns) {
+                        continue;
+                    }
+                    $row_data = array();
+                    $products = array();
+                    if ($row[0] && $row[1]) {
+                        $row_data['customer_order'] = $row[0];
+                        $products[] = $row[1];
+                    }else{
+                        if ($index == 1) {
+                            $result['error']['error'] = "Row 1, column 1 cannot be empty.";
+                            return $result;
+                        }
+                        if (isset($row[1])) {
+                            $sheet_data[$index][0] = $sheet_data[$index - 1][0];
+                            $row_data['customer_order'] = $sheet_data[$index][0];
+                            $products[] = $row[1];
+                        }else{
+                            continue;
+                        }
+                    }
+                    $row_data['gds_products'] = $products;
+                    $row_data['end_cusotomer_name'] = $row[2];
+                    $row_data['ship_to_address1'] = $row[3];
+                    $row_data['ship_to_city'] = $row[4];
+                    $row_data['ship_to_country'] = $row[5];
+                    $row_data['ship_to_postcode'] = $row[6];
+                    $row_data['ship_to_phone'] = $row[7];
+                    $row_data['quantity'] = $row[8];
+                    $row_data['price'] = $row[9];
+                    $row_data['amount'] = $row[10];
+                    $result['data'][] = $row_data;
+                }
+
+                if (file_exists("upload/" . $file["name"])) {
+                    $result['error']['info'] = $file["name"] . " already exists. ";
+                } else {
+                    move_uploaded_file($file["tmp_name"], "upload/" . $file["name"]);
+                    $result['error']['info'] = "Stored in: upload/" . $file["name"];
+                }
+            }
+        } else {
+            $result['error']['error'] = "Invalid file";
+        }
+        return $result;
     }
-
 }
 ?>

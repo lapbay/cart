@@ -3072,3 +3072,113 @@
 2012-06-19 15:01:10 - PHP Notice:  Error: Could not load template /Users/milan/git/cart/godropshipping/admin/view/template/total/vip.tpl! in /Users/milan/git/cart/godropshipping/system/engine/controller.php on line 71
 2012-06-19 15:01:35 - PHP Notice:  Undefined variable: voucher_status in /Users/milan/git/cart/godropshipping/admin/view/template/total/vip.tpl on line 22
 2012-06-19 15:01:35 - PHP Notice:  Undefined variable: voucher_sort_order in /Users/milan/git/cart/godropshipping/admin/view/template/total/vip.tpl on line 33
+2012-06-22 7:43:10 - PHP Notice:  Undefined index: customer_id in /Users/milan/git/cart/godropshipping/catalog/model/total/vip.php on line 8
+2012-06-22 8:24:17 - PHP Notice:  Undefined index: customer_id in /Users/milan/git/cart/godropshipping/catalog/model/total/vip.php on line 8
+2012-06-22 16:07:22 - PHP Notice:  Undefined index: customer_id in /Users/milan/git/cart/godropshipping/catalog/model/total/vip.php on line 8
+2012-06-23 13:26:21 - PHP Notice:  Undefined index: customer_id in /Users/milan/git/cart/godropshipping/catalog/model/total/vip.php on line 8
+2012-06-23 13:33:02 - PHP Notice:  Undefined index: customer_id in /Users/milan/git/cart/godropshipping/catalog/model/total/vip.php on line 8
+2012-06-27 9:28:43 - PHP Warning:  set_error_handler() expects the argument (error_handler_for_export) to be a valid callback in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 581
+2012-06-27 9:28:47 - PHP Warning:  register_shutdown_function(): Invalid shutdown callback 'fatal_error_shutdown_handler_for_export' passed in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 582
+2012-06-27 9:28:49 - PHP Warning:  chdir(): No such file or directory (errno 2) in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 587
+2012-06-27 9:28:50 - PHP Warning:  require_once(Classes/PHPExcel.php): failed to open stream: No such file or directory in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 588
+2012-06-27 9:30:05 - PHP Warning:  set_error_handler() expects the argument (error_handler_for_export) to be a valid callback in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 581
+2012-06-27 9:30:05 - PHP Warning:  register_shutdown_function(): Invalid shutdown callback 'fatal_error_shutdown_handler_for_export' passed in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 582
+2012-06-27 9:30:05 - PHP Warning:  chdir(): No such file or directory (errno 2) in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 588
+2012-06-27 9:30:05 - PHP Warning:  require_once(Classes/PHPExcel.php): failed to open stream: No such file or directory in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 589
+2012-06-27 9:31:47 - PHP Warning:  chdir(): No such file or directory (errno 2) in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 580
+2012-06-27 9:31:47 - PHP Warning:  require_once(Classes/PHPExcel.php): failed to open stream: No such file or directory in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 581
+2012-06-27 14:52:20 - PHP Notice:  Undefined offset: 1 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 603
+2012-06-27 14:52:20 - PHP Notice:  Undefined offset: 2 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 604
+2012-06-27 14:52:20 - PHP Notice:  Undefined offset: 3 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 605
+2012-06-27 14:52:20 - PHP Notice:  Undefined offset: 4 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 606
+2012-06-27 14:52:20 - PHP Notice:  Undefined offset: 5 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 607
+2012-06-27 14:52:20 - PHP Notice:  Undefined offset: 6 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 608
+2012-06-27 14:52:20 - PHP Notice:  Undefined offset: 7 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 609
+2012-06-27 14:52:20 - PHP Notice:  Undefined offset: 8 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 610
+2012-06-27 14:52:20 - PHP Notice:  Undefined offset: 9 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 611
+2012-06-27 14:52:20 - PHP Notice:  Undefined offset: 10 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 612
+2012-06-27 14:52:50 - PHP Notice:  Undefined offset: 1 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 603
+2012-06-27 14:52:50 - PHP Notice:  Undefined offset: 2 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 604
+2012-06-27 14:52:50 - PHP Notice:  Undefined offset: 3 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 605
+2012-06-27 14:52:50 - PHP Notice:  Undefined offset: 4 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 606
+2012-06-27 14:52:50 - PHP Notice:  Undefined offset: 5 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 607
+2012-06-27 14:52:50 - PHP Notice:  Undefined offset: 6 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 608
+2012-06-27 14:52:50 - PHP Notice:  Undefined offset: 7 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 609
+2012-06-27 14:52:50 - PHP Notice:  Undefined offset: 8 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 610
+2012-06-27 14:52:50 - PHP Notice:  Undefined offset: 9 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 611
+2012-06-27 14:52:50 - PHP Notice:  Undefined offset: 10 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 612
+2012-06-27 14:53:57 - PHP Notice:  Undefined offset: 1 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 603
+2012-06-27 14:53:57 - PHP Notice:  Undefined offset: 2 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 604
+2012-06-27 14:53:57 - PHP Notice:  Undefined offset: 3 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 605
+2012-06-27 14:53:57 - PHP Notice:  Undefined offset: 4 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 606
+2012-06-27 14:53:57 - PHP Notice:  Undefined offset: 5 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 607
+2012-06-27 14:53:57 - PHP Notice:  Undefined offset: 6 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 608
+2012-06-27 14:53:57 - PHP Notice:  Undefined offset: 7 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 609
+2012-06-27 14:53:57 - PHP Notice:  Undefined offset: 8 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 610
+2012-06-27 14:53:57 - PHP Notice:  Undefined offset: 9 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 611
+2012-06-27 14:53:57 - PHP Notice:  Undefined offset: 10 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 612
+2012-06-27 14:54:36 - PHP Notice:  Undefined offset: 1 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 603
+2012-06-27 14:54:36 - PHP Notice:  Undefined offset: 2 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 604
+2012-06-27 14:54:36 - PHP Notice:  Undefined offset: 3 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 605
+2012-06-27 14:54:36 - PHP Notice:  Undefined offset: 4 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 606
+2012-06-27 14:54:36 - PHP Notice:  Undefined offset: 5 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 607
+2012-06-27 14:54:36 - PHP Notice:  Undefined offset: 6 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 608
+2012-06-27 14:54:36 - PHP Notice:  Undefined offset: 7 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 609
+2012-06-27 14:54:36 - PHP Notice:  Undefined offset: 8 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 610
+2012-06-27 14:54:36 - PHP Notice:  Undefined offset: 9 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 611
+2012-06-27 14:54:36 - PHP Notice:  Undefined offset: 10 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 612
+2012-06-27 14:55:55 - PHP Notice:  Undefined offset: 1 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 605
+2012-06-27 14:55:55 - PHP Notice:  Undefined offset: 2 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 606
+2012-06-27 14:55:55 - PHP Notice:  Undefined offset: 3 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 607
+2012-06-27 14:55:55 - PHP Notice:  Undefined offset: 4 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 608
+2012-06-27 14:55:55 - PHP Notice:  Undefined offset: 5 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 609
+2012-06-27 14:55:55 - PHP Notice:  Undefined offset: 6 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 610
+2012-06-27 14:55:55 - PHP Notice:  Undefined offset: 7 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 611
+2012-06-27 14:55:55 - PHP Notice:  Undefined offset: 8 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 612
+2012-06-27 14:55:55 - PHP Notice:  Undefined offset: 9 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 613
+2012-06-27 14:55:55 - PHP Notice:  Undefined offset: 10 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 614
+2012-06-27 14:56:28 - PHP Notice:  Undefined offset: 1 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 603
+2012-06-27 14:56:28 - PHP Notice:  Undefined offset: 2 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 604
+2012-06-27 14:56:28 - PHP Notice:  Undefined offset: 3 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 605
+2012-06-27 14:56:28 - PHP Notice:  Undefined offset: 4 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 606
+2012-06-27 14:56:28 - PHP Notice:  Undefined offset: 5 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 607
+2012-06-27 14:56:28 - PHP Notice:  Undefined offset: 6 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 608
+2012-06-27 14:56:28 - PHP Notice:  Undefined offset: 7 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 609
+2012-06-27 14:56:28 - PHP Notice:  Undefined offset: 8 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 610
+2012-06-27 14:56:28 - PHP Notice:  Undefined offset: 9 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 611
+2012-06-27 14:56:28 - PHP Notice:  Undefined offset: 10 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 612
+2012-06-27 14:56:50 - PHP Notice:  Undefined offset: 1 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 603
+2012-06-27 14:56:50 - PHP Notice:  Undefined offset: 2 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 604
+2012-06-27 14:56:50 - PHP Notice:  Undefined offset: 3 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 605
+2012-06-27 14:56:50 - PHP Notice:  Undefined offset: 4 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 606
+2012-06-27 14:56:50 - PHP Notice:  Undefined offset: 5 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 607
+2012-06-27 14:56:50 - PHP Notice:  Undefined offset: 6 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 608
+2012-06-27 14:56:50 - PHP Notice:  Undefined offset: 7 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 609
+2012-06-27 14:56:50 - PHP Notice:  Undefined offset: 8 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 610
+2012-06-27 14:56:50 - PHP Notice:  Undefined offset: 9 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 611
+2012-06-27 14:56:50 - PHP Notice:  Undefined offset: 10 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 612
+2012-06-27 14:57:32 - PHP Notice:  Undefined offset: 1 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 603
+2012-06-27 14:57:32 - PHP Notice:  Undefined offset: 2 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 604
+2012-06-27 14:57:32 - PHP Notice:  Undefined offset: 3 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 605
+2012-06-27 14:57:32 - PHP Notice:  Undefined offset: 4 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 606
+2012-06-27 14:57:32 - PHP Notice:  Undefined offset: 5 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 607
+2012-06-27 14:57:32 - PHP Notice:  Undefined offset: 6 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 608
+2012-06-27 14:57:32 - PHP Notice:  Undefined offset: 7 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 609
+2012-06-27 14:57:32 - PHP Notice:  Undefined offset: 8 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 610
+2012-06-27 14:57:32 - PHP Notice:  Undefined offset: 9 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 611
+2012-06-27 14:57:32 - PHP Notice:  Undefined offset: 10 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 612
+2012-06-27 15:00:13 - PHP Notice:  Undefined offset: 1 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 603
+2012-06-27 15:00:13 - PHP Notice:  Undefined offset: 2 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 604
+2012-06-27 15:00:13 - PHP Notice:  Undefined offset: 3 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 605
+2012-06-27 15:00:13 - PHP Notice:  Undefined offset: 4 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 606
+2012-06-27 15:00:13 - PHP Notice:  Undefined offset: 5 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 607
+2012-06-27 15:00:13 - PHP Notice:  Undefined offset: 6 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 608
+2012-06-27 15:00:13 - PHP Notice:  Undefined offset: 7 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 609
+2012-06-27 15:00:13 - PHP Notice:  Undefined offset: 8 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 610
+2012-06-27 15:00:13 - PHP Notice:  Undefined offset: 9 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 611
+2012-06-27 15:00:13 - PHP Notice:  Undefined offset: 10 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 612
+2012-06-27 15:01:46 - PHP Notice:  Undefined offset: 1 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 590
+2012-06-27 15:01:46 - PHP Notice:  Undefined offset: 1 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 597
+2012-06-27 15:02:09 - PHP Notice:  Undefined offset: 1 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 590
+2012-06-27 15:02:09 - PHP Notice:  Undefined offset: 1 in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 597
+2012-06-27 15:42:24 - PHP Notice:  Undefined index: shipping_address_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 164
