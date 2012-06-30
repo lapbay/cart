@@ -7,9 +7,11 @@ class ModelCatalogProduct extends Model {
     public function getProductsByIds($data = array()) {
         $product_data = array();
 
-        foreach ($data as  $product_id ) {
+        foreach ($data as $product_id => $quantity) {
             $key = $product_id;
-            $quantity = 1;
+            if (!$quantity) {
+                $quantity = 1;
+            }
             $product = explode(':', $key);
             $stock = true;
 
