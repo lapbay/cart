@@ -34,6 +34,7 @@
           <div class="checkout-content">
               <input id="fileupload" type="file" name="files" data-url="http://godropshipping.com/index.php?route=checkout/bcheckout/parser" multiple>
               <img id="loading-image" src="catalog/view/javascript/jquery/loading.gif" style="display: none;">
+              <p id="uploaded-file-name"></p>
           </div>
       </div>
     <div id="confirm">
@@ -522,7 +523,8 @@ $(document).ready(function() {
         change: function (e, data) {
             $.each(data.files, function (index, file) {
                 $('#loading-image').show();
-                $('#loading-image').after('<p>' + file.name + '</p>');
+                $('#uploaded-file-name').html(file.name);
+//                $('#loading-image').after('<p>' + file.name + '</p>');
             });
         },
         done: function (e, data) {
