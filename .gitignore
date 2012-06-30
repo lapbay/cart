@@ -6,5 +6,5 @@
 *.exe
 *.o
 *.so
-#cache/
+cache/
 .idea/
