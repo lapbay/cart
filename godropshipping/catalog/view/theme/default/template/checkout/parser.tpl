@@ -24,7 +24,7 @@
             <td class="name"><?php echo $order['end_cusotomer_name']; ?></td>
             <td class="name"><?php echo $order['ship_to_country']; ?></td>
 
-            <td class="quantity"><?php echo $order['amount']; ?></td>
+            <td class="quantity"><?php echo $order['quantity']; ?></td>
             <td class="price"><?php echo $order['price']; ?></td>
             <td class="total"><?php echo $order['total']; ?></td>
         </tr>
@@ -55,7 +55,7 @@
     <tfoot>
       <?php foreach ($totals as $total) { ?>
       <tr>
-        <td colspan="9" class="price"><b><?php echo $total['title']; ?>:</b></td>
+        <td colspan="8" class="price"><b><?php echo $total['title']; ?>:</b></td>
         <td class="total"><?php echo $total['text']; ?></td>
       </tr>
       <?php } ?>
