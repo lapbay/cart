@@ -104,3 +104,13 @@
 2012-06-30 16:55:45 - PHP Notice:  Undefined index: price in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 28
 2012-06-30 18:02:37 - PHP Notice:  Undefined index: points in /Users/milan/git/cart/godropshipping/catalog/view/theme/sancart/template/checkout/cart.tpl on line 53
 2012-06-30 18:19:49 - PHP Notice:  Undefined variable: text_my_batch_orders in /Users/milan/git/cart/godropshipping/catalog/view/theme/sancart/template/account/account.tpl on line 32
+2012-06-30 19:10:01 - PHP Notice:  Undefined index: comment in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/confirm.php on line 253
+2012-06-30 19:10:01 - PHP Notice:  Undefined index: payment_method in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/confirm.php on line 352
+2012-06-30 19:10:01 - PHP Notice:  Error: Could not load controller payment/! in /Users/milan/git/cart/godropshipping/system/engine/controller.php on line 48
+2012-06-30 19:24:25 - PHP Notice:  Undefined index: payment_method in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 366
+2012-06-30 19:24:26 - PHP Notice:  Error: Could not load controller payment/! in /Users/milan/git/cart/godropshipping/system/engine/controller.php on line 48
+2012-06-30 19:27:24 - PHP Notice:  Undefined index: payment_methods in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 366
+2012-06-30 19:27:24 - PHP Notice:  Error: Could not load controller payment/! in /Users/milan/git/cart/godropshipping/system/engine/controller.php on line 48
+2012-06-30 19:37:55 - PHP Notice:  Undefined index: comment in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/confirm.php on line 253
+2012-06-30 19:37:55 - PHP Notice:  Undefined index: payment_method in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/confirm.php on line 352
+2012-06-30 19:37:55 - PHP Notice:  Error: Could not load controller payment/! in /Users/milan/git/cart/godropshipping/system/engine/controller.php on line 48

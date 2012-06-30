@@ -29,6 +29,26 @@
           <div class="checkout-content"></div>
       </div>
     <?php } ?>
+      <div id="payment-method" style="display: none">
+          <div class="checkout-heading">Step 5: Payment Method<a>Modify »</a></div>
+          <div class="checkout-content" style="display: block;"><p>Please select the preferred payment method to use on this order.</p>
+              <table class="form">
+                  <tbody><tr>
+                      <td style="width: 1px;">            <input type="radio" checked="checked" id="pp_standard" value="pp_standard" name="payment_method">
+                      </td>
+                      <td><label for="pp_standard">PayPal</label></td>
+                  </tr>
+                  </tbody></table>
+              <b>Add Comments About Your Order</b>
+              <textarea style="width: 98%;" rows="8" name="comment"></textarea>
+              <br>
+              <br>
+              <div class="buttons">
+                  <div class="right">I have read and agree to the <a alt="Terms &amp; Conditions" href="http://godropshipping.com/index.php?route=information/information/info&amp;information_id=5" class="fancybox"><b>Terms &amp; Conditions</b></a>        <input type="checkbox" value="1" name="agree" checked="checked">
+                      <a class="button" id="button-payment"><span>Continue</span></a></div>
+              </div>
+          </div>
+      </div>
       <div id="order-upload">
           <div class="checkout-heading"><?php echo $text_upload_file; ?></div>
           <div class="checkout-content">
@@ -511,6 +531,37 @@ $('#payment-address #button-address').live('click', function() {
                     success: function(json) {
                     }
                 });
+
+                $.ajax({
+                    url: 'index.php?route=checkout/payment',
+                    dataType: 'json',
+                    success: function(json) {
+                        if (json['output']) {
+//                            $('#payment-method .checkout-content').html(json['output']);
+                            $.ajax({
+                                url: 'index.php?route=checkout/payment',
+                                type: 'post',
+                                data: $('#payment-method input[type=\'radio\']:checked, #payment-method input[type=\'checkbox\']:checked, #payment-method textarea'),
+                                dataType: 'json',
+                                success: function(json) {
+                                    if (json['error']) {
+                                        if (json['error']['warning']) {
+                                            $('#payment-method .checkout-content').prepend('<div class="warning" style="display: none;">' + json['error']['warning'] + '</div>');
+
+                                            $('.warning').fadeIn('slow');
+                                        }
+                                    } else {
+
+                                    }
+                                }
+                            });
+                        }
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError);
+                    }
+                });
+
             }
         }
     });

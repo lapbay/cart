@@ -363,6 +363,8 @@ class ControllerCheckoutBCheckout extends Controller {
         $this->data['totals'] = $total_data;
 
         $this->data['payment'] = $this->get_confirm();
+//        $this->session->data['payment_method'] = $this->session->data['payment_methods']['pp_standard'];
+//        $this->data['payment'] = $this->getChild('payment/' . $this->session->data['payment_method']['code']);
 
         $this->session->data['orders'] = $this->data['orders'];
 
