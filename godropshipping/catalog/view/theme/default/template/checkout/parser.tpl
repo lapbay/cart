@@ -20,7 +20,7 @@
             <td class="gds_order_remove remove"><input type="checkbox" value="0" class="gds_order_remove_checkbox"></td>
             <td class="gds_order name"><?php echo $order['order_id']; ?></td>
             <td class="name"><?php echo $order['customer_order']; ?></td>
-            <td class="name"><?php echo $order['gds_products']; ?></td>
+            <td class="name"><?php echo implode(", ", array_keys($order['gds_products'])); ; ?></td>
             <td class="name"><?php echo $order['end_cusotomer_name']; ?></td>
             <td class="name"><?php echo $order['ship_to_country']; ?></td>
 
