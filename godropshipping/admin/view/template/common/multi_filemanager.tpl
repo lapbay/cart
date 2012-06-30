@@ -1,4 +1,4 @@
-﻿<?php echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n"; ?>
+<?php echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n"; ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" xml:lang="en">
 <head>
@@ -37,7 +37,7 @@ img {
 	border: 1px solid #CCC;
 	float: left;
 	width: 20%;
-	height: 320px;
+	height: 500px;
 	overflow: auto;
 }
 #column-right {
@@ -45,7 +45,7 @@ img {
 	border: 1px solid #CCC;
 	float: right;
 	width: 78%;
-	height: 320px;
+	height: 500px;
 	overflow: auto;
 	text-align: center;
 }
@@ -97,7 +97,8 @@ img {
 </head>
 <body>
 <div id="container">
-  <div id="menu"><a id="create" class="button" style="background-image: url('view/image/filemanager/folder.png');"><?php echo $button_folder; ?></a><a id="delete" class="button" style="background-image: url('view/image/filemanager/edit-delete.png');"><?php echo $button_delete; ?></a><a id="move" class="button" style="background-image: url('view/image/filemanager/edit-cut.png');"><?php echo $button_move; ?></a><a id="copy" class="button" style="background-image: url('view/image/filemanager/edit-copy.png');"><?php echo $button_copy; ?></a><a id="rename" class="button" style="background-image: url('view/image/filemanager/edit-rename.png');"><?php echo $button_rename; ?></a><a id="upload" class="button" style="background-image: url('view/image/filemanager/upload.png');"><?php echo $button_upload; ?></a><a id="refresh" class="button" style="background-image: url('view/image/filemanager/refresh.png');"><?php echo $button_refresh; ?></a><a id="multi_upload" class="button" style="background-image: url('view/image/filemanager/upload.png');">批量上传</a></div>
+  <div id="menu"><a id="create" class="button" style="background-image: url('view/image/filemanager/folder.png');"><?php echo $button_folder; ?></a><a id="delete" class="button" style="background-image: url('view/image/filemanager/edit-delete.png');"><?php echo $button_delete; ?></a><a id="move" class="button" style="background-image: url('view/image/filemanager/edit-cut.png');"><?php echo $button_move; ?></a><a id="copy" class="button" style="background-image: url('view/image/filemanager/edit-copy.png');"><?php echo $button_copy; ?></a><a id="rename" class="button" style="background-image: url('view/image/filemanager/edit-rename.png');"><?php echo $button_rename; ?></a><a id="upload" class="button" style="background-image: url('view/image/filemanager/upload.png');"><?php echo $button_upload; ?></a><a id="refresh" class="button" style="background-image: url('view/image/filemanager/refresh.png');"><?php echo $button_refresh; ?></a><a id="multi_upload" class="button" style="background-image: url('view/image/filemanager/upload.png');">批量上传</a><a id="multi_delete" class="button" style="background-image: url('view/image/filemanager/edit-delete.png');">批量删除</a><a id="multi_image" class="button" style="background-image: url('view/image/filemanager/refresh.png');">确定</a></div>
+  <div style="clear:both;"></div>
   <div id="column-left"></div>
   <div id="column-right"></div>
 </div>
@@ -189,10 +190,21 @@ $(document).ready(function () {
 		if ($(this).attr('class') == 'selected') {
 			$(this).removeAttr('class');
 		} else {
-			$('#column-right a').removeAttr('class');
+			//$('#column-right a').removeAttr('class');
 			
 			$(this).attr('class', 'selected');
 		}
+	});
+	$('#multi_image').bind('click', function () {
+		$('#column-right>div>a.selected').each(function(data){
+//			//$(this).attr('file')
+			parent.addMultiImage($(this).attr('file'));
+				
+			});
+		parent.$('#dialog').dialog('close');
+		
+		parent.$('#dialog').remove();
+		
 	});
 	
 	$('#column-right a').live('dblclick', function () {
@@ -249,6 +261,65 @@ $(document).ready(function () {
 		}
 	});
 	
+	$('#multi_delete').bind('click', function () {
+		$('#column-right>div>a.selected').each(function(data){
+			
+			path = $(this).attr('file');
+							 
+			if (path) {
+				$.ajax({
+					url: 'index.php?route=common/filemanager/delete&token=<?php echo $token; ?>',
+					type: 'POST',
+					data: 'path=' + path,
+					dataType: 'json',
+					success: function(json) {
+						if (json.success) {
+							var tree = $.tree.focused();
+						
+							tree.select_branch(tree.selected);
+							
+							//alert(json.success);
+						}
+						
+						if (json.error) {
+							alert(json.error);
+						}
+					}
+				});				
+			} else {
+				var tree = $.tree.focused();
+				
+				if (tree.selected) {
+					$.ajax({
+						url: 'index.php?route=common/filemanager/delete&token=<?php echo $token; ?>',
+						type: 'POST',
+						data: 'path=' + encodeURIComponent($(tree.selected).attr('directory')),
+						dataType: 'json',
+						success: function(json) {
+							if (json.success) {
+								tree.select_branch(tree.parent(tree.selected));
+								
+								tree.refresh(tree.selected);
+								
+								//alert(json.success);
+							} 
+							
+							if (json.error) {
+								alert(json.error);
+							}
+						}
+					});			
+				} else {
+					alert('<?php echo $error_select; ?>');
+				}			
+			}
+			
+		});
+		
+		
+	});
+	
+	
 	$('#delete').bind('click', function () {
 		path = $('#column-right a.selected').attr('file');
 							 
@@ -256,7 +327,7 @@ $(document).ready(function () {
 			$.ajax({
 				url: 'index.php?route=common/filemanager/delete&token=<?php echo $token; ?>',
 				type: 'POST',
-				data: 'path=' + encodeURIComponent(path),
+				data: 'path=' + path,
 				dataType: 'json',
 				success: function(json) {
 					if (json.success) {
@@ -505,7 +576,6 @@ $(document).ready(function () {
 			}
 		});		
 	});
-	
 	$('#multi_upload').bind('click', function () {
 		swfupdiv = $("#swfupload-control");
 		if(swfupdiv.length){
@@ -515,7 +585,7 @@ $(document).ready(function () {
 			swfupdiv.css('display',dsp);
 			return;
 		}
-		$("#menu").after('<div id="swfupload-control"><p>请选择多张图片(jpg, png, gif)<input type="button" value="上传完成" onclick="$(\'#swfupload-control\').css(\'display\',\'none\');" id="btncl" /></p><input type="button"  id="button" /><p id="queuestatus" ></p><ol id="log"></ol></div>');
+		$("#menu").after('<div style="clear:both;"></div><div id="swfupload-control"><p>请选择多张图片(jpg, png, gif)<input type="button" value="上传完成" onclick="$(\'#swfupload-control\').css(\'display\',\'none\');" id="btncl" /></p><input type="button"  id="button" /><p id="queuestatus" ></p><ol id="log"></ol></div>');
 			$('#swfupload-control').swfupload({
 				upload_url: 'view/javascript/swfupload/upload-file.php?token=<?php echo $token; ?>&PHPSESSID=<?=session_id()?>',
 				file_post_name: 'image',
@@ -531,7 +601,7 @@ $(document).ready(function () {
 				debug: false,
 				post_params : {
 				    token : "<?php echo $token; ?>",
-				    directory:"",
+				    directory:"test/",
 				    PHPSESSID:"<?=session_id()?>"
 				}
 			})
@@ -586,7 +656,6 @@ $(document).ready(function () {
 				});
 		
 	});
-	
 	new AjaxUpload('#upload', {
 		action: 'index.php?route=common/filemanager/upload&token=<?php echo $token; ?>',
 		name: 'image',
@@ -604,7 +673,7 @@ $(document).ready(function () {
 			this.submit();
 		},
 		onSubmit: function(file, extension) {
-			$('#upload').append('<img src="view/image/loading.gif" class="loading" style="padding-left: 5px;" />');
+			$('#upload').append('<img src="view/image/loading.gif" id="loading" style="padding-left: 5px;" />');
 		},
 		onComplete: function(file, json) {
 			if (json.success) {
@@ -619,7 +688,7 @@ $(document).ready(function () {
 				alert(json.error);
 			}
 			
-			$('.loading').remove();	
+			$('#loading').remove();	
 		}
 	});
 	

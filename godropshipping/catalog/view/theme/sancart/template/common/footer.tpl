@@ -40,7 +40,8 @@ Please donate via PayPal to donate@opencart.com
 //-->
 <div id="powered" class="clearfix">
 	<p class="floatleft">Power By Godropshipping</p>
-	<p class="floatright"><a href="http://www.santoshsetty.com">Designed by santosh setty</a></p>
+<!--	<p class="floatright"><a href="http://www.santoshsetty.com">Designed by santosh setty</a></p>-->
+	<p class="floatright"></p>
 </div>
 <!-- 
 OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donatation.

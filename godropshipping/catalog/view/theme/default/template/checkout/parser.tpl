@@ -20,11 +20,11 @@
             <td class="gds_order_remove remove"><input type="checkbox" value="0" class="gds_order_remove_checkbox"></td>
             <td class="gds_order name"><?php echo $order['order_id']; ?></td>
             <td class="name"><?php echo $order['customer_order']; ?></td>
-            <td class="name"><?php echo implode(", ", array_keys($order['gds_products'])); ; ?></td>
+            <td class="name"><?php echo $order['gds_products']; ?></td>
             <td class="name"><?php echo $order['end_cusotomer_name']; ?></td>
             <td class="name"><?php echo $order['ship_to_country']; ?></td>
 
-            <td class="quantity"><?php echo $order['quantity']; ?></td>
+            <td class="quantity"><?php echo $order['amount']; ?></td>
             <td class="price"><?php echo $order['price']; ?></td>
             <td class="total"><?php echo $order['total']; ?></td>
         </tr>
@@ -55,7 +55,7 @@
     <tfoot>
       <?php foreach ($totals as $total) { ?>
       <tr>
-        <td colspan="8" class="price"><b><?php echo $total['title']; ?>:</b></td>
+        <td colspan="9" class="price"><b><?php echo $total['title']; ?>:</b></td>
         <td class="total"><?php echo $total['text']; ?></td>
       </tr>
       <?php } ?>

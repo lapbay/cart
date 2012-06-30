@@ -609,7 +609,7 @@
             <tfoot>
               <tr>
                 <td colspan="2"></td>
-                <td class="left"><a onclick="addImage();" class="button"><?php echo $button_add_image; ?></a></td>
+                <td class="left"><a onclick="addImage();" class="button"><?php echo $button_add_image; ?></a><a onclick="multi_image_upload();" class="button">Batch Add Images</a></td>
               </tr>
             </tfoot>
           </table>
@@ -1063,6 +1063,55 @@ function addImage() {
 	
 	image_row++;
 }
+
+function multi_image_upload() {
+	$('#dialog').remove();
+	
+	$('#content').prepend('<div id="dialog" style="padding: 3px 0px 0px 0px;"><iframe src="index.php?route=common/filemanager/mutli_filemanager&token=<?php echo $token; ?>" style="padding:0; margin: 0; display: block; width: 100%; height: 100%;" frameborder="no" scrolling="auto"></iframe></div>');
+	
+	$('#dialog').dialog({
+		title: '<?php echo $text_image_manager; ?>',
+		bgiframe: false,
+		width: 800,
+		height: 600,
+		resizable: false,
+		modal: false
+	});
+}
+
+function addMultiImage(filename) {
+	
+	path = 'data/'+filename;	
+    html  = '<tbody id="image_row' + image_row + '">';
+	html += '<tr>';
+	html += '<td class="left"><div class="image"><img src="<?php echo $no_image; ?>" alt="" id="thumb' + image_row + '" title="' + image_row + '" /><input type="hidden" name="product_image[' + image_row + '][image]" value="data/'+filename+'" id="image' + image_row + '" /><br /><a  onclick="image_upload(\'image' + image_row + '\', \'thumb' + image_row + '\');" ><?php echo $text_browse; ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a onclick="$(\'#thumb' + image_row + '\').attr(\'src\', \'<?php echo $no_image; ?>\'); $(\'#image' + image_row + '\').attr(\'value\', \'\');"><?php echo $text_clear; ?></a></div></td>';
+	html += '    <td class="right"><input type="text" name="product_image[' + image_row + '][sort_order]" value="" /></td>';
+	html += '    <td class="left"><a onclick="$(\'#image-row' + image_row  + '\').remove();" class="button"><?php echo $button_remove; ?></a></td>';
+	html += '</tr>';
+	html += '</tbody>';
+	if (filename) {
+	
+		$.ajax({
+			url: 'index.php?route=common/filemanager/multiimage&token=<?php echo $token; ?>',
+			type: 'POST',
+			data: 'rowid='+image_row+'&image=' + encodeURIComponent('data/'+filename),
+			dataType: 'json',
+			success: function(data) {
+				imagepre = $("#thumb"+data.rowid);
+				if(imagepre){					
+					
+					imagepre.replaceWith('<img src="' + data.data + '" alt="ok" id="thumb'+data.rowid+'" class="image" onclick="image_upload(\'image' + data.rowid + '\', \'preview' + data.rowid + '\');" />');	
+				}
+				
+			}
+		});
+	}
+	
+	$('#images tfoot').before(html);
+	
+	image_row++;
+}
+
 //--></script> 
 <script type="text/javascript" src="view/javascript/jquery/ui/jquery-ui-timepicker-addon.js"></script> 
 <script type="text/javascript"><!--

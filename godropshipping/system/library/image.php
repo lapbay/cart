@@ -51,6 +51,40 @@ final class Image {
 	    imagedestroy($this->image);
     }	    
 	
+    public function imagefttext($position = 'center'){
+		$grey = imagecolorallocate($this->image, 128, 128, 128);
+		$text = 'GoDropShipping.com';
+		$font = DIR_IMAGE.'VeraBd.ttf';
+		$font_size = 40;
+ 
+		$len = $this->info['width']/3;
+    	switch($position) {
+            case 'topleft':
+                $watermark_pos_x = 0;
+                $watermark_pos_y = 0;
+                break;
+            case 'topright':
+                $watermark_pos_x = $this->info['width'] - $len;
+                $watermark_pos_y = 0;
+                break;
+            case 'bottomleft':
+                $watermark_pos_x = 0;
+                $watermark_pos_y = $this->info['height'] - $len;
+                break;
+            case 'bottomright':
+                $watermark_pos_x = $this->info['width'] - $len;
+                $watermark_pos_y = $this->info['height'] - $font_size;
+                break;
+            case 'center':
+            	$watermark_pos_x = $this->info['width']/5.5-20;
+                $watermark_pos_y = $this->info['height']/2-20;
+            	break;
+        }
+		imagettftext($this->image, $font_size, 0, $watermark_pos_x, $watermark_pos_y, $grey, $font, $text);
+ 
+    }
+
+
     public function resize($width = 0, $height = 0) {
     	if (!$this->info['width'] || !$this->info['height']) {
 			return;

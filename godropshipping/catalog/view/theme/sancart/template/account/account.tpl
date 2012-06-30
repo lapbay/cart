@@ -28,14 +28,6 @@
       <li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
     </ul>
   </div>
-    <!--Add by wuchang-->
-    <h2><?php echo $text_my_batch_orders; ?></h2>
-    <div class="content">
-        <ul>
-            <li><a href="<?php echo $batch_order; ?>"><?php echo $text_batch_order; ?></a></li>
-            <li><a href="<?php echo $batch_checkout; ?>"><?php echo $text_batch_checkout; ?></a></li>
-        </ul>
-    </div>
   <h2><?php echo $text_my_newsletter; ?></h2>
   <div class="content">
     <ul>

@@ -244,7 +244,6 @@ class ControllerCheckoutBCheckout extends Controller {
                         'tax'        => $this->tax->getTax($product['total'], $product['tax_class_id'])
                     );
                     $order['total'] += $product['total'];
-                    $uploaded_data['price'] = $product['price'];
                 }else {
                     $json['error']['error'] = 'Error in line ' . ($index+1) . ', column 15: invalid product id ' . $product_id;
                     //Todo
@@ -569,7 +568,7 @@ class ControllerCheckoutBCheckout extends Controller {
                     $products = array();
                     if ($row[0] && $row[1]) {
                         $row_data['customer_order'] = $row[0];
-                        $products[$row[1]] = $row[8];
+                        $products[] = $row[1];
                     }else{
                         if ($index == 1) {
                             $result['error']['error'] = "Row 1, column 1 cannot be empty.";
@@ -578,7 +577,7 @@ class ControllerCheckoutBCheckout extends Controller {
                         if (isset($row[1])) {
                             $sheet_data[$index][0] = $sheet_data[$index - 1][0];
                             $row_data['customer_order'] = $sheet_data[$index][0];
-                            $products[$row[1]] = $row[8];
+                            $products[] = $row[1];
                         }else{
                             continue;
                         }
@@ -591,6 +590,8 @@ class ControllerCheckoutBCheckout extends Controller {
                     $row_data['ship_to_postcode'] = $row[6];
                     $row_data['ship_to_phone'] = $row[7];
                     $row_data['quantity'] = $row[8];
+                    $row_data['price'] = $row[9];
+                    $row_data['amount'] = $row[10];
                     $result['data'][] = $row_data;
                 }
 

@@ -25,6 +25,7 @@ class ModelToolImage extends Model {
 			}
 			
 			$image = new Image(DIR_IMAGE . $old_image);
+			$image->imagefttext();
 			$image->resize($width, $height);
 			$image->save(DIR_IMAGE . $new_image);
 		}
