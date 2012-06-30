@@ -29,6 +29,7 @@
     </ul>
   </div>
     <!--Add by wuchang-->
+    <?php if (isset($text_my_batch_orders)) { ?>
     <h2><?php echo $text_my_batch_orders; ?></h2>
     <div class="content">
         <ul>
@@ -36,7 +37,8 @@
             <li><a href="<?php echo $batch_checkout; ?>"><?php echo $text_batch_checkout; ?></a></li>
         </ul>
     </div>
-  <h2><?php echo $text_my_newsletter; ?></h2>
+    <?php } ?>
+    <h2><?php echo $text_my_newsletter; ?></h2>
   <div class="content">
     <ul>
       <li><a href="<?php echo $newsletter; ?>"><?php echo $text_newsletter; ?></a></li>

@@ -90,6 +90,7 @@ class ModelAccountCustomer extends Model {
             $group_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer_group WHERE customer_group_id = '" . (int)$query->row['customer_group_id'] . "'");
             if ($group_query->num_rows) {
                 $result['customer_group_name'] = $group_query->row['name'];
+                $result['customer_group_id'] = $group_query->row['customer_group_id'];
             }
         }
         return $result;

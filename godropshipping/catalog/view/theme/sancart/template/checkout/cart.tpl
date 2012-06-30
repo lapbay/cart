@@ -50,7 +50,7 @@
                   - <small><?php echo $option['name']; ?>: <?php echo $option['value']; ?></small><br />
                   <?php } ?>
                 </div>
-                <?php if ($product['points']) { ?>
+                <?php if (isset($product['points']) && $product['points']) { ?>
                 <small><?php echo $product['points']; ?></small>
                 <?php } ?></td>
               <td class="model"><?php echo $product['model']; ?></td>

@@ -102,3 +102,5 @@
 2012-06-30 16:55:45 - PHP Notice:  Undefined index: price in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 28
 2012-06-30 16:55:45 - PHP Notice:  Undefined index: price in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 28
 2012-06-30 16:55:45 - PHP Notice:  Undefined index: price in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/checkout/parser.tpl on line 28
+2012-06-30 18:02:37 - PHP Notice:  Undefined index: points in /Users/milan/git/cart/godropshipping/catalog/view/theme/sancart/template/checkout/cart.tpl on line 53
+2012-06-30 18:19:49 - PHP Notice:  Undefined variable: text_my_batch_orders in /Users/milan/git/cart/godropshipping/catalog/view/theme/sancart/template/account/account.tpl on line 32
