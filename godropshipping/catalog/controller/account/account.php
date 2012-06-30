@@ -59,8 +59,15 @@ class ControllerAccountAccount extends Controller {
 		$this->data['return'] = $this->url->link('account/return', '', 'SSL');
 		$this->data['transaction'] = $this->url->link('account/transaction', '', 'SSL');
 		$this->data['newsletter'] = $this->url->link('account/newsletter', '', 'SSL');
-				
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/account.tpl')) {
+
+        //add by wuchang
+        $this->data['batch_order'] = $this->url->link('account/border', '', 'SSL');
+        $this->data['batch_checkout'] = $this->url->link('checkout/bcheckout', '', 'SSL');
+        $this->data['text_my_batch_orders'] = 'My batch orders';
+        $this->data['text_batch_order'] = 'View my batch orders history';
+        $this->data['text_batch_checkout'] = 'Upload batch orders and checkout';
+
+        if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/account.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/account/account.tpl';
 		} else {
 			$this->template = 'default/template/account/account.tpl';
