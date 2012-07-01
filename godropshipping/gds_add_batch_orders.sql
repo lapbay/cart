@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS gds_order_group (
     PRIMARY KEY (order_group_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
-ALTER TABLE `gds_order` ADD `order_group_id` int(11) NOT NULL DEFAULT 0 COMMENT '';
+ALTER TABLE `gds_order` ADD `order_group_id` int(11) DEFAULT 0 COMMENT '';
 
 
 #### Version 1.5.1.3, Revert
