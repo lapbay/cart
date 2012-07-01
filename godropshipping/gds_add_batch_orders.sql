@@ -34,8 +34,6 @@ CREATE TABLE IF NOT EXISTS gds_order_group (
     comment text COLLATE utf8_bin NOT NULL DEFAULT '',
     total decimal(15,4) NOT NULL DEFAULT '0.0000',
     order_status_id int(11) NOT NULL DEFAULT '0',
-    affiliate_id int(11) NOT NULL DEFAULT '0',
-    commission decimal(15,4) NOT NULL DEFAULT '0',
     language_id int(11) NOT NULL DEFAULT '0',
     currency_id int(11) NOT NULL DEFAULT '0',
     currency_code varchar(3) COLLATE utf8_bin NOT NULL DEFAULT '',

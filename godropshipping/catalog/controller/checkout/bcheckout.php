@@ -93,8 +93,72 @@ class ControllerCheckoutBCheckout extends Controller {
         $total_data = array();
         $total = 0;
 
+
         $orders = array();
-//        $file_data = $this->parse_csv($_FILES["files"]);
+        $orders['invoice_prefix'] = $this->config->get('config_invoice_prefix');
+        $orders['store_id'] = $this->config->get('config_store_id');
+        $orders['store_name'] = $this->config->get('config_name');
+
+        if ($orders['store_id']) {
+            $orders['store_url'] = $this->config->get('config_url');
+        } else {
+            $orders['store_url'] = HTTP_SERVER;
+        }
+
+        if ($this->customer->isLogged()) {
+            $orders['customer_id'] = $this->customer->getId();
+            $orders['customer_group_id'] = $this->customer->getCustomerGroupId();
+            $orders['firstname'] = $this->customer->getFirstName();
+            $orders['lastname'] = $this->customer->getLastName();
+            $orders['email'] = $this->customer->getEmail();
+            $orders['telephone'] = $this->customer->getTelephone();
+            $orders['fax'] = $this->customer->getFax();
+
+            $this->load->model('account/address');
+
+            $payment_address = $this->model_account_address->getAddress($this->session->data['payment_address_id']);
+        } elseif (isset($this->session->data['guest'])) {
+            $orders['customer_id'] = 0;
+            $orders['customer_group_id'] = $this->config->get('config_customer_group_id');
+            $orders['firstname'] = $this->session->data['guest']['firstname'];
+            $orders['lastname'] = $this->session->data['guest']['lastname'];
+            $orders['email'] = $this->session->data['guest']['email'];
+            $orders['telephone'] = $uploaded_data['ship_to_phone'];
+            $orders['fax'] = $this->session->data['guest']['fax'];
+
+            $payment_address = $this->session->data['guest']['payment'];
+        }
+
+        $orders['payment_firstname'] = $payment_address['firstname'];
+        $orders['payment_lastname'] = $payment_address['lastname'];
+        $orders['payment_company'] = $payment_address['company'];
+        $orders['payment_address_1'] = $payment_address['address_1'];
+        $orders['payment_address_2'] = $payment_address['address_2'];
+        $orders['payment_city'] = $payment_address['city'];
+        $orders['payment_postcode'] = $payment_address['postcode'];
+        $orders['payment_zone'] = $payment_address['zone'];
+        $orders['payment_zone_id'] = $payment_address['zone_id'];
+        $orders['payment_country'] = $payment_address['country'];
+        $orders['payment_country_id'] = $payment_address['country_id'];
+        $orders['payment_address_format'] = $payment_address['address_format'];
+        if (isset($this->session->data['payment_method']['title'])) {
+            $orders['payment_method'] = $this->session->data['payment_method']['title'];
+        } else {
+            $orders['payment_method'] = '';
+        }
+
+        $orders['language_id'] = $this->config->get('config_language_id');
+        $orders['currency_id'] = $this->currency->getId();
+        $orders['currency_code'] = $this->currency->getCode();
+        $orders['currency_value'] = $this->currency->getValue($this->currency->getCode());
+        $orders['ip'] = $this->request->server['REMOTE_ADDR'];
+        $orders['comment'] = '';
+
+        $this->load->model('checkout/border');
+        $orders['order_group_id'] = $this->model_checkout_border->create($orders);
+        $orders['orders'] = array();
+        $this->session->data['order_group_id'] = $orders['order_group_id'];
+
         $file_data = $this->parse_excel($_FILES["files"]);
 
         if (isset($file_data['error'])) {
@@ -105,57 +169,35 @@ class ControllerCheckoutBCheckout extends Controller {
             $order = array();
             $order['total'] = 0;
 
-            $order['invoice_prefix'] = $this->config->get('config_invoice_prefix');
-            $order['store_id'] = $this->config->get('config_store_id');
-            $order['store_name'] = $this->config->get('config_name');
+            $order['order_group_id'] = $orders['order_group_id'];
+            $order['invoice_prefix'] = $orders['invoice_prefix'];
+            $order['store_id'] = $orders['store_id'];
+            $order['store_name'] = $orders['store_name'];
 
-            if ($order['store_id']) {
-                $order['store_url'] = $this->config->get('config_url');
-            } else {
-                $order['store_url'] = HTTP_SERVER;
-            }
+            $order['store_url'] = $orders['store_url'];
 
-            if ($this->customer->isLogged()) {
-                $order['customer_id'] = $this->customer->getId();
-                $order['customer_group_id'] = $this->customer->getCustomerGroupId();
-                $order['firstname'] = $this->customer->getFirstName();
-                $order['lastname'] = $this->customer->getLastName();
-                $order['email'] = $this->customer->getEmail();
-                $order['telephone'] = $uploaded_data['ship_to_phone'];
-                $order['fax'] = $this->customer->getFax();
+            $order['customer_id'] = $orders['customer_id'];
+            $order['customer_group_id'] = $orders['customer_group_id'];
+            $order['firstname'] = $orders['firstname'];
+            $order['lastname'] = $orders['lastname'];
+            $order['email'] = $orders['email'];
+            $order['telephone'] = $orders['telephone'];
+            $order['fax'] = $orders['fax'];
 
-                $this->load->model('account/address');
+            $order['payment_firstname'] = $orders['payment_firstname'];
+            $order['payment_lastname'] = $orders['payment_lastname'];
+            $order['payment_company'] = $orders['payment_company'];
+            $order['payment_address_1'] = $orders['payment_address_1'];
+            $order['payment_address_2'] = $orders['payment_address_2'];
+            $order['payment_city'] = $orders['payment_city'];
+            $order['payment_postcode'] = $orders['payment_postcode'];
+            $order['payment_zone'] = $orders['payment_zone'];
+            $order['payment_zone_id'] = $orders['payment_zone_id'];
+            $order['payment_country'] = $orders['payment_country'];
+            $order['payment_country_id'] = $orders['payment_country_id'];
+            $order['payment_address_format'] = $orders['payment_address_format'];
+            $order['payment_method'] = $orders['payment_method'];
 
-                $payment_address = $this->model_account_address->getAddress($this->session->data['payment_address_id']);
-            } elseif (isset($this->session->data['guest'])) {
-                $order['customer_id'] = 0;
-                $order['customer_group_id'] = $this->config->get('config_customer_group_id');
-                $order['firstname'] = $this->session->data['guest']['firstname'];
-                $order['lastname'] = $this->session->data['guest']['lastname'];
-                $order['email'] = $this->session->data['guest']['email'];
-                $order['telephone'] = $uploaded_data['ship_to_phone'];
-                $order['fax'] = $this->session->data['guest']['fax'];
-
-                $payment_address = $this->session->data['guest']['payment'];
-            }
-
-            $order['payment_firstname'] = $payment_address['firstname'];
-            $order['payment_lastname'] = $payment_address['lastname'];
-            $order['payment_company'] = $payment_address['company'];
-            $order['payment_address_1'] = $payment_address['address_1'];
-            $order['payment_address_2'] = $payment_address['address_2'];
-            $order['payment_city'] = $payment_address['city'];
-            $order['payment_postcode'] = $payment_address['postcode'];
-            $order['payment_zone'] = $payment_address['zone'];
-            $order['payment_zone_id'] = $payment_address['zone_id'];
-            $order['payment_country'] = $payment_address['country'];
-            $order['payment_country_id'] = $payment_address['country_id'];
-            $order['payment_address_format'] = $payment_address['address_format'];
-            if (isset($this->session->data['payment_method']['title'])) {
-                $order['payment_method'] = $this->session->data['payment_method']['title'];
-            } else {
-                $order['payment_method'] = '';
-            }
 
             $order['shipping_firstname'] = $uploaded_data['end_cusotomer_name'];
             $order['shipping_lastname'] = '';
@@ -321,17 +363,18 @@ class ControllerCheckoutBCheckout extends Controller {
                 $order['commission'] = 0;
             }
 
-            $order['language_id'] = $this->config->get('config_language_id');
-            $order['currency_id'] = $this->currency->getId();
-            $order['currency_code'] = $this->currency->getCode();
-            $order['currency_value'] = $this->currency->getValue($this->currency->getCode());
-            $order['ip'] = $this->request->server['REMOTE_ADDR'];
+            $order['language_id'] = $orders['language_id'];
+            $order['currency_id'] = $orders['currency_id'];
+            $order['currency_code'] = $orders['currency_code'];
+            $order['currency_value'] = $orders['currency_value'];
+            $order['ip'] = $orders['ip'];
 
             $uploaded_data['order_id'] = $this->model_checkout_order->create($order);
             $uploaded_data['total'] = $order['total'];
             $this->session->data['order_id'] = $uploaded_data['order_id'];
 
             $this->data['orders'][] = $uploaded_data;
+            $orders['orders'] = $uploaded_data;
         }
 
 
@@ -361,6 +404,9 @@ class ControllerCheckoutBCheckout extends Controller {
         }
         array_multisort($sort_order, SORT_ASC, $total_data);
         $this->data['totals'] = $total_data;
+
+        $orders['total'] = $total;
+        $this->model_checkout_border->updateTotal($orders['order_group_id'], $orders['total']);
 
         $this->data['payment'] = $this->get_confirm();
 //        $this->session->data['payment_method'] = $this->session->data['payment_methods']['pp_standard'];
@@ -441,7 +487,6 @@ class ControllerCheckoutBCheckout extends Controller {
             }
         }
 
-
         $total = 0;
         foreach (array_values($this->session->data['orders']) as $order) {
             $total += $order['total'];
@@ -473,6 +518,8 @@ class ControllerCheckoutBCheckout extends Controller {
         }
         array_multisort($sort_order, SORT_ASC, $total_data);
         $this->data['totals'] = $total_data;
+        $this->load->model('checkout/border');
+        $this->model_checkout_border->updateTotal($this->session->data['order_group_id'], $total);
 
         if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/total.tpl')) {
             $this->template = $this->config->get('config_template') . '/template/checkout/total.tpl';

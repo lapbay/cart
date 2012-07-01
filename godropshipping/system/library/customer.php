@@ -144,7 +144,7 @@ final class Customer {
   	public function getNewsletter() {
 		return $this->newsletter;	
   	}
-
+    //add by wuchang
   	public function getCustomerGroupId() {
 		return $this->customer_group_id;	
   	}
