@@ -141,15 +141,15 @@ class ModelCheckoutBOrder extends Model {
 		}
 	}	
 
-	public function confirm($order_id, $order_status_id, $comment = '', $notify = false) {
-		$order_info = $this->getOrder($order_id);
-		 
-		if ($order_info && !$order_info['order_status_id']) {
-			$this->db->query("UPDATE `" . DB_PREFIX . "order` SET order_status_id = '" . (int)$order_status_id . "', date_modified = NOW() WHERE order_id = '" . (int)$order_id . "'");
+	public function confirm($order_group_id, $order_status_id, $comment = '', $notify = false) {
+        $batch_orders_info = $this->getBatchOrder($order_group_id);
 
-			$this->db->query("INSERT INTO " . DB_PREFIX . "order_history SET order_id = '" . (int)$order_id . "', order_status_id = '" . (int)$order_status_id . "', notify = '1', comment = '" . $this->db->escape(($comment && $notify) ? $comment : '') . "', date_added = NOW()");
+        if ($batch_orders_info && !$batch_orders_info['order_status_id']) {
+			$this->db->query("UPDATE `" . DB_PREFIX . "order` SET order_status_id = '" . (int)$order_status_id . "', date_modified = NOW() WHERE order_id = '" . (int)$order_group_id . "'");
 
-			$order_product_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "'");
+//			$this->db->query("INSERT INTO " . DB_PREFIX . "order_history SET order_id = '" . (int)$order_id . "', order_status_id = '" . (int)$order_status_id . "', notify = '1', comment = '" . $this->db->escape(($comment && $notify) ? $comment : '') . "', date_added = NOW()");
+
+			$order_product_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_group_id . "'");
 			
 			foreach ($order_product_query->rows as $order_product) {
 				$this->db->query("UPDATE " . DB_PREFIX . "product SET quantity = (quantity - " . (int)$order_product['quantity'] . ") WHERE product_id = '" . (int)$order_product['product_id'] . "' AND subtract = '1'");
@@ -495,7 +495,70 @@ class ModelCheckoutBOrder extends Model {
 			}		
 		}
 	}
-	
+
+    public function update($order_group_id, $order_status_id, $comment = '', $notify = false) {
+        $order_info = $this->getBatchOrder($order_group_id);
+
+        if ($order_info && $order_info['order_status_id']) {
+            $this->db->query("UPDATE `" . DB_PREFIX . "order_group` SET order_status_id = '" . (int)$order_status_id . "', date_modified = NOW() WHERE order_id = '" . (int)$order_group_id . "'");
+
+            // Send out any gift voucher mails
+            if ($this->config->get('config_complete_status_id') == $order_status_id) {
+                $this->load->model('checkout/voucher');
+                //Todo: fix the voucher
+//                $this->model_checkout_voucher->confirm($order_id);
+            }
+
+            $this->load->model('checkout/order');
+            //Todo: update all the orders in this batch order
+
+            if ($notify) {
+                $language = new Language($order_info['language_directory']);
+                $language->load($order_info['language_filename']);
+                $language->load('mail/order');
+
+                $subject = sprintf($language->get('text_update_subject'), html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8'), $order_group_id);
+
+                $message  = $language->get('text_update_order') . ' ' . $order_group_id . "\n";
+                $message .= $language->get('text_update_date_added') . ' ' . date($language->get('date_format_short'), strtotime($order_info['date_added'])) . "\n\n";
+
+                $order_status_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_status WHERE order_status_id = '" . (int)$order_status_id . "' AND language_id = '" . (int)$order_info['language_id'] . "'");
+
+                if ($order_status_query->num_rows) {
+                    $message .= $language->get('text_update_order_status') . "\n\n";
+                    $message .= $order_status_query->row['name'] . "\n\n";
+                }
+
+                if ($order_info['customer_id']) {
+                    $message .= $language->get('text_update_link') . "\n";
+                    $message .= $order_info['store_url'] . 'index.php?route=account/order/info&order_group_id=' . $order_group_id . "\n\n";
+                }
+
+                if ($comment) {
+                    $message .= $language->get('text_update_comment') . "\n\n";
+                    $message .= $comment . "\n\n";
+                }
+
+                $message .= $language->get('text_update_footer');
+
+                $mail = new Mail();
+                $mail->protocol = $this->config->get('config_mail_protocol');
+                $mail->parameter = $this->config->get('config_mail_parameter');
+                $mail->hostname = $this->config->get('config_smtp_host');
+                $mail->username = $this->config->get('config_smtp_username');
+                $mail->password = $this->config->get('config_smtp_password');
+                $mail->port = $this->config->get('config_smtp_port');
+                $mail->timeout = $this->config->get('config_smtp_timeout');
+                $mail->setTo($order_info['email']);
+                $mail->setFrom($this->config->get('config_email'));
+                $mail->setSender($order_info['store_name']);
+                $mail->setSubject($subject);
+                $mail->setText(html_entity_decode($message, ENT_QUOTES, 'UTF-8'));
+                $mail->send();
+            }
+        }
+    }
+
 	public function updateTotal($order_group_id, $total, $comment = '', $notify = false) {
 		$orders_info = $this->getBatchOrder($order_group_id);
 

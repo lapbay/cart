@@ -583,7 +583,7 @@ $(document).ready(function() {
             var json = data.result;
 
             if (!json) {
-                $('#confirm .checkout-content').prepend('<div class="warning" style="display: none;">' + 'Error getting result.' + '</div>');
+                $('#confirm .checkout-content').prepend('<div class="warning" style="display: none;">' + 'Error getting upload result.' + '</div>');
                 $('.warning').fadeIn('slow');
                 return;
             }

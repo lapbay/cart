@@ -323,7 +323,7 @@ class ControllerCheckoutBCheckout extends Controller {
             $total_models = $this->model_setting_extension->getExtensions('total');
             $results = array();
             foreach ($total_models as $key => $value) {
-                if ($value['code'] != 'vip') {
+                if ($value['code'] != 'vip' && $value['code'] != 'sub_total') {
                     $results[$key] = $value;
                 }
             }
@@ -408,9 +408,9 @@ class ControllerCheckoutBCheckout extends Controller {
         $orders['total'] = $total;
         $this->model_checkout_border->updateTotal($orders['order_group_id'], $orders['total']);
 
-        $this->data['payment'] = $this->get_confirm();
-//        $this->session->data['payment_method'] = $this->session->data['payment_methods']['pp_standard'];
-//        $this->data['payment'] = $this->getChild('payment/' . $this->session->data['payment_method']['code']);
+        //$this->data['payment'] = $this->get_confirm();
+        $this->session->data['payment_method'] = $this->session->data['payment_methods']['pp_standard'];
+        $this->data['payment'] = $this->getChild('payment/pp_standard_batch');
 
         $this->session->data['orders'] = $this->data['orders'];
 
@@ -521,6 +521,8 @@ class ControllerCheckoutBCheckout extends Controller {
         $this->load->model('checkout/border');
         $this->model_checkout_border->updateTotal($this->session->data['order_group_id'], $total);
 
+        $this->data['payment'] = $this->getChild('payment/pp_standard_batch');
+
         if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/total.tpl')) {
             $this->template = $this->config->get('config_template') . '/template/checkout/total.tpl';
         } else {
@@ -528,7 +530,8 @@ class ControllerCheckoutBCheckout extends Controller {
         }
 
         $json['output'] = $this->render();
-        $json['error']['info'] = 'test';
+        $json['payment'] = $this->data['payment'];
+//        $json['error']['info'] = 'debug';
         $this->response->setOutput(json_encode($json));
     }
 

@@ -253,3 +253,5 @@
 2012-07-01 11:43:05 - PHP Notice:  Error: Unknown column 'order_id' in 'where clause'<br />Error No: 1054<br />UPDATE `gds_order_group` SET total = '1275', date_modified = NOW() WHERE order_id = '8' in /Users/milan/git/cart/godropshipping/system/database/mysql.php on line 49
 2012-07-01 11:44:36 - PHP Notice:  Error: Unknown column 'order_id' in 'where clause'<br />Error No: 1054<br />UPDATE `gds_order_group` SET total = '1275', date_modified = NOW() WHERE order_id = '9' in /Users/milan/git/cart/godropshipping/system/database/mysql.php on line 49
 2012-07-01 12:25:50 - PHP Notice:  Undefined index: order_group_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 522
+2012-07-01 13:06:32 - PHP Notice:  Undefined index: files in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 162
+2012-07-01 13:31:14 - PHP Notice:  Undefined variable: continue in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/payment/pp_standard_batch.tpl on line 46

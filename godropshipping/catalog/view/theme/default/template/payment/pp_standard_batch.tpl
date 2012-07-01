@@ -6,18 +6,12 @@
   <input type="hidden" name="upload" value="1" />
   <input type="hidden" name="business" value="<?php echo $business; ?>" />
   <?php $i = 1; ?>
-  <?php foreach ($products as $product) { ?>
-  <input type="hidden" name="item_name_<?php echo $i; ?>" value="<?php echo $product['name']; ?>" />
-  <input type="hidden" name="item_number_<?php echo $i; ?>" value="<?php echo $product['model']; ?>" />
-  <input type="hidden" name="amount_<?php echo $i; ?>" value="<?php echo $product['price']; ?>" />
-  <input type="hidden" name="quantity_<?php echo $i; ?>" value="<?php echo $product['quantity']; ?>" />
-  <input type="hidden" name="weight_<?php echo $i; ?>" value="<?php echo $product['weight']; ?>" />
-  <?php $j = 0; ?>
-  <?php foreach ($product['option'] as $option) { ?>
-  <input type="hidden" name="on<?php echo $j; ?>_<?php echo $i; ?>" value="<?php echo $option['name']; ?>" />
-  <input type="hidden" name="os<?php echo $j; ?>_<?php echo $i; ?>" value="<?php echo $option['value']; ?>" />
-  <?php $j++; ?>
-  <?php } ?>
+  <?php foreach ($orders as $orders) { ?>
+  <input type="hidden" name="item_name_<?php echo $i; ?>" value="<?php echo $orders['name']; ?>" />
+  <input type="hidden" name="item_number_<?php echo $i; ?>" value="<?php echo $orders['model']; ?>" />
+  <input type="hidden" name="amount_<?php echo $i; ?>" value="<?php echo $orders['price']; ?>" />
+  <input type="hidden" name="quantity_<?php echo $i; ?>" value="<?php echo $orders['quantity']; ?>" />
+  <input type="hidden" name="weight_<?php echo $i; ?>" value="<?php echo $orders['weight']; ?>" />
   <?php $i++; ?>
   <?php } ?>
   <?php if ($discount_amount_cart) { ?>
@@ -45,5 +39,53 @@
   <input type="hidden" name="custom" value="<?php echo $custom; ?>" />
 </form>
 <div class="buttons">
-  <div class="right"><a id="button-confirm" class="button" onclick="$('#payment').submit();"><span><?php echo $button_confirm; ?></span></a></div>
+    <div class="left"><a id="button-remove" class="button"><span><?php echo 'Remove'; ?></span></a></div>
+    <div class="right"><a id="button-confirm" class="button" onclick="$('#payment').submit();"><span><?php echo $button_confirm; ?></span></a></div>
 </div>
+<script type="text/javascript"><!--
+$('#button-confirm1').bind('click', function() {
+    var oids = new Array();
+    $('.gds_order').each(function(index, obj) {
+        oids.push(parseInt($(this).closest('tr').attr('oid')));
+    });
+    $.post(
+            'index.php?route=checkout/bcheckout/confirm',
+            { 'orders': JSON.stringify(oids) },
+            function(response) {
+                location = '<?php echo $continue; ?>';
+            }
+    );
+});
+$('#button-remove').bind('click', function() {
+    var objs_to_remove = new Array();
+    var oids_to_remove = new Array();
+    $('.gds_order_remove .gds_order_remove_checkbox:checked').each(function(index, obj) {
+        objs_to_remove.push($(this).closest('tr'));
+        oids_to_remove.push(parseInt($(this).closest('tr').attr('oid')));
+    });
+    $.post(
+            'index.php?route=checkout/bcheckout/remove',
+            { 'orders': JSON.stringify(oids_to_remove) },
+            function(json) {
+                if (json['redirect']) {
+                    location = json['redirect'];
+                }
+
+                if (json['output']) {
+                    for (var i in objs_to_remove) {
+                        var obj = objs_to_remove[i];
+                        console.log(obj);
+                        obj.fadeOut();
+                        obj.remove();
+                        $('.checkout-product tfoot').html(json['output']);
+                    }
+                };
+
+                if (json['payment']) {
+                    $('.payment').html(json['payment']);
+                };
+            },
+            'json'
+    );
+});
+//--></script>
