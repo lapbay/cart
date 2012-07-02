@@ -83,12 +83,12 @@ class ControllerPaymentPPStandardBatch extends Controller {
 			$this->data['city'] = html_entity_decode($batch_order_info['payment_city'], ENT_QUOTES, 'UTF-8');
 			$this->data['zip'] = html_entity_decode($batch_order_info['payment_postcode'], ENT_QUOTES, 'UTF-8');
 			$this->data['country'] = $batch_order_info['payment_iso_code_2'];
-			$this->data['notify_url'] = $this->url->link('payment/pp_standard/callback');
+			$this->data['notify_url'] = $this->url->link('payment/pp_standard_batch/callback');
 			$this->data['email'] = $batch_order_info['email'];
 			$this->data['invoice'] = $this->session->data['order_group_id'] . ' - ' . html_entity_decode($batch_order_info['payment_firstname'], ENT_QUOTES, 'UTF-8') . ' ' . html_entity_decode($batch_order_info['payment_lastname'], ENT_QUOTES, 'UTF-8');
 			$this->data['lc'] = $this->session->data['language'];
 			$this->data['return'] = $this->url->link('checkout/success');
-			$this->data['notify_url'] = $this->url->link('payment/pp_standard/callback');
+			$this->data['notify_url'] = $this->url->link('payment/pp_standard_batch/callback');
 			$this->data['cancel_return'] = $this->url->link('checkout/bcheckout', '', 'SSL');
 			
 			if (!$this->config->get('pp_standard_transaction')) {
@@ -128,8 +128,8 @@ class ControllerPaymentPPStandardBatch extends Controller {
 		$this->load->model('checkout/border');
 
         $batch_order_info = $this->model_checkout_border->getBatchOrder($order_group_id);
-		
-		if ($batch_order_info) {
+
+        if ($batch_order_info) {
 			$request = 'cmd=_notify-validate';
 		
 			foreach ($this->request->post as $key => $value) {
@@ -154,8 +154,9 @@ class ControllerPaymentPPStandardBatch extends Controller {
 			if (!$response) {
 				$this->log->write('PP_STANDARD :: CURL failed ' . curl_error($curl) . '(' . curl_errno($curl) . ')');
 			}
-					
-			if ($this->config->get('pp_standard_debug')) {
+
+
+            if ($this->config->get('pp_standard_debug')) {
 				$this->log->write('PP_STANDARD :: IPN REQUEST: ' . $request);
 				$this->log->write('PP_STANDARD :: IPN RESPONSE: ' . $response);
 			}
@@ -197,15 +198,19 @@ class ControllerPaymentPPStandardBatch extends Controller {
 						$order_status_id = $this->config->get('pp_standard_voided_status_id');
 						break;								
 				}
-				
-				if (!$batch_order_info['order_status_id']) {
-					$this->model_checkout_border->confirm($order_group_id, $order_status_id);
+
+                if (!$batch_order_info['order_status_id']) {
+                    $this->log->write('wuchang confirm: ' . $order_status_id);
+                    $this->model_checkout_border->confirm($order_group_id, $order_status_id);
 				} else {
-					$this->model_checkout_border->update($order_group_id, $order_status_id);
+                    $this->log->write('wuchang update: ' . $order_status_id);
+                    $this->model_checkout_border->update($order_group_id, $order_status_id);
 				}
-			} else {
-				$this->model_checkout_order->confirm($order_group_id, $this->config->get('config_order_status_id'));
-			}
+                $this->log->write('wuchang after update db: ' . $order_status_id);
+            } else {
+                $this->model_checkout_order->confirm($order_group_id, $this->config->get('config_order_status_id'));
+
+            }
 			
 			curl_close($curl);
 		}	

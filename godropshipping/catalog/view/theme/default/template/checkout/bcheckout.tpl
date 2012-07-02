@@ -44,7 +44,7 @@
               <br>
               <br>
               <div class="buttons">
-                  <div class="right">I have read and agree to the <a alt="Terms &amp; Conditions" href="http://godropshipping.com/index.php?route=information/information/info&amp;information_id=5" class="fancybox"><b>Terms &amp; Conditions</b></a>        <input type="checkbox" value="1" name="agree" checked="checked">
+                  <div class="right">I have read and agree to the <a alt="Terms &amp; Conditions" href="http://www.godropshipping.com/index.php?route=information/information/info&amp;information_id=5" class="fancybox"><b>Terms &amp; Conditions</b></a>        <input type="checkbox" value="1" name="agree" checked="checked">
                       <a class="button" id="button-payment"><span>Continue</span></a></div>
               </div>
           </div>
@@ -52,7 +52,7 @@
       <div id="order-upload">
           <div class="checkout-heading"><?php echo $text_upload_file; ?></div>
           <div class="checkout-content">
-              <input id="fileupload" type="file" name="files" data-url="http://godropshipping.com/index.php?route=checkout/bcheckout/parser" multiple>
+              <input id="fileupload" type="file" name="files" data-url="http://www.godropshipping.com/index.php?route=checkout/bcheckout/parser" multiple>
               <img id="loading-image" src="catalog/view/javascript/jquery/loading.gif" style="display: none;">
               <p id="uploaded-file-name"></p>
           </div>

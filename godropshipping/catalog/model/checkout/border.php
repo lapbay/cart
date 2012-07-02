@@ -145,19 +145,25 @@ class ModelCheckoutBOrder extends Model {
         $batch_orders_info = $this->getBatchOrder($order_group_id);
 
         if ($batch_orders_info && !$batch_orders_info['order_status_id']) {
-			$this->db->query("UPDATE `" . DB_PREFIX . "order` SET order_status_id = '" . (int)$order_status_id . "', date_modified = NOW() WHERE order_group_id = '" . (int)$order_group_id . "'");
+			$this->db->query("UPDATE `" . DB_PREFIX . "order_group` SET order_status_id = '" . (int)$order_status_id . "', date_modified = NOW() WHERE order_group_id = '" . (int)$order_group_id . "'");
 
+            $order_query = $this->db->query("SELECT *, (SELECT os.name FROM `" . DB_PREFIX . "order_status` os WHERE os.order_status_id = o.order_status_id AND os.language_id = o.language_id) AS order_status FROM `" . DB_PREFIX . "order` o WHERE o.order_group_id = '" . (int)$order_group_id . "'");
+
+            $this->load->model('checkout/order');
+            if ($order_query->num_rows) {
+                $this->model_checkout_order->confirm($order_query->row['order_id'], $order_status_id);
+            }
 //			$this->db->query("INSERT INTO " . DB_PREFIX . "order_history SET order_group_id = '" . (int)$order_group_id . "', order_status_id = '" . (int)$order_status_id . "', notify = '1', comment = '" . $this->db->escape(($comment && $notify) ? $comment : '') . "', date_added = NOW()");
 
 			// Send out order confirmation mail
 
-			$subject = sprintf($batch_orders_info['store_name'], $order_group_id);
+			$subject = sprintf($batch_orders_info['store_name'] . ' Order ' . $order_group_id, $order_group_id);
 
 			// HTML Mail
 			$template = new Template();
 
-            $html = 'Batch order' . $order_group_id .  'confirmed!';
-            $text = 'Batch order' . $order_group_id .  'confirmed!';
+            $html = 'Batch order ' . $order_group_id .  ' confirmed!';
+            $text = 'Batch order ' . $order_group_id .  ' confirmed!';
 
             $mail = new Mail();
 			$mail->protocol = $this->config->get('config_mail_protocol');
@@ -194,7 +200,13 @@ class ModelCheckoutBOrder extends Model {
             }
 
             //Todo: update all the orders in this batch order
-            //$this->load->model('checkout/order');
+
+            $order_query = $this->db->query("SELECT *, (SELECT os.name FROM `" . DB_PREFIX . "order_status` os WHERE os.order_status_id = o.order_status_id AND os.language_id = o.language_id) AS order_status FROM `" . DB_PREFIX . "order` o WHERE o.order_group_id = '" . (int)$order_group_id . "'");
+
+            $this->load->model('checkout/order');
+            if ($order_query->num_rows) {
+                $this->model_checkout_order->update($order_query->row['order_id'], $order_status_id);
+            }
 
             if ($notify) {
                 $language = new Language($order_info['language_directory']);
