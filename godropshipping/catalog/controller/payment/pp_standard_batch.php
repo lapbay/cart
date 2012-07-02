@@ -200,13 +200,12 @@ class ControllerPaymentPPStandardBatch extends Controller {
 				}
 
                 if (!$batch_order_info['order_status_id']) {
-                    $this->log->write('wuchang confirm: ' . $order_status_id);
+                    $this->log->write('By wuchang: confirm batch order ' . $order_group_id . ': ' . $order_status_id);
                     $this->model_checkout_border->confirm($order_group_id, $order_status_id);
 				} else {
-                    $this->log->write('wuchang update: ' . $order_status_id);
+                    $this->log->write('By wuchang: update batch order ' . $order_group_id . ': ' . $order_status_id);
                     $this->model_checkout_border->update($order_group_id, $order_status_id);
 				}
-                $this->log->write('wuchang after update db: ' . $order_status_id);
             } else {
                 $this->model_checkout_order->confirm($order_group_id, $this->config->get('config_order_status_id'));
 

@@ -151,7 +151,9 @@ class ModelCheckoutBOrder extends Model {
 
             $this->load->model('checkout/order');
             if ($order_query->num_rows) {
-                $this->model_checkout_order->confirm($order_query->row['order_id'], $order_status_id);
+                foreach ($order_query->rows as $order) {
+                    $this->model_checkout_order->confirm($order['order_id'], $order_status_id);
+                }
             }
 //			$this->db->query("INSERT INTO " . DB_PREFIX . "order_history SET order_group_id = '" . (int)$order_group_id . "', order_status_id = '" . (int)$order_status_id . "', notify = '1', comment = '" . $this->db->escape(($comment && $notify) ? $comment : '') . "', date_added = NOW()");
 
@@ -205,7 +207,9 @@ class ModelCheckoutBOrder extends Model {
 
             $this->load->model('checkout/order');
             if ($order_query->num_rows) {
-                $this->model_checkout_order->update($order_query->row['order_id'], $order_status_id);
+                foreach ($order_query->rows as $order) {
+                    $this->model_checkout_order->update($order['order_id'], $order_status_id);
+                }
             }
 
             if ($notify) {

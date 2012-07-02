@@ -1,12 +1,12 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://godropshipping.com/admin/');
-define('HTTP_CATALOG', 'http://godropshipping.com/');
-define('HTTP_IMAGE', 'http://godropshipping.com/image/');
+define('HTTP_SERVER', 'http://www.godropshipping.com/admin/');
+define('HTTP_CATALOG', 'http://www.godropshipping.com/');
+define('HTTP_IMAGE', 'http://www.godropshipping.com/image/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://godropshipping.com/admin/');
-define('HTTPS_IMAGE', 'http://godropshipping.com/image/');
+define('HTTPS_SERVER', 'http://www.godropshipping.com/admin/');
+define('HTTPS_IMAGE', 'http://www.godropshipping.com/image/');
 
 // DIR
 define('DIR_APPLICATION', '/home/elex/nginx/godropshipping/admin/');
