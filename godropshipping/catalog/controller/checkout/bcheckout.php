@@ -2,6 +2,8 @@
 class ControllerCheckoutBCheckout extends Controller {
 	public function index() {
         if (!$this->customer->isLogged()) {
+            $this->session->data['redirect'] = $this->url->link('checkout/bcheckout', '', 'SSL');
+
             $this->redirect($this->url->link('account/login'));
     	}
 				

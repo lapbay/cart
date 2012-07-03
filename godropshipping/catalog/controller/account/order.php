@@ -110,7 +110,13 @@ class ControllerAccountOrder extends Controller {
 			$order_id = $this->request->get['order_id'];
 		} else {
 			$order_id = 0;
-		}	
+		}
+        //Add by wuchang
+        if (isset($this->request->get['order_group_id'])) {
+            $order_group_id = $this->request->get['order_group_id'];
+        } else {
+            $order_group_id = 0;
+        }
 		
 		if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->link('account/order/info', 'order_id=' . $order_id, 'SSL');
@@ -380,8 +386,13 @@ class ControllerAccountOrder extends Controller {
         		);
       		}
 
-      		$this->data['continue'] = $this->url->link('account/order', '', 'SSL');
-		
+            //Modified by wuchang
+            if ($order_group_id > 0) {
+                $this->data['continue'] = $this->url->link('account/border', 'order_group_id=' . $order_group_id, 'SSL');
+            }else{
+                $this->data['continue'] = $this->url->link('account/order', '', 'SSL');
+            }
+
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/order_info.tpl')) {
 				$this->template = $this->config->get('config_template') . '/template/account/order_info.tpl';
 			} else {
@@ -432,9 +443,13 @@ class ControllerAccountOrder extends Controller {
 				'href'      => $this->url->link('account/order/info', 'order_id=' . $order_id, 'SSL'),
 				'separator' => $this->language->get('text_separator')
 			);
-												
-      		$this->data['continue'] = $this->url->link('account/order', '', 'SSL');
-			 			
+            //Modified by wuchang
+			if ($order_group_id > 0) {
+                $this->data['continue'] = $this->url->link('account/border', 'order_group_id=' . $order_group_id, 'SSL');
+            }else{
+                $this->data['continue'] = $this->url->link('account/order', '', 'SSL');
+            }
+
 			if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/error/not_found.tpl')) {
 				$this->template = $this->config->get('config_template') . '/template/error/not_found.tpl';
 			} else {

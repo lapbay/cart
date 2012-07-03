@@ -255,3 +255,23 @@
 2012-07-01 12:25:50 - PHP Notice:  Undefined index: order_group_id in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 522
 2012-07-01 13:06:32 - PHP Notice:  Undefined index: files in /Users/milan/git/cart/godropshipping/catalog/controller/checkout/bcheckout.php on line 162
 2012-07-01 13:31:14 - PHP Notice:  Undefined variable: continue in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/payment/pp_standard_batch.tpl on line 46
+2012-07-03 5:55:23 - PHP Notice:  Error: Could not load model account/border! in /Users/milan/git/cart/godropshipping/system/engine/loader.php on line 37
+2012-07-03 6:36:40 - PHP Notice:  Undefined index: order_id in /Users/milan/git/cart/godropshipping/catalog/controller/account/border.php on line 75
+2012-07-03 6:36:40 - PHP Notice:  Undefined index: order_id in /Users/milan/git/cart/godropshipping/catalog/controller/account/border.php on line 75
+2012-07-03 6:36:40 - PHP Notice:  Undefined index: order_id in /Users/milan/git/cart/godropshipping/catalog/controller/account/border.php on line 75
+2012-07-03 6:36:41 - PHP Notice:  Undefined index: order_id in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/account/batch_order_list.tpl on line 12
+2012-07-03 6:36:41 - PHP Notice:  Undefined index: products in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/account/batch_order_list.tpl on line 16
+2012-07-03 6:36:41 - PHP Notice:  Undefined index: order_id in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/account/batch_order_list.tpl on line 12
+2012-07-03 6:36:41 - PHP Notice:  Undefined index: products in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/account/batch_order_list.tpl on line 16
+2012-07-03 6:36:41 - PHP Notice:  Undefined index: order_id in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/account/batch_order_list.tpl on line 12
+2012-07-03 6:36:41 - PHP Notice:  Undefined index: products in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/account/batch_order_list.tpl on line 16
+2012-07-03 6:37:14 - PHP Notice:  Undefined index: order_id in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/account/batch_order_list.tpl on line 12
+2012-07-03 6:37:14 - PHP Notice:  Undefined index: products in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/account/batch_order_list.tpl on line 16
+2012-07-03 6:37:14 - PHP Notice:  Undefined index: order_id in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/account/batch_order_list.tpl on line 12
+2012-07-03 6:37:14 - PHP Notice:  Undefined index: products in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/account/batch_order_list.tpl on line 16
+2012-07-03 6:37:14 - PHP Notice:  Undefined index: order_id in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/account/batch_order_list.tpl on line 12
+2012-07-03 6:37:14 - PHP Notice:  Undefined index: products in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/account/batch_order_list.tpl on line 16
+2012-07-03 6:37:34 - PHP Notice:  Undefined index: products in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/account/batch_order_list.tpl on line 16
+2012-07-03 6:37:34 - PHP Notice:  Undefined index: products in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/account/batch_order_list.tpl on line 16
+2012-07-03 6:37:34 - PHP Notice:  Undefined index: products in /Users/milan/git/cart/godropshipping/catalog/view/theme/default/template/account/batch_order_list.tpl on line 16
+2012-07-03 7:27:10 - PHP Notice:  Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '27'' at line 1<br />Error No: 1064<br />SELECT COUNT(*) AS total FROM `gds_order` WHERE customer_id = '1' AND order_status_id > '0'' AND order_group_id = '27' in /Users/milan/git/cart/godropshipping/system/database/mysql.php on line 49
