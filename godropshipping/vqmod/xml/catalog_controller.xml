@@ -1,0 +1,361 @@
+<!-- Created using vQmod XML Generator by UKSB - http://www.opencart-extensions.co.uk //-->
+<modification>
+	<id><![CDATA[Change Code]]></id>
+	<version><![CDATA[1.0]]></version>
+	<vqmver><![CDATA[2.1.6]]></vqmver>
+	<author><![CDATA[Pham Xuyen]]></author>
+	<file name="catalog/controller/common/header.php">
+		<operation>
+			<search position="before" offset="1"><![CDATA[$this->data['home']]]></search>
+			<add><![CDATA[$this->data['text_livechat'] = $this->language->get('text_livechat');
+        $this->data['text_login'] = $this->language->get('text_login');
+        $this->data['text_email'] = $this->language->get('text_email');
+        $this->data['text_callus'] = $this->language->get('text_callus');
+        $this->data['text_category'] = $this->language->get('text_category');
+        $this->data['entry_password'] = $this->language->get('entry_password');
+        $this->data['entry_name'] = $this->language->get('entry_name');
+        $this->data['entry_email'] = $this->language->get('entry_email');
+        $this->data['entry_enquiry'] = $this->language->get('entry_enquiry');
+        $this->data['text_forgotten'] = $this->language->get('text_forgotten');
+        $this->data['text_register'] = $this->language->get('text_register');
+        $this->data['button_login'] = $this->language->get('button_login');
+        $this->data['button_continue'] = $this->language->get('button_continue');
+        $this->data['button_search'] = $this->language->get('button_search');
+		$this->data['action_login'] = $this->url->link('account/login', '', 'SSL');
+        $this->data['forgotten'] = $this->url->link('account/forgotten', '', 'SSL');
+        $this->data['register'] = $this->url->link('account/register', '', 'SSL');
+        $this->data['action_contact'] = $this->url->link('information/contact');]]></add>
+		</operation>
+		<operation>
+			<search position="before" offset="1"><![CDATA[if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/header.tpl')) {]]></search>
+			<add><![CDATA[// new module
+        
+        $this->load->model('design/layout');
+		$this->load->model('catalog/category');
+		$this->load->model('catalog/product');
+		$this->load->model('catalog/information');
+		
+		if (isset($this->request->get['route'])) {
+			$route = $this->request->get['route'];
+		} else {
+			$route = 'common/home';
+		}
+		
+		$layout_id = 0;
+		
+		if (substr($route, 0, 16) == 'product/category' && isset($this->request->get['path'])) {
+			$path = explode('_', (string)$this->request->get['path']);
+				
+			$layout_id = $this->model_catalog_category->getCategoryLayoutId(end($path));			
+		}
+		
+		if (substr($route, 0, 15) == 'product/product' && isset($this->request->get['product_id'])) {
+			$layout_id = $this->model_catalog_product->getProductLayoutId($this->request->get['product_id']);
+		}
+		
+		if (substr($route, 0, 23) == 'information/information' && isset($this->request->get['information_id'])) {
+			$layout_id = $this->model_catalog_information->getInformationLayoutId($this->request->get['information_id']);
+		}
+		
+		if (!$layout_id) {
+			$layout_id = $this->model_design_layout->getLayout($route);
+		}
+				
+		if (!$layout_id) {
+			$layout_id = $this->config->get('config_layout_id');
+		}
+
+		$module_data = array();
+		
+		$this->load->model('setting/extension');
+		
+		$extensions = $this->model_setting_extension->getExtensions('module');		
+		
+		foreach ($extensions as $extension) {
+			$modules = $this->config->get($extension['code'] . '_module');
+			
+			if ($modules) {
+				foreach ($modules as $module) {
+					if (($module['layout_id'] == $layout_id || $module['layout_id'] == 0) && $module['position'] == 'header' && $module['status']) {
+						$module_data[] = array(
+							'code'       => $extension['code'],
+							'setting'    => $module,
+							'sort_order' => $module['sort_order']
+						);				
+					}
+				}
+			}
+		}
+		
+		$sort_order = array(); 
+	  
+		foreach ($module_data as $key => $value) {
+      		$sort_order[$key] = $value['sort_order'];
+    	}
+		
+		array_multisort($sort_order, SORT_ASC, $module_data);
+		
+		$this->data['modules'] = array();
+		
+		foreach ($module_data as $module) {
+			$module = $this->getChild('module/' . $module['code'], $module['setting']);
+			
+			if ($module) {
+				$this->data['modules'][] = $module;
+			}
+		}
+        
+        
+        //end new module
+		
+			$this->children = array(
+			'module/menu'
+		);]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/controller/common/footer.php">
+		<operation>
+			<search position="before" offset="1"><![CDATA[$this->load->model('catalog/information');]]></search>
+			<add><![CDATA[$this->data['text_praesent'] = $this->language->get('text_praesent');
+		$this->data['text_dolor'] = $this->language->get('text_dolor');
+		$this->data['text_commodo'] = $this->language->get('text_commodo');
+		$this->data['text_massan'] = $this->language->get('text_massan');
+		$this->data['text_suspendisse'] = $this->language->get('text_suspendisse');
+        $this->data['text_handling'] = $this->language->get('text_quotations');
+        $this->data['text_quotations'] = $this->language->get('text_praesent');
+		$this->data['text_guarantee'] = $this->language->get('text_guarantee');
+		$this->data['text_drop'] = $this->language->get('text_drop');
+		$this->data['text_tracking'] = $this->language->get('text_tracking');
+		$this->data['text_tax'] = $this->language->get('text_tax');
+        $this->data['text_dropship'] = $this->language->get('text_dropship');
+        $this->data['text_about'] = $this->language->get('text_about');
+		$this->data['text_policies'] = $this->language->get('text_policies');
+        $this->data['text_support'] = $this->language->get('text_support');
+        $this->data['text_visit'] = $this->language->get('text_visit');
+        $this->data['text_store'] = $this->language->get('text_store');
+        $this->data['text_category'] = $this->language->get('text_category');
+		$this->data['text_social'] = $this->language->get('text_social');
+		$this->data['privacy'] = $this->url->link('information/information&amp;information_id=3');
+		$this->data['about'] = $this->url->link('information/information&amp;information_id=4');]]></add>
+		</operation>
+		<operation>
+			<search position="before" offset="1"><![CDATA[if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/footer.tpl')) {]]></search>
+			<add><![CDATA[// new module
+        
+        $this->load->model('design/layout');
+		$this->load->model('catalog/category');
+		$this->load->model('catalog/product');
+		$this->load->model('catalog/information');
+		
+		if (isset($this->request->get['route'])) {
+			$route = $this->request->get['route'];
+		} else {
+			$route = 'common/home';
+		}
+		
+		$layout_id = 0;
+		
+		if (substr($route, 0, 16) == 'product/category' && isset($this->request->get['path'])) {
+			$path = explode('_', (string)$this->request->get['path']);
+				
+			$layout_id = $this->model_catalog_category->getCategoryLayoutId(end($path));			
+		}
+		
+		if (substr($route, 0, 15) == 'product/product' && isset($this->request->get['product_id'])) {
+			$layout_id = $this->model_catalog_product->getProductLayoutId($this->request->get['product_id']);
+		}
+		
+		if (substr($route, 0, 23) == 'information/information' && isset($this->request->get['information_id'])) {
+			$layout_id = $this->model_catalog_information->getInformationLayoutId($this->request->get['information_id']);
+		}
+		
+		if (!$layout_id) {
+			$layout_id = $this->model_design_layout->getLayout($route);
+		}
+				
+		if (!$layout_id) {
+			$layout_id = $this->config->get('config_layout_id');
+		}
+
+		$module_data = array();
+		
+		$this->load->model('setting/extension');
+		
+		$extensions = $this->model_setting_extension->getExtensions('module');		
+		
+		foreach ($extensions as $extension) {
+			$modules = $this->config->get($extension['code'] . '_module');
+			
+			if ($modules) {
+				foreach ($modules as $module) {
+					if (($module['layout_id'] == $layout_id || $module['layout_id']==0) && $module['position'] == 'footer' && $module['status']) {
+						$module_data[] = array(
+							'code'       => $extension['code'],
+							'setting'    => $module,
+							'sort_order' => $module['sort_order']
+						);				
+					}
+				}
+			}
+		}
+		
+		$sort_order = array(); 
+	  
+		foreach ($module_data as $key => $value) {
+      		$sort_order[$key] = $value['sort_order'];
+    	}
+		
+		array_multisort($sort_order, SORT_ASC, $module_data);
+		
+		$this->data['modules'] = array();
+		
+		foreach ($module_data as $module) {
+			$module = $this->getChild('module/' . $module['code'], $module['setting']);
+			
+			if ($module) {
+				$this->data['modules'][] = $module;
+			}
+		}
+        
+        // End module
+        
+        
+        // category
+		$this->load->model('catalog/category');
+		$this->load->model('catalog/product');
+		
+		$this->data['categories'] = array();
+					
+		$categories = $this->model_catalog_category->getCategories(0);
+		
+		foreach ($categories as $category) {
+			$children_data = array();
+			
+			$children = $this->model_catalog_category->getCategories($category['category_id']);
+			
+			foreach ($children as $child) {
+				$data = array(
+					'filter_category_id'  => $child['category_id'],
+					'filter_sub_category' => true
+				);		
+					
+							
+				$children_data[] = array(
+					'category_id' => $child['category_id'],
+					'name'        => $child['name'],
+					'href'        => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])	
+				);					
+			}
+			
+			$data = array(
+				'filter_category_id'  => $category['category_id'],
+				'filter_sub_category' => true	
+			);		
+				
+						
+			$this->data['categories'][] = array(
+				'category_id' => $category['category_id'],
+				'name'        => $category['name'],
+				'children'    => $children_data,
+				'href'        => $this->url->link('product/category', 'path=' . $category['category_id'])
+			);
+		}]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/controller/account/wishlist.php">
+		<operation>
+			<search position="before" offset="1"><![CDATA[$this->data['action']]]></search>
+			<add><![CDATA[$this->data['text_remove'] = $this->language->get('text_remove');
+        $this->data['column_sku'] = $this->language->get('column_sku');]]></add>
+		</operation>
+		
+		<operation>
+			<search position="after" offset="1"><![CDATA[$this->data['products'][] = array(]]></search>
+			<add><![CDATA['sku'      => $product_info['sku'],]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/controller/checkout/cart.php">
+		<operation>
+			<search position="after" offset="1"><![CDATA[$this->data['button_checkout']]]></search>
+			<add><![CDATA[//new
+			$this->data['text_remove'] = $this->language->get('text_remove');
+			$this->data['text_tax'] = $this->language->get('text_tax');
+			$this->data['column_sku'] = $this->language->get('column_sku');]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[$price = $this->currency->format($this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax')));]]></search>
+			<add><![CDATA[$price = $this->currency->format($this->tax->calculate($product['price'],0, $this->config->get('config_tax')));]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[$total = $this->currency->format($this->tax->calculate($product['total'], $product['tax_class_id'], $this->config->get('config_tax')));]]></search>
+			<add><![CDATA[$tax = $this->currency->format($this->tax->calculate($product['total'], $product['tax_class_id'], $this->config->get('config_tax'))-$product['total']);]]></add>
+		</operation>
+		<operation>
+			<search position="before" offset="1" index="1"><![CDATA[$this->data['products'][] = array(]]></search>
+			<add><![CDATA[$this->load->model('catalog/product');
+				$product_info = $this->model_catalog_product->getProduct($product['key']);
+				$sku= $product_info['sku'];]]></add>
+		</operation>
+		<operation>
+			<search position="after" offset="1" index="1"><![CDATA[$this->data['products'][] = array(]]></search>
+			<add><![CDATA['sku'      => $sku,
+			'tax'	   => $tax,]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[$image = $this->model_tool_image->resize($result['image'], 40, 40);]]></search>
+			<add><![CDATA[$image = $this->model_tool_image->resize($result['image'], 70, 60);]]></add>
+		</operation>
+	</file>
+	<file name="catalog/controller/product/product.php">
+		<operation>
+			<search position="before" offset="1"><![CDATA[if ($product_info['quantity'] <= 0) {]]></search>
+			<add><![CDATA[$this->data['text_sku'] = $this->language->get('text_sku');
+            $this->data['text_title'] = $this->language->get('text_title');
+            $this->data['sku'] = $product_info['sku'];
+            $this->data['text_overview'] = $this->language->get('text_overview');
+			$this->data['button_submit'] = $this->language->get('button_submit');
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after" offset="1"><![CDATA[$this->data['products'][] = array(]]></search>
+			<add><![CDATA['model'       => $result['model'],]]></add>
+		</operation>
+	</file>
+	<file name="catalog/controller/product/category.php">
+		<operation>
+			<search position="after" offset="1"><![CDATA[$this->data['products'][] = array(]]></search>
+			<add><![CDATA['model'       => $result['model'],
+			'description' => mb_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 200) . '..',]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['description' => mb_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 100) . '..',]]></search>
+			<add><![CDATA['description' => mb_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, 200) . '..',]]></add>
+		</operation>
+	</file>
+	<file name="catalog/controller/product/compare.php">
+		<operation>
+			<search position="after" offset="1"><![CDATA[$this->data['products'][$product_id] = array(]]></search>
+			<add><![CDATA['sku'          => $product_info['sku'],]]></add>
+		</operation>
+		<operation>
+			<search position="before" offset="1"><![CDATA[$this->data['text_manufacturer']]]></search>
+			<add><![CDATA[//new
+        $this->data['text_sku'] = $this->language->get('text_sku');
+        $this->data['text_color'] = $this->language->get('text_color');
+        $this->data['compare_title'] = $this->language->get('compare_title');]]></add>
+		</operation>
+	</file>
+	<file name="catalog/controller/module/category.php">
+		<operation>
+			<search position="replace"><![CDATA['name'        => $child['name'] . ' (' . $product_total . ')',]]></search>
+			<add><![CDATA['name'        => $child['name'],]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA['name'        => $category['name'] . ' (' . $product_total . ')',]]></search>
+			<add><![CDATA['name'        => $category['name'],]]></add>
+		</operation>
+	</file>
+</modification>

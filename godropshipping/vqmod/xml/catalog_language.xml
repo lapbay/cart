@@ -1,0 +1,155 @@
+<!-- Created using vQmod XML Generator by UKSB - http://www.opencart-extensions.co.uk //-->
+<modification>
+	<id><![CDATA[Change language]]></id>
+	<version><![CDATA[1.0]]></version>
+	<vqmver><![CDATA[2.1.6]]></vqmver>
+	<author><![CDATA[Pham Xuyen]]></author>
+	<file name="catalog/language/english/english.php">
+		<operation>
+			<search position="before"><![CDATA[?>]]></search>
+			<add><![CDATA[$_['button_wishlist']         = 'Wishlist';
+			$_['button_compare']        = 'Compare';]]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/common/header.php">
+		<operation>
+			<search position="before"><![CDATA[?>]]></search>
+			<add><![CDATA[$_['text_wishlist'] = 'My WishList (%s)';
+				$_['text_oder']     = 'My Orders';
+				$_['text_items']    = ' (%s)';
+				$_['text_search']   = 'Search items here';
+				$_['text_logged']   = 'You are logged in as <a class="wellcome-back" href="%s">%s</a><a class="logout" href="%s"> Sign Out</a>';
+				$_['text_livechat'] = 'Live Chat With Us';
+				$_['text_login'] = 'Sign in';
+				$_['text_email'] = 'Username';
+				$_['text_forgotten']               = 'Forgot your password?';
+				$_['text_register']                = "Don't have an account ? ";
+				$_['text_callus']                = "Free to call us";
+				$_['entry_password']               = 'Password';
+				$_['text_category']                = 'All whosale categories';
+				$_['entry_name']     = 'Your name';
+				$_['entry_email']    = 'Your email';
+				$_['entry_enquiry']  = 'Message';
+				$_['button_login']               = 'Sign in';
+				$_['button_continue']               = 'Submit';
+				$_['button_search']               = 'Search';]]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/common/footer.php">
+		<operation>
+			<search position="before"><![CDATA[?>]]></search>
+			<add><![CDATA[//new
+				$_['text_social']  = 'Follow Us On Networking';
+				$_['text_service']  = 'Our Services';
+				$_['text_category']  = 'Categories';
+				$_['text_praesent']  = 'Praesent tempus';
+				$_['text_dolor']  = 'Dolor pretium';
+				$_['text_commodo']  = 'Commodo lorem';
+				$_['text_massan']  = 'Massan placerat';
+				$_['text_suspendisse']  = 'Suspendisse est';
+				$_['text_dropship']  = 'About Dropship';
+				$_['text_handling']  = 'Shipping & Handling';
+				$_['text_quotations']  = 'Large Order Quotations';
+				$_['text_guarantee']  = 'Lowest Price Guarantee';
+				$_['text_drop']  = 'Drop Shipping Program';
+				$_['text_tracking']  = 'Tracking Packages';
+				$_['text_tax']  = 'Do I have to pay tax?';
+				$_['text_store']  = 'Fine Our Store';
+				$_['text_about']      = 'About Us';
+				$_['text_policies']      = 'Privacy Policies';
+				$_['text_support']      = 'Support 1800 - 123 456789';
+				$_['text_visit']      = 'Find the store you wish to visit';
+				$_['text_powered']      = '&copy; 2012 Supermarket Demo Store. All rights reserved.<br /><a title="Opencart Themes" href="http://www.opencart.com"> Opencart Themes</a> by <a title="Opencart Themes" href="http://www.opencart.com">themes.com</a> ';//new
+				$_['text_social']  = 'Follow Us On Networking';
+				$_['text_service']  = 'Our Services';
+				$_['text_category']  = 'Categories';
+				$_['text_praesent']  = 'Praesent tempus';
+				$_['text_dolor']  = 'Dolor pretium';
+				$_['text_commodo']  = 'Commodo lorem';
+				$_['text_massan']  = 'Massan placerat';
+				$_['text_suspendisse']  = 'Suspendisse est';
+				$_['text_dropship']  = 'About Dropship';
+				$_['text_handling']  = 'Shipping & Handling';
+				$_['text_quotations']  = 'Large Order Quotations';
+				$_['text_guarantee']  = 'Lowest Price Guarantee';
+				$_['text_drop']  = 'Drop Shipping Program';
+				$_['text_tracking']  = 'Tracking Packages';
+				$_['text_tax']  = 'Do I have to pay tax?';
+				$_['text_store']  = 'Fine Our Store';
+				$_['text_about']      = 'About Us';
+				$_['text_policies']      = 'Privacy Policies';
+				$_['text_support']      = 'Support 1800 - 123 456789';
+				$_['text_visit']      = 'Find the store you wish to visit';
+				$_['text_powered']      = '&copy; 2012 Supermarket Demo Store. All rights reserved.<br /><a title="Opencart Themes" href="http://www.opencart.com"> Opencart Themes</a> by <a title="Opencart Themes" href="http://www.opencart.com">themes.com</a> ';]]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/account/wishlist.php">
+		<operation>
+			<search position="before"><![CDATA[?>]]></search>
+			<add><![CDATA[//new
+				$_['text_remove']       = 'Remove';
+				$_['column_sku']  = 'Sku';]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/language/english/account/register.php">
+		<operation>
+			<search position="before"><![CDATA[?>]]></search>
+			<add><![CDATA[$_['entry_confirm']        = 'Confirm Password';
+				$_['text_newsletter']      = 'Newsletters';
+				$_['button_continue']        = 'Register Account';]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/language/english/checkout/cart.php">
+		<operation>
+			<search position="before"><![CDATA[?>]]></search>
+			<add><![CDATA[//new
+				$_['text_items']    = ' (%s)';
+				$_['text_remove']       = 'Remove';
+				$_['text_tax']       = 'Shipping & Tax';
+				$_['column_sku']    = 'Sku';]]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/product/product.php">
+		<operation>
+			<search position="before"><![CDATA[?>]]></search>
+			<add><![CDATA[//new
+			$_['text_qty']          = 'Quantity';
+			$_['text_write']        = 'Write your review';
+			$_['text_title']        = 'Rollover image to zoom in';
+			$_['text_sku']        = 'SKU';
+			$_['text_overview']          = 'Quick Overview';
+			$_['text_select']        = 'Please select one'; 
+			$_['button_submit']        = 'Submit';
+			$_['entry_name']        = 'Your Name<span>*</span>';
+			$_['entry_review']      = 'Review<span>*</span>';
+			$_['entry_rating']      = 'How do you rate this product?';
+			$_['tab_review']        = 'Reviews';]]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/module/bestseller.php">
+		<operation>
+			<search position="before"><![CDATA[?>]]></search>
+			<add><![CDATA[$_['heading_title'] = 'Top Recommendations of the Month';]]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/module/category.php">
+		<operation>
+			<search position="before"><![CDATA[?>]]></search>
+			<add><![CDATA[$_['heading_title'] = 'Wholesale categories';]]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/module/featured.php">
+		<operation>
+			<search position="before"><![CDATA[?>]]></search>
+			<add><![CDATA[$_['heading_title'] = 'FEATURED PRODUCT';]]></add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/module/latest.php">
+		<operation>
+			<search position="before"><![CDATA[?>]]></search>
+			<add><![CDATA[$_['heading_title'] = 'NEW ARRIVAL';]]></add>
+		</operation>
+	</file>
+</modification>

@@ -1,0 +1,26 @@
+---------- Date: 2012-07-05 12:26:10 ~ IP : 125.34.43.42 ----------
+REQUEST URI : /index.php?route=product/category&amp;path=4_134
+MOD DETAILS:
+   modFile   : /home/elex/nginx/godropshipping/vqmod/xml/catalog_controller.xml
+   id        : Change Code
+   version   : 1.0
+   vqmver    : 2.1.6
+   author    : Pham Xuyen
+SEARCH NOT FOUND (ABORTING MOD): 'name'        => $category['name'] . ' (' . $product_total . ')',
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2012-07-05 12:26:40 ~ IP : 125.34.43.42 ----------
+REQUEST URI : /index.php?route=product/category&amp;path=4_134
+MOD DETAILS:
+   modFile   : /home/elex/nginx/godropshipping/vqmod/xml/catalog_controller.xml
+   id        : Change Code
+   version   : 1.0
+   vqmver    : 2.1.6
+   author    : Pham Xuyen
+SEARCH NOT FOUND (ABORTING MOD): 'name'        => $child['name'] . ' (' . $product_total . ')',
+
+----------------------------------------------------------------------
+
+

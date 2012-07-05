@@ -1,0 +1,244 @@
+.jcarousel-skin-opencart .jcarousel-container {
+	background: #FFF;
+	margin: 20px 0;
+}
+#carousel0  {
+	background: url('../image/bg_carousel0_03.png') no-repeat;
+	padding:6px 0;
+}
+#carousel0 .jcarousel-skin-opencart{}
+#carousel0 .jcarousel-skin-opencart .jcarousel-container {
+	background:#221d15;
+	padding:0 !important;
+	margin:0 !important;
+}
+
+#carousel3 .other_page .jcarousel-skin-opencart .jcarousel-item{width:auto !important}
+
+#carousel0 .jcarousel-skin-opencart .jcarousel-prev-horizontal{background:none}
+#carousel0 .jcarousel-skin-opencart .jcarousel-next-horizontal{background:none}
+#carousel0 .jcarousel-skin-opencart .jcarousel-item{border-left:1px dashed !important;}
+#carousel0 .jcarousel-skin-opencart .jcarousel-item-1{ width:237px !important}
+#carousel0 .jcarousel-skin-opencart .jcarousel-item-2{ width:242px !important}
+#carousel0 .jcarousel-skin-opencart .jcarousel-item-3{ width:241px !important}
+#carousel0 .jcarousel-skin-opencart .jcarousel-item-4{ width:237px !important}
+
+#carousel0 .jcarousel-skin-opencart .jcarousel-item:first-child{border:none !important;}
+
+#carousel1 .jcarousel-skin-opencart .jcarousel-prev-horizontal{background:none}
+#carousel1  .jcarousel-skin-opencart .jcarousel-next-horizontal{background:none}
+#carousel1 .jcarousel-skin-opencart .jcarousel-container-horizontal{padding:0 !important}
+#carousel1 .jcarousel-skin-opencart .jcarousel-item{margin-left:12px; border:1px solid #cccccc; width:229px !important}
+#carousel1 .jcarousel-skin-opencart .jcarousel-item:first-child{margin-left:0 !important}
+#carousel1 .jcarousel-skin-opencart .jcarousel-clip{
+	overflow: hidden;
+	width: 100%;
+}
+#carousel2 .jcarousel-skin-opencart .jcarousel-prev-horizontal{top:11px !important;  
+	background: url("../image/but_carousel2_left.png") no-repeat center center;}
+#carousel2 .jcarousel-skin-opencart .jcarousel-next-horizontal{top:11px !important;
+	background: url("../image/but_carousel2_right.png") no-repeat center center;}
+}
+/*#carousel3 .other_page .jcarousel-skin-opencart .jcarousel-item{text-align:left}
+#carousel3 .other_page .jcarousel-skin-opencart .jcarousel-container-horizontal{
+	padding:0 !important;
+	margin-left:-8px;
+	margin-top:0px !important;
+}
+#carousel3 .other_page .jcarousel-skin-opencart .jcarousel-container-horizontal ul.jcarousel-list{width:auto !important}
+#carousel3 .other_page .jcarousel-skin-opencart .jcarousel-prev-horizontal {display:none !important;}
+#carousel3 .other_page .jcarousel-skin-opencart .jcarousel-next-horizontal{display:none !important;}*/
+
+
+
+.jcarousel-skin-opencart .jcarousel-direction-rtl {
+	direction: rtl;
+}
+.jcarousel-skin-opencart .jcarousel-container-horizontal {
+	padding: 0px 40px;
+}
+.feature-box-category .jcarousel-skin-opencart .jcarousel-container-horizontal {padding:0}
+
+.jcarousel-skin-opencart .jcarousel-clip {
+	overflow: hidden;
+	width: 100%;
+}
+.jcarousel-skin-opencart .jcarousel-clip-horizontal {
+}
+.jcarousel-skin-opencart .jcarousel-item {
+	text-align: center;
+}
+.featured-otherpage .feature-content .feature-box-category ul li div.name{
+	 font-family: 'VNfuturaBold';
+    font-size: 12px;
+    padding: 0 5px 0;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    top: -40px;
+    /*width: 101px;*/
+	display:inline;
+	line-height:14px;
+}
+.featured-otherpage  .feature-content .feature-box-category .feature-height{
+	height:126px !important;
+}
+.featured-otherpage .feature-box-category .jcarousel-skin-opencart .jcarousel-item-horizontal{
+	margin-left: 0 !important;
+    margin-right: 0;
+    width: 111px !important;
+	padding-right:10px;
+	height:auto !important;
+}
+.featured-otherpage .feature-box-category .jcarousel-skin-opencart .jcarousel-item-horizontal .image img{
+	height: 127px !important;
+    width: 111px !important;
+}
+.featured-otherpage .feature-content .feature-box-category .jcarousel-skin-opencart .jcarousel-prev-horizontal{
+	left: -30px;
+    top: 47px !important;
+}
+.featured-otherpage .feature-content .feature-box-category .jcarousel-skin-opencart .jcarousel-next-horizontal{
+	right: -30px;
+    top: 47px !important;
+}
+
+.feature-box-category .jcarousel-skin-opencart .jcarousel-item-horizontal {
+	margin-right: 0;
+	margin-left: 0 !important;
+	width:152px !important;
+	padding-right:10px;
+}
+
+.feature-box-category .jcarousel-clip-horizontal ul  li.jcarousel-item.jcarousel-item-horizontal{}
+
+.feature-box-category .jcarousel-skin-opencart .jcarousel-direction-rtl .jcarousel-item-horizontal {
+	margin-left: 10px;
+	margin-right: 0;}
+.jcarousel-skin-opencart .jcarousel-direction-rtl .jcarousel-item-horizontal {
+	margin-right: 10px;
+	margin-left: 0;
+}
+.jcarousel-skin-opencart .jcarousel-item-placeholder {
+	background: #fff;
+	color: #000;
+}
+
+/*related-product*/
+.product-info .related-product .jcarousel-skin-opencart .jcarousel-container-horizontal{padding:0}
+.product-info .related-product .jcarousel-skin-opencart .jcarousel-item{/*width:174px !important; padding-right:30px;*/}
+.product-info .related-product .jcarousel-skin-opencart .jcarousel-item .product .image{margin:0; padding:0; margin-left:12px}
+.product-info .related-product .jcarousel-skin-opencart .jcarousel-item .product .description{color:#565452; line-height:14px; padding:0 !important}
+.product-info .related-product .jcarousel-skin-opencart .jcarousel-item .product .name a{color:#565452; line-height:14px;}
+.product-info .related-product .jcarousel-skin-opencart .jcarousel-item .product .model span{color:#a09e9d}
+.product-info .related-product .jcarousel-skin-opencart .jcarousel-item .product .price-rating{margin-top:13px; margin-bottom:11px}
+.product-info .related-product .jcarousel-skin-opencart .jcarousel-item .product .price-rating .rating{display:none;}
+.product-info .related-product .jcarousel-skin-opencart .jcarousel-item .product .price-rating .price{color:#e84e0a; font-weight:bold} 
+.product-info .related-product .jcarousel-skin-opencart .jcarousel-item .product  .cart .button{margin:0 !important	}
+.product-info .related-product .jcarousel-skin-opencart .jcarousel-prev-horizontal{
+	background: url("../image/but_best_pre.png") no-repeat center center;
+    cursor: pointer;
+    height: 32px;
+    left: auto !important;
+    position: absolute;
+    right: 16px !important;
+    top: -45px !important;
+    width: 32px;
+
+}
+.product-info .related-product .jcarousel-skin-opencart .jcarousel-prev-horizontal:hover{
+	  background: url("../image/but_best_pre_hover.png") no-repeat center center;
+}
+.product-info .related-product .jcarousel-skin-opencart .jcarousel-next-horizontal{
+    background: url("../image/but_best_next.png") no-repeat center center;
+    cursor: pointer;
+    height: 32px;
+    position: absolute;
+    right: -14px !important;
+    top: -45px !important;
+    width: 32px;
+
+}
+.product-info .related-product .jcarousel-skin-opencart .jcarousel-next-horizontal:hover{
+	background: url("../image/but_best_next_hover.png") no-repeat center center;
+}
+
+/**
+ *  Horizontal Buttons
+ */
+ .feature-category .feature-content .jcarousel-skin-opencart .jcarousel-next-horizontal  {top:64px !important;right: -30px;}
+ .feature-category .feature-content .jcarousel-skin-opencart .jcarousel-prev-horizontal {top:64px !important; left:-30px;}
+ .box-product-bestseller .jcarousel-skin-opencart .jcarousel-next-horizontal {
+	position: absolute;
+	top: 23px;
+	right:0;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	background: url('../image/but_best_next.png') center no-repeat;
+}
+.box-product-bestseller .jcarousel-skin-opencart .jcarousel-next-horizontal:hover{
+	background: url('../image/but_best_next_hover.png') center no-repeat;
+}
+.box-product-bestseller .jcarousel-skin-opencart .jcarousel-prev-horizontal:hover{
+	background: url('../image/but_best_pre_hover.png') center no-repeat;
+}
+ .box-product-bestseller .jcarousel-skin-opencart .jcarousel-prev-horizontal {
+	position: absolute;
+	top: 23px;
+	left:0;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	background: url('../image/but_best_pre.png') center no-repeat;
+}
+.jcarousel-skin-opencart .jcarousel-next-horizontal {
+	position: absolute;
+	top: 23px;
+	right:0;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	background: url('../image/button-next.png') center no-repeat;
+}
+.jcarousel-skin-opencart .jcarousel-direction-rtl .jcarousel-next-horizontal {
+	left: 5px;
+	right: auto;
+	background: url('../image/button-previous.png') center no-repeat;
+}
+.jcarousel-skin-opencart .jcarousel-next-horizontal:hover, .jcarousel-skin-opencart .jcarousel-next-horizontal:focus {
+}
+.jcarousel-skin-opencart .jcarousel-next-horizontal:active {
+}
+.jcarousel-skin-opencart .jcarousel-next-disabled-horizontal, .jcarousel-skin-opencart .jcarousel-next-disabled-horizontal:hover, .jcarousel-skin-opencart .jcarousel-next-disabled-horizontal:focus, .jcarousel-skin-opencart .jcarousel-next-disabled-horizontal:active {
+	cursor: default;
+	background: none;
+}
+.jcarousel-skin-opencart .jcarousel-prev-horizontal {
+	position: absolute;
+	top: 23px;
+	left:0;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	background: url('../image/button-previous.png') center no-repeat;
+}
+.jcarousel-skin-opencart .jcarousel-direction-rtl .jcarousel-prev-horizontal {
+	left: auto;
+	right: 0px;
+	background: url('../image/button-next.png') center no-repeat;
+}
+.jcarousel-skin-opencart .jcarousel-prev-horizontal:hover, .jcarousel-skin-opencart .jcarousel-prev-horizontal:focus {
+}
+.jcarousel-skin-opencart .jcarousel-prev-horizontal:active {
+}
+.jcarousel-skin-opencart .jcarousel-prev-disabled-horizontal, .jcarousel-skin-opencart .jcarousel-prev-disabled-horizontal:hover, .jcarousel-skin-opencart .jcarousel-prev-disabled-horizontal:focus, .jcarousel-skin-opencart .jcarousel-prev-disabled-horizontal:active {
+	cursor: default;
+	background: none;
+}
+
+#carousel3 {overflow:hidden}
+#carousel3  .jcarousel-container-horizontal { position:relative;left:-49px; display:inline-block!important}
+#carousel3 .jcarousel-list{ width:100%!important}
+#carousel3 .jcarousel-skin-opencart .jcarousel-prev-horizontal ,
+#carousel3 .jcarousel-skin-opencart .jcarousel-next-horizontal{display:none!important }

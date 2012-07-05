@@ -1,0 +1,183 @@
+/* menu */
+#menu-new {
+	background: #585858;
+    /*background: url('../image/menu-new.gif') repeat-x top left;*/
+	border-bottom: 1px solid #000000;
+	height: 37px;
+	margin-bottom: 15px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-khtml-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	-webkit-box-shadow: 0px 2px 2px #DDDDDD;
+	-moz-box-shadow: 0px 2px 2px #DDDDDD;
+	box-shadow: 0px 2px 2px #DDDDDD;
+	padding: 0px 5px;
+}
+#menu-new ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#menu-new > ul > li {
+	position: relative;
+	float: left;
+	z-index: 20;	
+}
+#menu-new > ul > li:hover {
+	background: #000;
+    /*background: #5ec4e5;*/
+}
+#menu-new > ul > li > a {
+	font-size: 13px;
+	color: #FFF;
+	line-height: 14px;
+	text-decoration: none;
+	display: block;
+	padding: 12px 15px 11px 15px;
+	z-index: 6;
+	position: relative;
+}
+#menu-new > ul > li > div {
+	display: none;
+	background: #FFFFFF;
+	position: absolute;
+	z-index: 5;
+	padding: 5px;
+	border: 1px solid #000000;
+	-webkit-border-radius: 0px 0px 5px 5px;
+	-moz-border-radius: 0px 0px 5px 5px;
+	-khtml-border-radius: 0px 0px 5px 5px;
+	border-radius: 0px 0px 5px 5px;
+	background: url('../image/menu.png');
+}
+#menu-new > ul > li:hover > div {
+	display: table;
+}
+#menu-new > ul > li > div > ul {
+	display: table-cell;
+	padding:0px 15px;
+	/*border-right:1px solid #fff;*/
+}
+#menu-new > ul > li ul + ul {
+	padding:0px 15px;
+	/*border-right:1px solid #fff;*/
+}
+#menu-new > ul > li ul > li > a {
+	text-decoration: none;
+	padding: 4px;
+	color: #FFFFFF;
+	display: block;
+	white-space: nowrap;
+	min-width: 120px;
+}
+#menu-new > ul > li ul > li > a:hover {
+background: #000000;
+}
+#menu-new > ul > li > div > ul > li > a {
+		color: #FFFFFF;
+}
+
+/******new*******/
+#menu-new > ul > li > div > ul > li > div {
+	display: none;
+	background: #585858;
+	position: absolute;
+	z-index: 5;
+	padding: 5px 0px;
+	border: 1px solid #000;
+	-webkit-border-radius: 0px 0px 5px 5px;
+	-moz-border-radius: 0px 0px 5px 5px;
+	-khtml-border-radius: 0px 0px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	background: url('../image/menu.png');
+}
+
+#menu-new ul > li > div > ul > li:hover div {
+	display: table;
+    position: absolute;
+    top:0px;
+    left:129px;
+}
+#menu-new ul > li > div > ul > li{position: relative;/*border-bottom:1px solid #fff;*/}
+#menu-new > ul > li > div > ul > li > div > ul{
+	display: table-cell;
+}
+#menu-new > ul > li ul + ul + ul{
+	padding:0px 15px;
+}
+#menu-new > ul > li ul + ul + ul + ul{
+	border-right:none;
+}
+#menu-new > ul > li ul > li ul > li > a {
+	text-decoration: none;
+	padding: 4px;
+	color: #000;
+	display: block;
+	white-space: nowrap;
+	min-width: 120px;
+}
+#menu-new > ul > li ul > li ul > li > a:hover {
+	background: #000;
+}
+#menu-new > ul > li > div > ul > li > div > ul > li > a{
+	color: #fff;
+    /*font-weight:bold;*/
+}
+/*#menu-new > ul > li > a.level0 {background:url('../image/arrow-down.png') right center no-repeat;}*/
+#menu-new  ul > li > div > ul > li > a.level1 {background:url('../image/arrow-right.png') right center no-repeat;}
+
+
+/******new 2*******/
+#menu-new > ul > li > div > ul > li > div > ul > li > div > ul{
+	display: none;
+}
+#menu-new ul > li >div > ul > li > div > ul > li:hover div > ul{
+	display: table;
+    position: absolute;
+    top:0px;
+    left:129px;
+}
+#menu-new > ul > li > div > ul > li > div > ul > li > div > ul {
+	display: none;
+	background: #585858;
+	position: absolute;
+	z-index: 5;
+	padding: 5px 0px;
+	border: 1px solid #000;
+	-webkit-border-radius: 0px 0px 5px 5px;
+	-moz-border-radius: 0px 0px 5px 5px;
+	-khtml-border-radius: 0px 0px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+	background: url('../image/menu.png');
+}
+
+#menu-new ul li ul li ul li{position: relative;/*border-bottom:1px solid #fff;*/}
+
+/*#menu-new > ul > li > div > ul > li > div > ul > li > div > ul{
+	display: table-cell;
+}*/
+#menu-new > ul > li ul + ul + ul + ul{
+	padding:0px 15px;
+}
+#menu-new > ul > li ul + ul + ul + ul + ul{
+	border-right:none;
+}
+#menu-new > ul > li ul > li ul > li ul > li > a {
+	text-decoration: none;
+	padding: 4px;
+	color: #FFFFFF;
+	display: block;
+	white-space: nowrap;
+	min-width: 120px;
+}
+#menu-new > ul > li ul > li ul > li ul > li > a:hover {
+	background: #000;
+}
+#menu-new > ul > li > div > ul > li > div > ul > li > div > ul > li > a{
+	color: #fff;
+    /*font-weight:bold;*/
+}
+
+#menu-new  ul > li > div > ul > li > div > ul > li > a.level2 {background:url('../image/arrow-right.png') right center no-repeat;}
+/*#menu-new > ul > li > div > ul > li > div > ul > li > a.level2 {background:url('../image/arrow-right.png') right center no-repeat;}*/

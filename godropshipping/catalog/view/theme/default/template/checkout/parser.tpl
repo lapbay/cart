@@ -2,7 +2,7 @@
   <table>
     <thead>
       <tr>
-          <td class="gds_order_remove_all remove"><input type="checkbox" value="0" class="gds_order_remove_all_checkbox">Remove</td>
+          <td class="gds_order_remove_all remove"><input type="checkbox" value="0" class="gds_order_remove_all_checkbox"> Remove</td>
           <td class="name"><?php echo $column_gds_order; ?></td>
           <td class="name"><?php echo $column_customer_order; ?></td>
           <td class="name"><?php echo $column_gds_sku; ?></td>

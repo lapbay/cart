@@ -38,9 +38,9 @@
   <input type="hidden" name="paymentaction" value="<?php echo $paymentaction; ?>" />
   <input type="hidden" name="custom" value="<?php echo $custom; ?>" />
 </form>
-<div class="buttons">
-    <div class="left"><a id="button-remove" class="button"><span><?php echo 'Remove'; ?></span></a></div>
-    <div class="right"><a id="button-confirm" class="button" onclick="$('#payment').submit();"><span><?php echo $button_confirm; ?></span></a></div>
+<div class="buttons" id="batch_buttons">
+    <div class="left"><a id="button-remove" class="batch_button_remove button"><span><?php echo 'Remove'; ?></span></a></div>
+    <div class="right"><a id="button-confirm" class="batch_button_confirm button" onclick="$('#payment').submit();"><span><?php echo $button_confirm; ?></span></a></div>
 </div>
 <script type="text/javascript"><!--
 $('#button-confirm1').bind('click', function() {
