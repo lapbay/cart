@@ -27,7 +27,7 @@
 		   <li> <?php if ($category['thumb']) { ?>
 			<div class="image"><a href="<?php echo $category['href']; ?>"><img src="<?php echo $category['thumb']; ?>" alt="<?php echo $category['name']; ?>" /></a></div>
 			<?php } ?>
-			<div class="name"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></div></li>
+			<div class="name"><a href="<?php echo $category['href']; ?>"><!--<?php echo $category['name']; ?></a>--></div></li>
 		  <?php } ?>
 		  </ul>
 		</div>

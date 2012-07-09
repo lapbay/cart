@@ -2941,7 +2941,7 @@ border-top: 1px dashed #e0e0df;
 }
 #batch_buttons .right {
         float: right !important;
-        width: 120px !important;
+        width: 150px !important;
         text-align: right;
 }
 .batch_button_remove {

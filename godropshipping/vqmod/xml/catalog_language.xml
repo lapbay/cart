@@ -137,7 +137,7 @@
 	<file name="catalog/language/english/module/category.php">
 		<operation>
 			<search position="before"><![CDATA[?>]]></search>
-			<add><![CDATA[$_['heading_title'] = 'Wholesale categories';]]></add>
+			<add><![CDATA[$_['heading_title'] = 'DropShip categories';]]></add>
 		</operation>
 	</file>
 	<file name="catalog/language/english/module/featured.php">

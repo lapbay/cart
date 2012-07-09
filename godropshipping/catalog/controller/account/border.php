@@ -138,7 +138,13 @@ class ControllerAccountBOrder extends Controller {
 
         $this->data['breadcrumbs'][] = array(
             'text'      => $this->language->get('heading_title'),
-            'href'      => $this->url->link('account/order', '', 'SSL'),
+            'href'      => $this->url->link('account/border', '', 'SSL'),
+            'separator' => $this->language->get('text_separator')
+        );
+
+        $this->data['breadcrumbs'][] = array(
+            'text'      => $this->language->get('batch_order_heading_title'),
+            'href'      => $this->url->link('account/border/info', '&order_group_id=' . $order_group_id, 'SSL'),
             'separator' => $this->language->get('text_separator')
         );
 

@@ -2,7 +2,7 @@
 <div id="content"><?php echo $content_top; ?>
   <div class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
+    <?php //echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
     <?php } ?>
   </div>
   <h1><?php echo $heading_title; ?></h1>
@@ -52,7 +52,12 @@
       <div id="order-upload">
           <div class="checkout-heading"><?php echo $text_upload_file; ?></div>
           <div class="checkout-content">
+              <![if !IE]>
               <input id="fileupload" type="file" name="files" data-url="http://www.godropshipping.com/index.php?route=checkout/bcheckout/parser" multiple>
+              <![endif]>
+              <!--[if IE]>
+              <input id="fileupload" type="file" name="files" data-url="http://www.godropshipping.com/index.php?route=checkout/bcheckout/parser&b=ie" multiple>
+              <![endif]-->
               <img id="loading-image" src="catalog/view/javascript/jquery/loading.gif" style="display: none;">
               <p id="uploaded-file-name"></p>
           </div>
@@ -567,58 +572,104 @@ $('#payment-address #button-address').live('click', function() {
     });
 });
 
-$(document).ready(function() {
-    $('#fileupload').fileupload({
-        dataType: 'json',
-        maxNumberOfFiles: 1,
-        change: function (e, data) {
-            $.each(data.files, function (index, file) {
-                $('#loading-image').show();
-                $('#uploaded-file-name').html(file.name);
-//                $('#loading-image').after('<p>' + file.name + '</p>');
-            });
-        },
-        done: function (e, data) {
-            $('#loading-image').hide();
-            var json = data.result;
+//--></script>
 
-            if (!json) {
-                $('#confirm .checkout-content').prepend('<div class="warning" style="display: none;">' + 'Error getting upload result.' + '</div>');
-                $('.warning').fadeIn('slow');
-                return;
-            }
-            if (json['redirect']) {
-                location = json['redirect'];
-            }
-            if (json['error']) {
-                if (json['error']['error']) {
-                    $('#order-upload .checkout-content').prepend('<div class="warning" style="display: none;">' + json['error']['error'] + '</div>');
-                    $('#order-upload .checkout-content').slideDown('slow');
+<!--[if IE]>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#fileupload').fileupload({
+            maxNumberOfFiles: 1,
+            change: function (e, data) {
+                $.each(data.files, function (index, file) {
+                    $('#loading-image').show();
+                    $('#uploaded-file-name').html(file.name);
+    //                $('#loading-image').after('<p>' + file.name + '</p>');
+                });
+            },
+            done: function (e, data) {
+                var result = data.result[0].body.innerHTML;
+
+                $('#loading-image').hide();
+                var json = jQuery.parseJSON(result);
+
+                if (!json) {
+                    $('#confirm .checkout-content').prepend('<div class="warning" style="display: none;">' + 'Error getting upload result.' + '</div>');
                     $('.warning').fadeIn('slow');
                     return;
                 }
+                if (json['redirect']) {
+                    location = json['redirect'];
+                }
+                if (json['error']) {
+                    if (json['error']['error']) {
+                        $('#order-upload .checkout-content').prepend('<div class="warning" style="display: none;">' + json['error']['error'] + '</div>');
+                        $('#order-upload .checkout-content').slideDown('slow');
+                        $('.warning').fadeIn('slow');
+                        return;
+                    }
+                }
+                if (json['output']) {
+                    $('#confirm .checkout-content').html(json['output']);
+                    $('#confirm .checkout-content').slideDown('slow');
+                    $('.warning').fadeOut('slow');
+                } else {
+                    $('#confirm .checkout-content').prepend('<div class="warning" style="display: none;">' + 'Error getting result.' + '</div>');
+                    $('.warning').fadeIn('slow');
+                }
+                $.each(data.result, function (index, file) {
+                });
             }
-            if (json['output']) {
-                $('#confirm .checkout-content').html(json['output']);
-                $('#confirm .checkout-content').slideDown('slow');
-                $('.warning').fadeOut('slow');
-            } else {
-                $('#confirm .checkout-content').prepend('<div class="warning" style="display: none;">' + 'Error getting result.' + '</div>');
-                $('.warning').fadeIn('slow');
-            }
-            $.each(data.result, function (index, file) {
-            });
-        }
+        });
     });
-});
+</script>
+<![endif]-->
 
-$(".gds_order_remove_all_checkbox").live('click', function(){
-    if( $(this).is(':checked') ) {
-        $('.gds_order_remove_checkbox').attr('checked', true);
-    } else {
-        $('.gds_order_remove_checkbox').attr('checked', false);
-    }
-});
+<![if !IE]>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#fileupload').fileupload({
+            dataType: 'json',
+            maxNumberOfFiles: 1,
+            change: function (e, data) {
+                $.each(data.files, function (index, file) {
+                    $('#loading-image').show();
+                    $('#uploaded-file-name').html(file.name);
+//                $('#loading-image').after('<p>' + file.name + '</p>');
+                });
+            },
+            done: function (e, data) {
+                $('#loading-image').hide();
+                var json = data.result;
 
-//--></script>
+                if (!json) {
+                    $('#confirm .checkout-content').prepend('<div class="warning" style="display: none;">' + 'Error getting upload result.' + '</div>');
+                    $('.warning').fadeIn('slow');
+                    return;
+                }
+                if (json['redirect']) {
+                    location = json['redirect'];
+                }
+                if (json['error']) {
+                    if (json['error']['error']) {
+                        $('#order-upload .checkout-content').prepend('<div class="warning" style="display: none;">' + json['error']['error'] + '</div>');
+                        $('#order-upload .checkout-content').slideDown('slow');
+                        $('.warning').fadeIn('slow');
+                        return;
+                    }
+                }
+                if (json['output']) {
+                    $('#confirm .checkout-content').html(json['output']);
+                    $('#confirm .checkout-content').slideDown('slow');
+                    $('.warning').fadeOut('slow');
+                } else {
+                    $('#confirm .checkout-content').prepend('<div class="warning" style="display: none;">' + 'Error getting result.' + '</div>');
+                    $('.warning').fadeIn('slow');
+                }
+                $.each(data.result, function (index, file) {
+                });
+            }
+        });
+    });
+</script>
+<![endif]>
 <?php echo $footer; ?>
