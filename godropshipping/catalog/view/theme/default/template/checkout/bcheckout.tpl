@@ -613,6 +613,7 @@ $("#confirm .gds_order_remove_all_checkbox").live('click', function(){
 //--></script>
 
 <!--[if IE]>
+<script type="text/javascript" src="catalog/view/javascript/json2.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('#fileupload').fileupload({
