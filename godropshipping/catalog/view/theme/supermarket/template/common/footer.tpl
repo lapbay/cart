@@ -93,7 +93,8 @@
     
     <div class="footer-bottom">
 			<div id="powered">
-				<span><?php echo $powered; ?></span>
+			<!--	<span><?php echo $powered; ?></span> -->
+			 <span><?php echo "Power by Palindrome Network co., LTD<br/>Established in 2011"; ?></span>
 			</div>
 			<div id="footer-pay">
 				<ul>
