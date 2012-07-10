@@ -538,9 +538,14 @@ class ControllerCheckoutBCheckout extends Controller {
         }
 
         $json['output'] = $this->render();
+
         $json['payment'] = $this->data['payment'];
 //        $json['error']['info'] = 'debug';
-        $this->response->setOutput(json_encode($json));
+
+        $response = json_encode($json);
+//        $response = strtr($response, array('<'=>'\u003C',">"=>'\u003E'));
+
+        $this->response->setOutput($response);
     }
 
     protected function parse_csv($file) {
@@ -602,7 +607,7 @@ class ControllerCheckoutBCheckout extends Controller {
     protected function parse_excel($file) {
         $result = array();
         $result['data'] = array();
-        if (($file["type"] == "application/x-zip-compressed") || ($file["type"] == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") || ($file["type"] == "text/excel") && ($file["size"] < 20000)) {
+        if (($file["type"] == "application/octet-stream") ||  ($file["type"] == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") || ($file["type"] == "text/excel") && ($file["size"] < 20000)) {
             if ($file["error"] > 0) {
                 $result['error']['error'] = 'File upload error: ' . $file["error"];
             } else {

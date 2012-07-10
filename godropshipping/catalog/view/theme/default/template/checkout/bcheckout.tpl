@@ -572,6 +572,44 @@ $('#payment-address #button-address').live('click', function() {
     });
 });
 
+$('#confirm #button-remove').live('click', function() {
+    var objs_to_remove = new Array();
+    var oids_to_remove = new Array();
+    $('.gds_order_remove .gds_order_remove_checkbox:checked').each(function(index, obj) {
+        objs_to_remove.push($(this).closest('tr'));
+        oids_to_remove.push(parseInt($(this).closest('tr').attr('oid')));
+    });
+    $.post(
+            'index.php?route=checkout/bcheckout/remove',
+            { 'orders': JSON.stringify(oids_to_remove) },
+            function(json) {
+                if (json['redirect']) {
+                    location = json['redirect'];
+                }
+                if (json['output']) {
+                    for (var i in objs_to_remove) {
+                        var obj = objs_to_remove[i];
+                        obj.fadeOut();
+                        obj.remove();
+                        $('.checkout-product tfoot').html(json['output']);
+                    }
+                };
+
+                if (json['payment']) {
+                    $('.payment').html(json['payment']);
+                };
+            },
+            'json'
+    );
+});
+
+$("#confirm .gds_order_remove_all_checkbox").live('click', function(){
+    if( $(this).is(':checked') ) {
+        $('.gds_order_remove_checkbox').attr('checked', true);
+    } else {
+        $('.gds_order_remove_checkbox').attr('checked', false);
+    }
+});
 //--></script>
 
 <!--[if IE]>
