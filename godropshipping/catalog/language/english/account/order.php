@@ -1,8 +1,6 @@
 <?php
 // Heading 
 $_['heading_title']         = 'Order History';
-$_['batch_heading_title']         = 'Batch Order History';
-$_['batch_order_heading_title'] = 'Batch Order Infomation';
 
 // Text
 $_['text_account']          = 'Account';

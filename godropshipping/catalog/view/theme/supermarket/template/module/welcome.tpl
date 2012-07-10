@@ -1,3 +1,3 @@
-<div class="welcome<?php echo isset($module) ? $module : ''; ?>">
+<div class="welcome<?php echo $module; ?>">
 <?php echo $message; ?>
 </div>

@@ -249,7 +249,8 @@ view = $.cookie('display');
 if (view) {
 	display(view);
 } else {
-	display('list');
+	//display('list');
+	display('grid');
 }
 //--></script> 
 <script type="text/javascript"><!--

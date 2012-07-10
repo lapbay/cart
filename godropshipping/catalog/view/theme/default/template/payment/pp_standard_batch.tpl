@@ -42,7 +42,7 @@
     <div class="left"><a id="button-remove" class="batch_button_remove button"><span><?php echo 'Remove'; ?></span></a></div>
     <div class="right"><a id="button-confirm" class="batch_button_confirm button" onclick="$('#payment').submit();"><span><?php echo $button_confirm; ?></span></a></div>
 </div>
-<script type="text/javascript">
+<script type="text/javascript"><!--
 $('#button-confirm1').bind('click', function() {
     var oids = new Array();
     $('.gds_order').each(function(index, obj) {
@@ -88,13 +88,4 @@ $('#button-remove').bind('click', function() {
             'json'
     );
 });
-
-$(".gds_order_remove_all_checkbox").bind('click', function(){
-    console.log('remove');
-    if( $(this).is(':checked') ) {
-        $('.gds_order_remove_checkbox').attr('checked', true);
-    } else {
-        $('.gds_order_remove_checkbox').attr('checked', false);
-    }
-});
-</script>
+//--></script>

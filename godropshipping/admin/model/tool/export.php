@@ -248,7 +248,6 @@ class ModelToolExport extends Model {
 		
 		// start transaction, remove products
 		$sql = "START TRANSACTION;\n";
-		/*
 		$sql .= "DELETE FROM `".DB_PREFIX."product`;\n";
 		$sql .= "DELETE FROM `".DB_PREFIX."product_description` WHERE language_id=$languageId;\n";
 		$sql .= "DELETE FROM `".DB_PREFIX."product_to_category`;\n";
@@ -258,7 +257,6 @@ class ModelToolExport extends Model {
 		$sql .= "DELETE FROM `".DB_PREFIX."product_related`;\n";
 		$sql .= "DELETE FROM `".DB_PREFIX."product_tag` WHERE language_id=$languageId;\n";
 		$sql .= "DELETE FROM `".DB_PREFIX."product_to_layout`;\n";
-		*/
 		$this->import( $database, $sql );
 		
 		// get pre-defined layouts
@@ -1391,7 +1389,7 @@ class ModelToolExport extends Model {
 		$sql = "START TRANSACTION;\n";
 		
 		// delete old additional product images from database
-		//$sql = "DELETE FROM `".DB_PREFIX."product_image`";
+		$sql = "DELETE FROM `".DB_PREFIX."product_image`";
 		$database->query( $sql );
 		
 		// insert new additional product images into database
@@ -1409,8 +1407,8 @@ class ModelToolExport extends Model {
 			$imageNames = ($imageNames=="") ? array() : explode( ",", $imageNames );
 			foreach ($imageNames as $imageName) {
 				$maxImageId += 1;
-				$sql = "INSERT INTO `".DB_PREFIX."product_image` ( product_id, `image`) VALUES ";
-				$sql .= "($productId,'$imageName');";
+				$sql = "INSERT INTO `".DB_PREFIX."product_image` (`product_image_id`, product_id, `image`) VALUES ";
+				$sql .= "($maxImageId,$productId,'$imageName');";
 				$database->query( $sql );
 			}
 		}
@@ -1602,17 +1600,14 @@ class ModelToolExport extends Model {
 		if (!$ok) {
 			return FALSE;
 		}
-		/*
 		$ok = $this->uploadCategories( $reader, $database );
 		if (!$ok) {
 			return FALSE;
 		}
-		*/
 		$ok = $this->uploadProducts( $reader, $database );
 		if (!$ok) {
 			return FALSE;
 		}
-		/*
 		$ok = $this->uploadOptions( $reader, $database );
 		if (!$ok) {
 			return FALSE;
@@ -1629,12 +1624,10 @@ class ModelToolExport extends Model {
 		if (!$ok) {
 			return FALSE;
 		}
-		*/
 		$ok = $this->uploadRewards( $reader, $database );
 		if (!$ok) {
 			return FALSE;
 		}
-		
 		chdir( '../../..' );
 		return $ok;
 	}

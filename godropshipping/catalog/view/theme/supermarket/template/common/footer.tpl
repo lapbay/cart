@@ -93,8 +93,9 @@
     
     <div class="footer-bottom">
 			<div id="powered">
-				<span><?php echo $powered; ?></span>
+				<span><?php echo "Power by Palindrome Network co., LTD<br/>Established in 2011"; ?></span>
 			</div>
+			
 			<div id="footer-pay">
 				<ul>
                     <li><a title="paypal" href="#"><img src="catalog/view/theme/supermarket/image/paypal_03.png" alt="card" /></a></li>

@@ -1,11 +1,11 @@
 <?php
 class ControllerModuleFeaturedcategory extends Controller {
 	protected function index($setting) {
-		$this->language->load('module/featuredcategory');
+		$this->language->load('module/featuredcategory'); 
 
-        $this->data['heading_title'] = $this->language->get('heading_title');
-
-        $this->data['button_cart'] = $this->language->get('button_cart');
+      	$this->data['heading_title'] = $this->language->get('heading_title');
+		
+		$this->data['button_cart'] = $this->language->get('button_cart');
 		
 		$this->load->model('catalog/category'); 
 		

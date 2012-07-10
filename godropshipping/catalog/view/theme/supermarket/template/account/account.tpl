@@ -1,20 +1,20 @@
 <?php echo $header; ?>
 <div class="frame-content">
-
-<?php echo $column_left; ?><?php echo $column_right; ?>
-<div id="content"><?php echo $content_top; ?>
-    <div class="breadcrumb">
+<div class="breadcrumb">
         <?php $num=count($breadcrumbs); ?>
         <?php $i=1;?>
-        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-        <?php if($i==$num){ ?>
-        <a class="last" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
-        <?php } else { ?>
-        <a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
-        <?php } ?>
-        <?php $i++; } ?>
-    </div>
-    <h1><?php echo $heading_title; ?></h1>
+      <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+      <?php if($i==$num){ ?>
+      <a class="last" href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
+      <?php } else { ?>
+      <a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
+      <?php } ?>
+      <?php $i++; } ?>
+</div>
+  <h1><?php echo $heading_title; ?></h1>
+<?php echo $column_left; ?><?php echo $column_right; ?>
+<div id="content"><?php echo $content_top; ?>
+
   <?php if ($success) { ?>
   <div class="success"><?php echo $success; ?></div>
   <?php } ?>

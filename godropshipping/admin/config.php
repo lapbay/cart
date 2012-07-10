@@ -9,17 +9,17 @@ define('HTTPS_SERVER', 'http://www.godropshipping.com/admin/');
 define('HTTPS_IMAGE', 'http://www.godropshipping.com/image/');
 
 // DIR
-define('DIR_APPLICATION', '/Users/milan/git/cart/godropshipping/admin/');
-define('DIR_SYSTEM', '/Users/milan/git/cart/godropshipping/system/');
-define('DIR_DATABASE', '/Users/milan/git/cart/godropshipping/system/database/');
-define('DIR_LANGUAGE', '/Users/milan/git/cart/godropshipping/admin/language/');
-define('DIR_TEMPLATE', '/Users/milan/git/cart/godropshipping/admin/view/template/');
-define('DIR_CONFIG', '/Users/milan/git/cart/godropshipping/system/config/');
-define('DIR_IMAGE', '/Users/milan/git/cart/godropshipping/image/');
-define('DIR_CACHE', '/Users/milan/git/cart/godropshipping/system/cache/');
-define('DIR_DOWNLOAD', '/Users/milan/git/cart/godropshipping/download/');
-define('DIR_LOGS', '/Users/milan/git/cart/godropshipping/system/logs/');
-define('DIR_CATALOG', '/Users/milan/git/cart/godropshipping/catalog/');
+define('DIR_APPLICATION', '/home/elex/nginx/godropshipping/admin/');
+define('DIR_SYSTEM', '/home/elex/nginx/godropshipping/system/');
+define('DIR_DATABASE', '/home/elex/nginx/godropshipping/system/database/');
+define('DIR_LANGUAGE', '/home/elex/nginx/godropshipping/admin/language/');
+define('DIR_TEMPLATE', '/home/elex/nginx/godropshipping/admin/view/template/');
+define('DIR_CONFIG', '/home/elex/nginx/godropshipping/system/config/');
+define('DIR_IMAGE', '/home/elex/nginx/godropshipping/image/');
+define('DIR_CACHE', '/home/elex/nginx/godropshipping/system/cache/');
+define('DIR_DOWNLOAD', '/home/elex/nginx/godropshipping/download/');
+define('DIR_LOGS', '/home/elex/nginx/godropshipping/system/logs/');
+define('DIR_CATALOG', '/home/elex/nginx/godropshipping/catalog/');
 
 // DB
 define('DB_DRIVER', 'mysql');
