@@ -3,6 +3,7 @@
 $_['heading_title']                  = 'Batch checkout';
 
 // Text
+$_['text_account']                   = 'Account';
 $_['text_cart']                      = 'Shopping Cart';
 $_['text_checkout_option']           = 'Step 1: Checkout Options';
 $_['text_checkout_account']          = 'Step 2: Account &amp; Billing Details';

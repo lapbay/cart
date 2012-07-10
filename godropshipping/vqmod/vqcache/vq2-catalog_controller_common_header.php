@@ -199,7 +199,14 @@ $this->data['text_livechat'] = $this->language->get('text_livechat');
 		$this->data['categories'] = array();
 					
 		$categories = $this->model_catalog_category->getCategories(0);
-		
+        //add by wuchang
+        if (isset($this->request->get['filter_category_id'])) {
+            $filter_category_id = $this->request->get['filter_category_id'];
+        } else {
+            $filter_category_id = 0;
+        }
+        $this->data['filter_category_id'] = $filter_category_id;
+
 		foreach ($categories as $category) {
 			if ($category['top']) {
 				$children_data = array();
@@ -212,20 +219,23 @@ $this->data['text_livechat'] = $this->language->get('text_livechat');
 						'filter_sub_category' => true	
 					);		
 						
-					$product_total = $this->model_catalog_product->getTotalProducts($data);
-									
-					$children_data[] = array(
-						'name'  => $child['name'] . ' (' . $product_total . ')',
-						'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])	
+//					$product_total = $this->model_catalog_product->getTotalProducts($data);
+                    //modified by wuchang
+                    $children_data[] = array(
+                        'category_id'=> $child['category_id'],
+                        'name'  => $child['name'],
+//                        'name'  => $child['name'] . ' (' . $product_total . ')',
+                        'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
 					);					
 				}
 				
 				// Level 1
 				$this->data['categories'][] = array(
-					'name'     => $category['name'],
-					'children' => $children_data,
-					'column'   => $category['column'] ? $category['column'] : 1,
-					'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
+                    'category_id'=> $category['category_id'],
+                    'name'       => $category['name'],
+                    'children'   => $children_data,
+					'column'     => $category['column'] ? $category['column'] : 1,
+					'href'       => $this->url->link('product/category', 'path=' . $category['category_id'])
 				);
 			}
 		}
@@ -312,7 +322,7 @@ $this->data['text_livechat'] = $this->language->get('text_livechat');
 			$this->children = array(
 			'module/menu'
 		);
-				
+
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/header.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/common/header.tpl';
 		} else {

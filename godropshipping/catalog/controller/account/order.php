@@ -203,19 +203,38 @@ class ControllerAccountOrder extends Controller {
 			if (isset($this->request->get['page'])) {
 				$url .= '&page=' . $this->request->get['page'];
 			}
-						
-			$this->data['breadcrumbs'][] = array(
-				'text'      => $this->language->get('heading_title'),
-				'href'      => $this->url->link('account/order', $url, 'SSL'),      	
-				'separator' => $this->language->get('text_separator')
-			);
-			
-			$this->data['breadcrumbs'][] = array(
-				'text'      => $this->language->get('text_order'),
-				'href'      => $this->url->link('account/order/info', 'order_id=' . $this->request->get['order_id'] . $url, 'SSL'),
-				'separator' => $this->language->get('text_separator')
-			);
-					
+            //Modified by wuchang
+            if ($order_group_id > 0) {
+                $this->data['breadcrumbs'][] = array(
+                    'text'      => $this->language->get('batch_heading_title'),
+                    'href'      => $this->url->link('account/border', $url, 'SSL'),
+                    'separator' => $this->language->get('text_separator')
+                );
+                $this->data['breadcrumbs'][] = array(
+                    'text'      => $this->language->get('batch_order_heading_title'),
+                    'href'      => $this->url->link('account/border/info', '&order_group_id=' . $order_group_id, 'SSL'),
+                    'separator' => $this->language->get('text_separator')
+                );
+                $this->data['breadcrumbs'][] = array(
+                    'text'      => $this->language->get('text_order'),
+                    'href'      => $this->url->link('account/order/info', 'order_id=' . $this->request->get['order_id'] . $url, 'SSL'),
+                    'separator' => $this->language->get('text_separator')
+                );
+            }else{
+                $this->data['breadcrumbs'][] = array(
+                    'text'      => $this->language->get('heading_title'),
+                    'href'      => $this->url->link('account/order', $url, 'SSL'),
+                    'separator' => $this->language->get('text_separator')
+                );
+
+                $this->data['breadcrumbs'][] = array(
+                    'text'      => $this->language->get('text_order'),
+                    'href'      => $this->url->link('account/order/info', 'order_id=' . $this->request->get['order_id'] . $url, 'SSL'),
+                    'separator' => $this->language->get('text_separator')
+                );
+            }
+
+
       		$this->data['heading_title'] = $this->language->get('text_order');
 			
 			$this->data['text_order_detail'] = $this->language->get('text_order_detail');

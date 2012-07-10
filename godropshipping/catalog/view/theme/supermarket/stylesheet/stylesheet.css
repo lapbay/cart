@@ -772,8 +772,7 @@ input#sub_category[type='checkbox'], input#description[type='checkbox'] {
 #menu {margin:8px 0px 15px;padding:0px 0px 0px 5px;z-index:3;position:relative;text-align:left;background: url('../image/menu_bg.png') no-repeat;height: 37px;}
 #menu > ul > li:first-child{padding-left:0}
 #menu > ul > li {position:relative;float:left;display:inline;z-index: 20;padding:0 5px 0 24px;}
-/*#menu > ul > li > a {font-size:11px;color:#fff;display:block;padding:12px 1px 11px;z-index:6;position:relative;text-transform:uppercase;font-weight:bold;} */
-#menu > ul > li > a {font-size:11px;color:#fff;display:block;padding:12px 1px 11px;z-index:6;position:relative;text-transform:font-weight:bold;}
+#menu > ul > li > a {font-size:11px;color:#fff;display:block;padding:12px 14px 11px;z-index:6;position:relative;text-transform:uppercase;font-weight:bold;}
 #menu > ul > li#last > a{padding:12px 0px 18px 10px;}
 #menu > ul > li.current a{}
 #menu > ul > li:hover a {text-decoration:none;background: url('../image/menu_hover_03.png') no-repeat center 31px;}
@@ -2758,7 +2757,7 @@ a.button:hover span {
 	clear: both;
 	
 }
-#powered span{color:#989388; margin-top:22px; position:relative; top:24px; font-size:14px;}
+#powered span{color:#989388; margin-top:22px; position:relative; top:24px; font-size:11px;}
 #powered span a{color:#989388;font-size:11px;}
 #footer-pay{
 	text-align:right;

@@ -10,6 +10,7 @@ class ControllerCheckoutBCheckout extends Controller {
 		$this->language->load('checkout/bcheckout');
 		
 		$this->document->setTitle($this->language->get('heading_title'));
+        $this->document->addScript('catalog/view/javascript/jquery/jquery.iframe-transport.js');
         $this->document->addScript('catalog/view/javascript/jquery/jquery.fileupload.js');
 
         $this->data['breadcrumbs'] = array();
@@ -18,13 +19,13 @@ class ControllerCheckoutBCheckout extends Controller {
         	'text'      => $this->language->get('text_home'),
 			'href'      => $this->url->link('common/home'),
         	'separator' => false
-      	); 
-
-      	$this->data['breadcrumbs'][] = array(
-        	'text'      => $this->language->get('text_cart'),
-			'href'      => $this->url->link('checkout/cart'),
-        	'separator' => $this->language->get('text_separator')
       	);
+
+        $this->data['breadcrumbs'][] = array(
+            'text'      => $this->language->get('text_account'),
+            'href'      => $this->url->link('account/account', '', 'SSL'),
+            'separator' => $this->language->get('text_separator')
+        );
 		
       	$this->data['breadcrumbs'][] = array(
         	'text'      => $this->language->get('heading_title'),
@@ -422,11 +423,16 @@ class ControllerCheckoutBCheckout extends Controller {
             $this->template = 'default/template/checkout/parser.tpl';
         }
 
+//        $json['output'] = str_replace("\r\n", "", $this->render());
         $json['output'] = $this->render();
 
-//        header('Content-type: application/json');
+        $response = json_encode($json);
+        $response = strtr($response, array('<'=>'\u003C',">"=>'\u003E'));
+        $this->log->write($response);
 
-        $this->response->setOutput(json_encode($json));
+        header('X-Powered-By: wuchang');
+
+        $this->response->setOutput($response);
     }
 
     protected function get_confirm() {
@@ -596,7 +602,7 @@ class ControllerCheckoutBCheckout extends Controller {
     protected function parse_excel($file) {
         $result = array();
         $result['data'] = array();
-        if (($file["type"] == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") || ($file["type"] == "text/excel") && ($file["size"] < 20000)) {
+        if (($file["type"] == "application/x-zip-compressed") || ($file["type"] == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet") || ($file["type"] == "text/excel") && ($file["size"] < 20000)) {
             if ($file["error"] > 0) {
                 $result['error']['error'] = 'File upload error: ' . $file["error"];
             } else {

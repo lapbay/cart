@@ -167,17 +167,21 @@ DD_belatedPNG.fix('#logo img');
                                         <?php } else { ?>
                                         <option value="<?php echo $category_1['category_id']; ?>"><?php echo $category_1['name']; ?></option>
                                         <?php } ?>
+                                        <?php if (isset($category_1['children'])) { ?>
                                         <?php foreach ($category_1['children'] as $category_2) { ?>
                                         <?php if ($category_2['category_id'] == $filter_category_id) { ?>
                                         <option value="<?php echo $category_2['category_id']; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $category_2['name']; ?></option>
                                         <?php } else { ?>
                                         <option value="<?php echo $category_2['category_id']; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $category_2['name']; ?></option>
                                         <?php } ?>
+                                        <?php } ?>
+                                        <?php if (isset($category_2['children'])) { ?>
                                         <?php foreach ($category_2['children'] as $category_3) { ?>
                                         <?php if ($category_3['category_id'] == $filter_category_id) { ?>
                                         <option value="<?php echo $category_3['category_id']; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $category_3['name']; ?></option>
                                         <?php } else { ?>
                                         <option value="<?php echo $category_3['category_id']; ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $category_3['name']; ?></option>
+                                        <?php } ?>
                                         <?php } ?>
                                         <?php } ?>
                                         <?php } ?>
