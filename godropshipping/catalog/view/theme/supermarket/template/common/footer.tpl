@@ -11,7 +11,7 @@
               <li><a href="<?php echo $about ;?>"><?php echo $text_about; ?></a></li>
               <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
               <li><a href="<?php echo $privacy ;?>"><?php echo $text_policies; ?></a></li>
-              <li><a href="#"><?php echo $text_support; ?></a></li>
+              <!--<li><a href="#"><?php echo $text_support; ?></a></li>-->
             </ul>
           </div>
           
@@ -23,23 +23,17 @@
       <div class="column column-2">
         <h3><?php echo $text_dropship; ?></h3>
         <ul>
-          <li><a href="#"><?php echo $text_handling; ?></a></li>
-          <li><a href="#"><?php echo $text_quotations; ?></a></li>
-          <li><a href="#"><?php echo $text_guarantee; ?></a></li>
-          <li><a href="#"><?php echo $text_drop; ?></a></li>
-          <li><a href="#"><?php echo $text_tracking; ?></a></li>
-          <li><a href="#"><?php echo $text_tax; ?></a></li>
+          <li><a href="http://www.godropshipping.com/index.php?route=information/information&information_id=8"><?php echo 'Locations We Ship To'; ?></a></li>
+          <li><a href="http://www.godropshipping.com/index.php?route=information/information&information_id=5"><?php echo 'Terms & Conditions'; ?></a></li>
+          <li><a href="http://www.godropshipping.com/index.php?route=information/information&information_id=10"><?php echo 'What is Dropshipping'; ?></a></li>
         </ul>
       </div>
       <div class="column column-3">
         <h3><?php echo $text_service; ?></h3>
         <ul>
-          <li><a href="#"><?php echo $text_praesent; ?></a></li>
-          <li><a href="#"><?php echo $text_dolor; ?></a></li>
-          <li><a href="#"><?php echo $text_commodo; ?></a></li>
-          <li><a href="#"><?php echo $text_massan; ?></a></li>
-          <li><a href="#"><?php echo $text_suspendisse; ?></a></li>
-          <li><a href="#"><?php echo $text_dolor; ?></a></li>
+          <li><a href="http://www.godropshipping.com/index.php?route=information/information&information_id=6"><?php echo 'After Sales'; ?></a></li>
+          <li><a href="http://www.godropshipping.com/index.php?route=information/information&information_id=12"><?php echo 'Payment Methods'; ?></a></li>
+          <li><a href="http://www.godropshipping.com/index.php?route=information/information&information_id=13"><?php echo 'Service Guarantee'; ?></a></li>
         </ul>
       </div>
       <div class="column column-4">
