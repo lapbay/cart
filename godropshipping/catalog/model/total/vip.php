@@ -14,13 +14,13 @@ class ModelTotalVip extends Model {
         if ($customer) {
             switch ($customer['customer_group_name']) {
                 case 'Golden':
-                    $discount = 0.15;
+                    $discount = 0.12;
                     break;
                 case 'Silver':
-                    $discount = 0.10;
+                    $discount = 0.09;
                     break;
                 case 'Copper':
-                    $discount = 0.05;
+                    $discount = 0.07;
                     break;
             }
             if ($discount) {

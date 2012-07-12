@@ -1104,12 +1104,13 @@ a.button:hover span {
 .box-bestseller .box-product-bestseller .jcarousel-skin-opencart .jcarousel-container{position:static!important}
 .box-bestseller .jcarousel-next{top:3px !important;right:2px !important}
 .box-bestseller .jcarousel-prev{right:32px!important; left:auto!important; top:3px !important}
-.box-category0 .box-title{background:url('../image/box_category_03.jpg') no-repeat top left;position:relative; top:-1px; left:-1px;}
-.box-category1 .box-title{background:url('../image/box_category_06.jpg') no-repeat top left;position:relative; top:-1px; left:-1px;}
-.box-category2 .box-title{background:url('../image/box_category_08.jpg') no-repeat top left;position:relative; top:-1px; left:-1px;}
-.box-category3 .box-title{background:url('../image/box_category_10.jpg') no-repeat top left;position:relative; top:-1px; left:-1px;}
-.box-category4 .box-title{background:url('../image/box_category_12.jpg') no-repeat top left;position:relative; top:-1px; left:-1px;}
-.box-category5 .box-title{background:url('../image/box_category_14.jpg') no-repeat top left;position:relative; top:-1px; left:-1px;}
+.box-category0 .box-title{background:url('../image/box_category_1.jpg') no-repeat top left;position:relative; top:-1px; left:-1px;}
+.box-category1 .box-title{background:url('../image/box_category_2.png') no-repeat top left;position:relative; top:-1px; left:-1px;}
+.box-category2 .box-title{background:url('../image/box_category_3.png') no-repeat top left;position:relative; top:-1px; left:-1px;}
+.box-category3 .box-title{background:url('../image/box_category_4.png') no-repeat top left;position:relative; top:-1px; left:-1px;}
+.box-category4 .box-title{background:url('../image/box_category_5.png') no-repeat top left;position:relative; top:-1px; left:-1px;}
+.box-category5 .box-title{background:url('../image/box_category_6.png') no-repeat top left;position:relative; top:-1px; left:-1px;}
+.box-category6 .box-title{background:url('../image/box_category_7.png') no-repeat top left;position:relative; top:-1px; left:-1px;}
 .box .box-heading {
 	background: url('../image/bg_title_03.jpg') repeat-x;
 	padding: 8px 10px 7px 10px;

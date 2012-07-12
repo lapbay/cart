@@ -143,7 +143,7 @@
 	<file name="catalog/language/english/module/featured.php">
 		<operation>
 			<search position="before"><![CDATA[?>]]></search>
-			<add><![CDATA[$_['heading_title'] = 'FEATURED PRODUCT';]]></add>
+			<add><![CDATA[$_['heading_title'] = 'Best selling';]]></add>
 		</operation>
 	</file>
 	<file name="catalog/language/english/module/latest.php">
