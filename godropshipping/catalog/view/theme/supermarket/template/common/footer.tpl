@@ -14,11 +14,12 @@
               <!--<li><a href="#"><?php echo $text_support; ?></a></li>-->
             </ul>
           </div>
-          
+  <!--        
           <div class="store">
             <h3><?php echo $text_store; ?></h3>
             <a href="#" class="visit"><?php echo $text_visit; ?></a>
           </div>
+  -->
       </div>
       <div class="column column-2">
         <h3><?php echo $text_dropship; ?></h3>
@@ -47,14 +48,15 @@
         </ul>
 -->
         <ul>
-          <li class="facebook"><a href="http://facebook.com">Facebook</a></li>
-          <li class="twitter"><a href="http://support.twitter.com">Twitter</a></li>
+          <li class="facebook"><a href="http://www.facebook.com/dropshipping.go">Facebook</a></li>
+          <li class="twitter"><a href="https://twitter.com/godropshipping">Twitter</a></li>
           <li class="google"><a href="http://google-plus.com">Google</a></li>
         </ul>
         <ul>
-          <li class="rss"><a href="http://vnexpress.net/gl/rss/">RSS Feed</a></li>
+ <!--         <li class="rss"><a href="http://vnexpress.net/gl/rss/">RSS Feed</a></li>
           <li class="flickr"><a href="http://www.flickr.com">Flickr</a></li>
-          <li class="vimeo"><a href="http://vimeo.com">Vimeo</a></li>
+          <li class="vimeo"><a href="http://vimeo.com">Vimeo</a></li> 
+-->
         </ul>
       </div>
     </div>
