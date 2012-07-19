@@ -64,7 +64,7 @@ class ControllerAccountAccount extends Controller {
         if ($this->customer->isLogged()) {
             $this->load->model('account/customer');
             $customer = $this->model_account_customer->getCustomerWithGroup($this->session->data['customer_id']);
-            if ($customer && isset($customer['customer_group_id']) && $customer['customer_group_id'] >= 9 && $customer['customer_group_id'] <= 11) {
+            if ($customer && isset($customer['customer_group_id']) && $customer['customer_group_id'] >= 8 && $customer['customer_group_id'] <= 11) {
                 $this->data['batch_order'] = $this->url->link('account/border', '', 'SSL');
                 $this->data['batch_checkout'] = $this->url->link('checkout/bcheckout', '', 'SSL');
                 $this->data['text_my_batch_orders'] = 'My batch orders';
