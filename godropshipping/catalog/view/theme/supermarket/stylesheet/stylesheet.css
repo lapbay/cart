@@ -377,7 +377,7 @@ ul li{list-style:none}
 	left:7px;
 	}
 .content-header .header-right .live-chat{
-	background: url("../image/livechat_icon_03.png") no-repeat left;
+/*	background: url("../image/livechat_icon_03.png") no-repeat left;*/
 	float:left; 
 	margin-right:10px; 
 	padding:5px 0 0 32px; 
