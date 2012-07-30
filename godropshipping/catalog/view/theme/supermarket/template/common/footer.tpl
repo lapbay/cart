@@ -27,6 +27,8 @@
           <li><a href="http://www.godropshipping.com/index.php?route=information/information&information_id=8"><?php echo 'Locations We Ship To'; ?></a></li>
           <li><a href="http://www.godropshipping.com/index.php?route=information/information&information_id=5"><?php echo 'Terms & Conditions'; ?></a></li>
           <li><a href="http://www.godropshipping.com/index.php?route=information/information&information_id=10"><?php echo 'What is Dropshipping'; ?></a></li>
+          <li><a href="http://www.godropshipping.com/index.php?route=information/information&information_id=14"><?php echo 'Drop Shipping Guide'; ?></a></li>
+          <li><a href="http://www.godropshipping.com/index.php?route=information/information&information_id=15"><?php echo 'Membership Policies'; ?></a></li>
         </ul>
       </div>
       <div class="column column-3">
